@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: org.eclipselabs.ceson.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipselabs.ceson.test.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipselabs.emf.ceson;bundle-version="1.0.0",
+ org.junit;bundle-version="4.11.0",
+ org.antlr4;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

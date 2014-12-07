@@ -1,0 +1,103 @@
+
+h1. Ceson : Concise Ecore simple object notation
+
+The main need that Ceson is intended to fulfill is the ability to describe models for unit testing of MDE components. This not intended to be a tool to allow a user to actually type models in although it could be used this way.
+
+The requirements are the following
+* Ceson must be generic : it should allow to describe models that conform to any Ecore metamodel,
+* Ceson must provide an API that makes it useable in unit tests and allow the description of models.
+* Ceson must accomodate dynamic metamodel 
+
+
+The quality of such a system are the following : 
+* the notation should be as readable as possible
+* the notation should be as robust as possible to meta-model changes
+* the notation should be as concise as possible (which actually eases readability	)
+* the notation should be accessible through a simple and handy API very easy to deploy
+* the notation should be as natural as possible (an educated developper should be able to write ceson models with very few, if any, documentation reading).
+
+h2. design choices
+
+There are two main approaches to this : 
+# create a fluent builder API that allows the creation of models through successive calls to this API. 
+# describe a textual notation and parse it. 
+
+We intend to provide a mid-term approach where we provide a textual notation but where it is possible to build a model through sucecssive calls to an API. For instance
+
+bc.. 
+
+bc.. 
+
+The notation should allow to elude any information that can be infered. Thus, it shouldn't make EClass specification mandatory and should be able to infere EClass based on the feature set and on the type of elements in the features. 
+
+This implies that it should make a kind of type inference.
+
+To accomodate the naturalness constraint, we will stick to JSON as much as possible, just allowing the addition of type information on object so as to disambiguate type inference. 
+
+The API should provide a way to define disambiguation strategies to help find the correct types. 
+
+h2. Exemples of model descriptions
+
+h3. A single object
+
+bc.. 
+
+child1 = family.Children{
+		name:"child1",
+		father:mother,
+		mother:mother
+}
+child2 = family.Children{
+		name:"child2",
+		father:mother,
+		mother:mother
+}
+father = family.Father{
+		name:"Max",
+		children: [child1,child2]
+}
+mother = family.Mother{
+	  	 name:"Mireille",
+	  	 children: [child1,child2],
+	  	 husband: father
+}
+bc. 
+
+This could be simplified by the observation that 
+* the only EClass to have a 'husband' feature is Mother
+* the only EClass to have a 'wife' feature is Father
+* the only EClass to have 'mother' and 'father' features is Child. 
+
+Thus, we could infere EClasses from the feature set and simplify the notation:
+
+
+bc.. 
+
+child1 = {
+		name:"child1",
+		father:mother,
+		mother:mother
+}
+child2 = {
+		name:"child2",
+		father:mother,
+		mother:mother
+}
+father = {
+		name:"Max",
+		children: [child1,child2]
+}
+mother = {
+	  	 name:"Mireille",
+	  	 children: [child1,child2],
+	  	 husband: father
+}
+bc. 
+	
+
+
+
+
+
+
+
