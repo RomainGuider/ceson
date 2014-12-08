@@ -1,6 +1,8 @@
 package org.eclipselabs.emf.ceson.parser.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
@@ -8,12 +10,19 @@ import java.math.BigDecimal;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.BufferedTokenStream;
 import org.antlr.v4.runtime.TokenStream;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.emf.ceson.CArrayValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
+import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CReference;
+import org.eclipselabs.emf.ceson.CesonBuilder;
 import org.eclipselabs.emf.ceson.CesonIntValue;
 import org.eclipselabs.emf.ceson.CesonModelBuilder;
+import org.eclipselabs.emf.ceson.CesonObjectValue;
+import org.eclipselabs.emf.ceson.CesonPackage;
 import org.eclipselabs.emf.ceson.CesonRealValue;
+import org.eclipselabs.emf.ceson.CesonSpecification;
 import org.eclipselabs.emf.ceson.CesonStringValue;
 import org.eclipselabs.emf.ceson.parser.CesonLexer;
 import org.eclipselabs.emf.ceson.parser.CesonParser;
@@ -34,13 +43,13 @@ public class CesonParserTest {
 		return parser;
 	}
 
-	private Object parseDefinition(String input) {
+	private CesonSpecification parseDefinition(String input) {
 		CesonParser parser = createParser(input);
 		CesonModelBuilder modelBuilder = new CesonModelBuilder(
 				"testSpecification");
 		parser.addParseListener(modelBuilder);
-		parser.definition();
-		return modelBuilder.getResult();
+		parser.model();
+		return modelBuilder.getSpecification();
 	}
 
 	private Object parseValue(String input) {
@@ -147,9 +156,103 @@ public class CesonParserTest {
 
 	@Test
 	public void testcontaineFeature() {
-		Object result = parseValue("var");
-		assertTrue(result instanceof CReference);
-		assertEquals("var", ((CReference) result).getVarName());
+		Object result = parseFeature("var : 'A string'");
+		assertTrue(result instanceof CFeature);
+		assertTrue(((CFeature) result).isContainment());
+		assertEquals("var", ((CFeature) result).getName());
+		CesonStringValue expected = (CesonStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		expected.setValue("A string");
+		assertTrue(EcoreUtil.equals(expected, ((CFeature) result).getValue()));
 	}
 
+	@Test
+	public void testReferencedFeature() {
+		Object result = parseFeature("var > 'A string'");
+		assertTrue(result instanceof CFeature);
+		assertFalse(((CFeature) result).isContainment());
+		assertEquals("var", ((CFeature) result).getName());
+		CesonStringValue expected = (CesonStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		expected.setValue("A string");
+		assertTrue(EcoreUtil.equals(expected, ((CFeature) result).getValue()));
+	}
+
+	@Test
+	public void testNoClassSimpleObjectValue() {
+		Object result = parseValue("{ feature1:'A string', feature2:10}");
+		assertTrue(result instanceof CesonObjectValue);
+		CesonObjectValue object = (CesonObjectValue) result;
+		assertEquals(2, object.getFeatures().size());
+		assertEquals("feature1", object.getFeatures().get(0).getName());
+		CesonStringValue expected = (CesonStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		expected.setValue("A string");
+		assertTrue(EcoreUtil.equals(expected, object.getFeatures().get(0)
+				.getValue()));
+		assertEquals("feature2", object.getFeatures().get(1).getName());
+		assertTrue(EcoreUtil.equals(new CesonBuilder().intValue(10), object
+				.getFeatures().get(1).getValue()));
+	}
+
+	@Test
+	public void testObjectAndArrayInObject() {
+		CesonObjectValue expectedObject = (CesonObjectValue) parseValue("{ feature1:'A string', feature2:10}");
+		CArrayValue expectedArray = (CArrayValue) parseValue("[1,2,3]");
+		Object result = parseValue("{feature1:'A string',feature2:{feature1:'A string', feature2:10},feature3:[1,2,3]}");
+		assertTrue(result instanceof CesonObjectValue);
+		CesonObjectValue object = (CesonObjectValue) result;
+		assertEquals(3, object.getFeatures().size());
+		CesonStringValue expected = (CesonStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		expected.setValue("A string");
+		assertTrue(EcoreUtil.equals(expected, object.getFeatures().get(0)
+				.getValue()));
+		assertEquals("feature2", object.getFeatures().get(1).getName());
+		assertTrue(EcoreUtil.equals(expectedObject, object.getFeatures().get(1)
+				.getValue()));
+		assertEquals("feature3", object.getFeatures().get(2).getName());
+		assertTrue(EcoreUtil.equals(expectedArray, object.getFeatures().get(2)
+				.getValue()));
+	}
+
+	@Test
+	public void testSimpleObjectValue() {
+		Object result = parseValue("mypackage.MyClass { feature1:'A string', feature2:10}");
+		assertTrue(result instanceof CesonObjectValue);
+		CesonObjectValue object = (CesonObjectValue) result;
+		assertEquals("mypackage.MyClass", object.getClassName());
+		assertEquals(2, object.getFeatures().size());
+		assertEquals("feature1", object.getFeatures().get(0).getName());
+		CesonStringValue expected = (CesonStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		expected.setValue("A string");
+		assertTrue(EcoreUtil.equals(expected, object.getFeatures().get(0)
+				.getValue()));
+		assertEquals("feature2", object.getFeatures().get(1).getName());
+		assertTrue(EcoreUtil.equals(new CesonBuilder().intValue(10), object
+				.getFeatures().get(1).getValue()));
+	}
+
+	@Test
+	public void testDefinition() {
+		CesonSpecification specification = parseDefinition("var = 10");
+		assertTrue(EcoreUtil.equals(new CesonBuilder().intValue(10),
+				specification.getDefinitions().get("var")));
+	}
+
+	@Test
+	public void testSpecification() {
+		CesonSpecification specification = parseDefinition("var = 10;obj={f1>var,f2:'string'}");
+		assertTrue(EcoreUtil.equals(new CesonBuilder().intValue(10),
+				specification.getDefinitions().get("var")));
+		assertTrue(EcoreUtil.equals(
+				(EObject) parseValue("{f1>var,f2:'string'}"), specification
+						.getDefinitions().get("obj")));
+	}
+
+	@Test
+	public void testEmptyModelBuilderAccess() {
+		assertNull(new CesonModelBuilder("test").getResult());
+	}
 }

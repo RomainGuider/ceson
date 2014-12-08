@@ -2,6 +2,7 @@ package org.eclipselabs.emf.ceson;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -12,7 +13,7 @@ import org.eclipselabs.emf.ceson.parser.CesonParser.ContainmentContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.DefinitionContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.EnumLiteralContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.IntLiteralContext;
-import org.eclipselabs.emf.ceson.parser.CesonParser.ObjectLiteralContext;
+import org.eclipselabs.emf.ceson.parser.CesonParser.ObjectContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.RealLiteralContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.RefContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.ReferenceContext;
@@ -40,8 +41,7 @@ public class CesonModelBuilder extends CesonBaseListener {
 		if (!stack.isEmpty()) {
 			return stack.peek();
 		} else {
-			throw new IllegalStateException(
-					"The stack is empty and no result can be provided");
+			return null;
 		}
 	}
 
@@ -158,16 +158,31 @@ public class CesonModelBuilder extends CesonBaseListener {
 	}
 
 	@Override
-	public void exitObjectLiteral(ObjectLiteralContext ctx) {
-		String className = null;
-		int featureChildRank = 1;
-		if (ctx.getChildCount() == 4) {
-			className = ctx.getChild(0).getText();
-			featureChildRank = 2;
-		}
-		int featureNumber = ctx.getChild(featureChildRank).getChildCount();
-		for (int i = 0; i < featureNumber; i++) {
+	public void enterObject(ObjectContext ctx) {
+		CesonObjectValue result = builder.objectValue(null,
+				Collections.EMPTY_LIST);
+		stack.push(result);
+	}
 
+	@Override
+	public void exitObject(ObjectContext ctx) {
+		// pop all the features.
+		Stack<CFeature> features = new Stack<CFeature>();
+		while (!stack.isEmpty() && stack.peek() instanceof CFeature) {
+			features.push((CFeature) stack.pop());
+		}
+		if (stack.peek() instanceof CesonObjectValue) {
+			CesonObjectValue object = (CesonObjectValue) stack.peek();
+			while (!features.isEmpty()) {
+				object.getFeatures().add(features.pop());
+			}
+			if (ctx.getChildCount() == 4) {
+				object.setClassName(ctx.getChild(0).getText());
+			}
+		} else {
+			throw new IllegalStateException(
+					"An object value should be present on the stack at this point.");
 		}
 	}
+
 }

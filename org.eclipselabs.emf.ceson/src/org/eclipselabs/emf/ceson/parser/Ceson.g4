@@ -3,8 +3,8 @@
  */
 grammar Ceson;
 
-model : definition+
-;
+model : (definition)?(';' definition)+
+	  ;
 definition : ID '=' value 
 		   ;
 value : ID 			    #Ref
