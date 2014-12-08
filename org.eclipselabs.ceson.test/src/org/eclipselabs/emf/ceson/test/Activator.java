@@ -1,4 +1,4 @@
-package org.eclipselabs.ceson.test;
+package org.eclipselabs.emf.ceson.test;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

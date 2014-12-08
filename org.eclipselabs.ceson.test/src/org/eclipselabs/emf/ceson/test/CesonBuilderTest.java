@@ -1,4 +1,4 @@
-package org.eclipselabs.ceson.test;
+package org.eclipselabs.emf.ceson.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
