@@ -45,7 +45,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CJavaObjectValue/value"/>
     </genClasses>
     <genClasses ecoreClass="Ceson.ecore#//CArrayValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CArrayValue/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CArrayValue/values"/>
     </genClasses>
     <genClasses ecoreClass="Ceson.ecore#//StringToCesonValueMap">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//StringToCesonValueMap/key"/>

@@ -35,7 +35,7 @@ Package ceson <http://org.eclipse.emf.ceson/1.0>
     Attribute value : EJavaObject<<1..1>>
 
   Class CArrayValue -> CesonValue
-    Reference value : CesonValue<<0..*>>
+    Reference values : CesonValue<<0..*>>
 
   Class StringToCesonValueMap
     Attribute key : EString

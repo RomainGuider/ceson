@@ -17,5 +17,7 @@ import org.eclipselabs.emf.ceson.CesonValue;
 public interface CArrayValueValidator {
 	boolean validate();
 
+	boolean validateValues(EList<CesonValue> value);
+
 	boolean validateValue(EList<CesonValue> value);
 }

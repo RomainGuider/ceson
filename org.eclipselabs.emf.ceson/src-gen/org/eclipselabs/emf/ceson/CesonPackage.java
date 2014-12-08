@@ -454,13 +454,13 @@ public interface CesonPackage extends EPackage {
 	int CARRAY_VALUE__TYPE = CESON_VALUE__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARRAY_VALUE__VALUE = CESON_VALUE_FEATURE_COUNT + 0;
+	int CARRAY_VALUE__VALUES = CESON_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>CArray Value</em>' class.
@@ -905,15 +905,15 @@ public interface CesonPackage extends EPackage {
 	EClass getCArrayValue();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.emf.ceson.CArrayValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.emf.ceson.CArrayValue#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CArrayValue#getValue()
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see org.eclipselabs.emf.ceson.CArrayValue#getValues()
 	 * @see #getCArrayValue()
 	 * @generated
 	 */
-	EReference getCArrayValue_Value();
+	EReference getCArrayValue_Values();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Ceson Value Map</em>}'.
@@ -1257,12 +1257,12 @@ public interface CesonPackage extends EPackage {
 		EClass CARRAY_VALUE = eINSTANCE.getCArrayValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CARRAY_VALUE__VALUE = eINSTANCE.getCArrayValue_Value();
+		EReference CARRAY_VALUE__VALUES = eINSTANCE.getCArrayValue_Values();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl <em>String To Ceson Value Map</em>}' class.

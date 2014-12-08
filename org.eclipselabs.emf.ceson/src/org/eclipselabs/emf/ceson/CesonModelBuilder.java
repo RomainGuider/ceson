@@ -1,6 +1,8 @@
 package org.eclipselabs.emf.ceson;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -70,10 +72,11 @@ public class CesonModelBuilder extends CesonBaseListener {
 	@Override
 	public void exitArray(ArrayContext ctx) {
 		CArrayValue value = builder.arrayValue();
+		List<CesonValue> values = new ArrayList<CesonValue>();
 		while (!stack.isEmpty() && stack.peek() != arrayStart) {
 			Object element = stack.pop();
 			if (element instanceof CesonValue) {
-				value.getValue().add(((CesonValue) element));
+				values.add(((CesonValue) element));
 			} else {
 				throw new IllegalStateException(
 						"Value expected on the stack. Got "
@@ -82,6 +85,9 @@ public class CesonModelBuilder extends CesonBaseListener {
 		}
 		if (stack.peek() == arrayStart) {
 			stack.pop();
+			for (int i = values.size() - 1; i >= 0; i--) {
+				value.getValues().add(values.get(i));
+			}
 			stack.push(value);
 		} else {
 			throw new IllegalStateException("Unmatched array start marker.");
@@ -93,10 +99,12 @@ public class CesonModelBuilder extends CesonBaseListener {
 		// TODO Auto-generated method stub
 		super.exitEnumLiteral(ctx);
 		int slot = ctx.getChild(0).getChildCount() - 1;
-		String literalName = slot >= 0 ? ctx.getChild(0).getChild(slot--)
+		String literalName = slot >= 0 ? ctx.getChild(0).getChild(slot)
 				.getText() : null;
-		String enumTypeName = slot >= 0 ? ctx.getChild(0).getChild(slot--)
+		slot -= 2;
+		String enumTypeName = slot >= 0 ? ctx.getChild(0).getChild(slot)
 				.getText() : null;
+		slot -= 2;
 		String packageName = slot >= 0 ? ctx.getChild(0).getChild(slot)
 				.getText() : null;
 		stack.push(builder.enumValue(packageName, enumTypeName, literalName));

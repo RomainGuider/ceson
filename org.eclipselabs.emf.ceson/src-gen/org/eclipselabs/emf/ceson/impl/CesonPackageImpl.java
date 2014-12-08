@@ -387,7 +387,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCArrayValue_Value() {
+	public EReference getCArrayValue_Values() {
 		return (EReference)cArrayValueEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -564,7 +564,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		createEAttribute(cJavaObjectValueEClass, CJAVA_OBJECT_VALUE__VALUE);
 
 		cArrayValueEClass = createEClass(CARRAY_VALUE);
-		createEReference(cArrayValueEClass, CARRAY_VALUE__VALUE);
+		createEReference(cArrayValueEClass, CARRAY_VALUE__VALUES);
 
 		stringToCesonValueMapEClass = createEClass(STRING_TO_CESON_VALUE_MAP);
 		createEAttribute(stringToCesonValueMapEClass, STRING_TO_CESON_VALUE_MAP__KEY);
@@ -653,7 +653,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		initEAttribute(getCJavaObjectValue_Value(), ecorePackage.getEJavaObject(), "value", null, 1, 1, CJavaObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cArrayValueEClass, CArrayValue.class, "CArrayValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCArrayValue_Value(), this.getCesonValue(), null, "value", null, 0, -1, CArrayValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCArrayValue_Values(), this.getCesonValue(), null, "values", null, 0, -1, CArrayValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToCesonValueMapEClass, Map.Entry.class, "StringToCesonValueMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToCesonValueMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

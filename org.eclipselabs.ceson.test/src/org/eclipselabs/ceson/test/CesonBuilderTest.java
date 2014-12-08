@@ -54,7 +54,7 @@ public class CesonBuilderTest {
 		CesonBuilder builder = new CesonBuilder();
 		CArrayValue value = builder.arrayValue();
 		assertNotNull(value);
-		assertEquals(0, ((CArrayValue) value).getValue().size());
+		assertEquals(0, ((CArrayValue) value).getValues().size());
 	}
 
 	@Test

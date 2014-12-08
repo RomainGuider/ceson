@@ -22,7 +22,7 @@ object : className? '{' featureList '}';
 featureList : (feature (','feature)*)? 
 ;
 
-enumName : (ID '.')? (ID '.')? ID 
+enumName : (ID '.')? ID '.' ID 
 	;
 className : (ID '.')? ID 
 			  ;

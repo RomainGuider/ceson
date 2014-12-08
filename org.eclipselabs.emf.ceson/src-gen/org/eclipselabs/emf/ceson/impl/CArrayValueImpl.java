@@ -22,7 +22,7 @@ import org.eclipselabs.emf.ceson.CesonValue;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.impl.CArrayValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.impl.CArrayValueImpl#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,15 +30,14 @@ import org.eclipselabs.emf.ceson.CesonValue;
  */
 public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference list.
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CesonValue> value;
-
+	protected EList<CesonValue> values;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,11 +62,11 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CesonValue> getValue() {
-		if (value == null) {
-			value = new EObjectContainmentEList<CesonValue>(CesonValue.class, this, CesonPackage.CARRAY_VALUE__VALUE);
+	public EList<CesonValue> getValues() {
+		if (values == null) {
+			values = new EObjectContainmentEList<CesonValue>(CesonValue.class, this, CesonPackage.CARRAY_VALUE__VALUES);
 		}
-		return value;
+		return values;
 	}
 
 	/**
@@ -78,8 +77,8 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CesonPackage.CARRAY_VALUE__VALUE:
-				return ((InternalEList<?>)getValue()).basicRemove(otherEnd, msgs);
+			case CesonPackage.CARRAY_VALUE__VALUES:
+				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,8 +91,8 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CesonPackage.CARRAY_VALUE__VALUE:
-				return getValue();
+			case CesonPackage.CARRAY_VALUE__VALUES:
+				return getValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,9 +106,9 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CesonPackage.CARRAY_VALUE__VALUE:
-				getValue().clear();
-				getValue().addAll((Collection<? extends CesonValue>)newValue);
+			case CesonPackage.CARRAY_VALUE__VALUES:
+				getValues().clear();
+				getValues().addAll((Collection<? extends CesonValue>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +122,8 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CARRAY_VALUE__VALUE:
-				getValue().clear();
+			case CesonPackage.CARRAY_VALUE__VALUES:
+				getValues().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +137,8 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CARRAY_VALUE__VALUE:
-				return value != null && !value.isEmpty();
+			case CesonPackage.CARRAY_VALUE__VALUES:
+				return values != null && !values.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
