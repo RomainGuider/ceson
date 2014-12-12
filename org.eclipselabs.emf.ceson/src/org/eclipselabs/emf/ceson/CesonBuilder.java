@@ -11,23 +11,23 @@ public class CesonBuilder {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CesonIntValue intValue(int value) {
-		CesonIntValue result = (CesonIntValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_INT_VALUE);
+	public CIntValue intValue(int value) {
+		CIntValue result = (CIntValue) EcoreUtil
+				.create(CesonPackage.Literals.CINT_VALUE);
 		result.setValue(value);
 		return result;
 	}
 
-	public CesonRealValue realValue(BigDecimal value) {
-		CesonRealValue result = (CesonRealValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_REAL_VALUE);
+	public CRealValue realValue(BigDecimal value) {
+		CRealValue result = (CRealValue) EcoreUtil
+				.create(CesonPackage.Literals.CREAL_VALUE);
 		result.setValue(value);
 		return result;
 	}
 
-	public CesonStringValue stringValue(String value) {
-		CesonStringValue result = (CesonStringValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+	public CStringValue stringValue(String value) {
+		CStringValue result = (CStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CSTRING_VALUE);
 		result.setValue(value);
 		return result;
 	}
@@ -60,10 +60,9 @@ public class CesonBuilder {
 		return ref;
 	}
 
-	public CesonObjectValue objectValue(String className,
-			List<CFeature> features) {
-		CesonObjectValue result = (CesonObjectValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_OBJECT_VALUE);
+	public CObjectValue objectValue(String className, List<CFeature> features) {
+		CObjectValue result = (CObjectValue) EcoreUtil
+				.create(CesonPackage.Literals.COBJECT_VALUE);
 		result.setClassName(className);
 		result.getFeatures().addAll(features);
 		return result;

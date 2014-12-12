@@ -19,7 +19,7 @@ package org.eclipselabs.emf.ceson;
  * @model
  * @generated
  */
-public interface CReference extends CesonValue {
+public interface CReference extends CValue {
 	/**
 	 * Returns the value of the '<em><b>Var Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

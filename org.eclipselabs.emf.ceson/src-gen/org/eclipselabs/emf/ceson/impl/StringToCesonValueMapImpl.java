@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonValue;
+import org.eclipselabs.emf.ceson.CValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +28,7 @@ import org.eclipselabs.emf.ceson.CesonValue;
  *
  * @generated
  */
-public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container implements BasicEMap.Entry<String,CesonValue> {
+public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container implements BasicEMap.Entry<String,CValue> {
 	/**
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 * @ordered
 	 */
-	protected CesonValue value;
+	protected CValue value;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,7 +104,7 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonValue getTypedValue() {
+	public CValue getTypedValue() {
 		return value;
 	}
 
@@ -113,8 +113,8 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTypedValue(CesonValue newValue, NotificationChain msgs) {
-		CesonValue oldValue = value;
+	public NotificationChain basicSetTypedValue(CValue newValue, NotificationChain msgs) {
+		CValue oldValue = value;
 		value = newValue;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CesonPackage.STRING_TO_CESON_VALUE_MAP__VALUE, oldValue, newValue);
@@ -128,7 +128,7 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTypedValue(CesonValue newValue) {
+	public void setTypedValue(CValue newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;
 			if (value != null)
@@ -165,7 +165,7 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonValue getValue() {
+	public CValue getValue() {
 		return getTypedValue();
 	}
 
@@ -174,8 +174,8 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonValue setValue(CesonValue value) {
-		CesonValue oldValue = getValue();
+	public CValue setValue(CValue value) {
+		CValue oldValue = getValue();
 		setTypedValue(value);
 		return oldValue;
 	}
@@ -186,9 +186,9 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EMap<String, CesonValue> getEMap() {
+	public EMap<String, CValue> getEMap() {
 		EObject container = eContainer();
-		return container == null ? null : (EMap<String, CesonValue>)container.eGet(eContainmentFeature());
+		return container == null ? null : (EMap<String, CValue>)container.eGet(eContainmentFeature());
 	}
 
 	/**
@@ -233,7 +233,7 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 				setTypedKey((String)newValue);
 				return;
 			case CesonPackage.STRING_TO_CESON_VALUE_MAP__VALUE:
-				setTypedValue((CesonValue)newValue);
+				setTypedValue((CValue)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,7 +251,7 @@ public class StringToCesonValueMapImpl extends MinimalEObjectImpl.Container impl
 				setTypedKey(KEY_EDEFAULT);
 				return;
 			case CesonPackage.STRING_TO_CESON_VALUE_MAP__VALUE:
-				setTypedValue((CesonValue)null);
+				setTypedValue((CValue)null);
 				return;
 		}
 		super.eUnset(featureID);

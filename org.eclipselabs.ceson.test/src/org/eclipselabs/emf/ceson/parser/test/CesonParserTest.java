@@ -15,15 +15,15 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.emf.ceson.CArrayValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
+import org.eclipselabs.emf.ceson.CIntValue;
+import org.eclipselabs.emf.ceson.CObjectValue;
+import org.eclipselabs.emf.ceson.CRealValue;
 import org.eclipselabs.emf.ceson.CReference;
+import org.eclipselabs.emf.ceson.CSpecification;
+import org.eclipselabs.emf.ceson.CStringValue;
 import org.eclipselabs.emf.ceson.CesonBuilder;
-import org.eclipselabs.emf.ceson.CesonIntValue;
 import org.eclipselabs.emf.ceson.CesonModelBuilder;
-import org.eclipselabs.emf.ceson.CesonObjectValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonRealValue;
-import org.eclipselabs.emf.ceson.CesonSpecification;
-import org.eclipselabs.emf.ceson.CesonStringValue;
 import org.eclipselabs.emf.ceson.parser.CesonLexer;
 import org.eclipselabs.emf.ceson.parser.CesonParser;
 import org.junit.Before;
@@ -43,7 +43,7 @@ public class CesonParserTest {
 		return parser;
 	}
 
-	private CesonSpecification parseDefinition(String input) {
+	private CSpecification parseDefinition(String input) {
 		CesonParser parser = createParser(input);
 		CesonModelBuilder modelBuilder = new CesonModelBuilder(
 				"testSpecification");
@@ -76,23 +76,22 @@ public class CesonParserTest {
 	@Test
 	public void testIntValueParsing() {
 		Object result = parseValue("10");
-		assertTrue(result instanceof CesonIntValue);
-		assertEquals(10, ((CesonIntValue) result).getValue());
+		assertTrue(result instanceof CIntValue);
+		assertEquals(10, ((CIntValue) result).getValue());
 	}
 
 	@Test
 	public void testRealValueParsing() {
 		Object result = parseValue("10.10");
-		assertTrue(result instanceof CesonRealValue);
-		assertEquals(new BigDecimal("10.10"),
-				((CesonRealValue) result).getValue());
+		assertTrue(result instanceof CRealValue);
+		assertEquals(new BigDecimal("10.10"), ((CRealValue) result).getValue());
 	}
 
 	@Test
 	public void testStringValueParsing() {
 		Object result = parseValue("'a string'");
-		assertTrue(result instanceof CesonStringValue);
-		assertEquals("a string", ((CesonStringValue) result).getValue());
+		assertTrue(result instanceof CStringValue);
+		assertEquals("a string", ((CStringValue) result).getValue());
 	}
 
 	@Test
@@ -125,9 +124,10 @@ public class CesonParserTest {
 		Object result = parseValue("[1]");
 		assertTrue(result instanceof CArrayValue);
 		assertEquals(1, ((CArrayValue) result).getValues().size());
-		assertTrue(((CArrayValue) result).getValues().get(0) instanceof CesonIntValue);
-		assertEquals(1, ((CesonIntValue) ((CArrayValue) result).getValues()
-				.get(0)).getValue());
+		assertTrue(((CArrayValue) result).getValues().get(0) instanceof CIntValue);
+		assertEquals(1,
+				((CIntValue) ((CArrayValue) result).getValues().get(0))
+						.getValue());
 	}
 
 	@Test
@@ -135,15 +135,18 @@ public class CesonParserTest {
 		Object result = parseValue("[1,2,3]");
 		assertTrue(result instanceof CArrayValue);
 		assertEquals(3, ((CArrayValue) result).getValues().size());
-		assertTrue(((CArrayValue) result).getValues().get(0) instanceof CesonIntValue);
-		assertEquals(1, ((CesonIntValue) ((CArrayValue) result).getValues()
-				.get(0)).getValue());
-		assertTrue(((CArrayValue) result).getValues().get(1) instanceof CesonIntValue);
-		assertEquals(2, ((CesonIntValue) ((CArrayValue) result).getValues()
-				.get(1)).getValue());
-		assertTrue(((CArrayValue) result).getValues().get(2) instanceof CesonIntValue);
-		assertEquals(3, ((CesonIntValue) ((CArrayValue) result).getValues()
-				.get(2)).getValue());
+		assertTrue(((CArrayValue) result).getValues().get(0) instanceof CIntValue);
+		assertEquals(1,
+				((CIntValue) ((CArrayValue) result).getValues().get(0))
+						.getValue());
+		assertTrue(((CArrayValue) result).getValues().get(1) instanceof CIntValue);
+		assertEquals(2,
+				((CIntValue) ((CArrayValue) result).getValues().get(1))
+						.getValue());
+		assertTrue(((CArrayValue) result).getValues().get(2) instanceof CIntValue);
+		assertEquals(3,
+				((CIntValue) ((CArrayValue) result).getValues().get(2))
+						.getValue());
 	}
 
 	@Test
@@ -160,8 +163,8 @@ public class CesonParserTest {
 		assertTrue(result instanceof CFeature);
 		assertTrue(((CFeature) result).isContainment());
 		assertEquals("var", ((CFeature) result).getName());
-		CesonStringValue expected = (CesonStringValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		CStringValue expected = (CStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CSTRING_VALUE);
 		expected.setValue("A string");
 		assertTrue(EcoreUtil.equals(expected, ((CFeature) result).getValue()));
 	}
@@ -172,8 +175,8 @@ public class CesonParserTest {
 		assertTrue(result instanceof CFeature);
 		assertFalse(((CFeature) result).isContainment());
 		assertEquals("var", ((CFeature) result).getName());
-		CesonStringValue expected = (CesonStringValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		CStringValue expected = (CStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CSTRING_VALUE);
 		expected.setValue("A string");
 		assertTrue(EcoreUtil.equals(expected, ((CFeature) result).getValue()));
 	}
@@ -181,12 +184,12 @@ public class CesonParserTest {
 	@Test
 	public void testNoClassSimpleObjectValue() {
 		Object result = parseValue("{ feature1:'A string', feature2:10}");
-		assertTrue(result instanceof CesonObjectValue);
-		CesonObjectValue object = (CesonObjectValue) result;
+		assertTrue(result instanceof CObjectValue);
+		CObjectValue object = (CObjectValue) result;
 		assertEquals(2, object.getFeatures().size());
 		assertEquals("feature1", object.getFeatures().get(0).getName());
-		CesonStringValue expected = (CesonStringValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		CStringValue expected = (CStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CSTRING_VALUE);
 		expected.setValue("A string");
 		assertTrue(EcoreUtil.equals(expected, object.getFeatures().get(0)
 				.getValue()));
@@ -197,14 +200,14 @@ public class CesonParserTest {
 
 	@Test
 	public void testObjectAndArrayInObject() {
-		CesonObjectValue expectedObject = (CesonObjectValue) parseValue("{ feature1:'A string', feature2:10}");
+		CObjectValue expectedObject = (CObjectValue) parseValue("{ feature1:'A string', feature2:10}");
 		CArrayValue expectedArray = (CArrayValue) parseValue("[1,2,3]");
 		Object result = parseValue("{feature1:'A string',feature2:{feature1:'A string', feature2:10},feature3:[1,2,3]}");
-		assertTrue(result instanceof CesonObjectValue);
-		CesonObjectValue object = (CesonObjectValue) result;
+		assertTrue(result instanceof CObjectValue);
+		CObjectValue object = (CObjectValue) result;
 		assertEquals(3, object.getFeatures().size());
-		CesonStringValue expected = (CesonStringValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		CStringValue expected = (CStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CSTRING_VALUE);
 		expected.setValue("A string");
 		assertTrue(EcoreUtil.equals(expected, object.getFeatures().get(0)
 				.getValue()));
@@ -219,13 +222,13 @@ public class CesonParserTest {
 	@Test
 	public void testSimpleObjectValue() {
 		Object result = parseValue("mypackage.MyClass { feature1:'A string', feature2:10}");
-		assertTrue(result instanceof CesonObjectValue);
-		CesonObjectValue object = (CesonObjectValue) result;
+		assertTrue(result instanceof CObjectValue);
+		CObjectValue object = (CObjectValue) result;
 		assertEquals("mypackage.MyClass", object.getClassName());
 		assertEquals(2, object.getFeatures().size());
 		assertEquals("feature1", object.getFeatures().get(0).getName());
-		CesonStringValue expected = (CesonStringValue) EcoreUtil
-				.create(CesonPackage.Literals.CESON_STRING_VALUE);
+		CStringValue expected = (CStringValue) EcoreUtil
+				.create(CesonPackage.Literals.CSTRING_VALUE);
 		expected.setValue("A string");
 		assertTrue(EcoreUtil.equals(expected, object.getFeatures().get(0)
 				.getValue()));
@@ -236,14 +239,14 @@ public class CesonParserTest {
 
 	@Test
 	public void testDefinition() {
-		CesonSpecification specification = parseDefinition("var = 10");
+		CSpecification specification = parseDefinition("var = 10");
 		assertTrue(EcoreUtil.equals(new CesonBuilder().intValue(10),
 				specification.getDefinitions().get("var")));
 	}
 
 	@Test
 	public void testSpecification() {
-		CesonSpecification specification = parseDefinition("var = 10;obj={f1>var,f2:'string'}");
+		CSpecification specification = parseDefinition("var = 10;obj={f1>var,f2:'string'}");
 		assertTrue(EcoreUtil.equals(new CesonBuilder().intValue(10),
 				specification.getDefinitions().get("var")));
 		assertTrue(EcoreUtil.equals(

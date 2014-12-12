@@ -2,27 +2,28 @@
  */
 package org.eclipselabs.emf.ceson.impl;
 
+import java.math.BigDecimal;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipselabs.emf.ceson.CesonIntValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonType;
+import org.eclipselabs.emf.ceson.CRealValue;
+import org.eclipselabs.emf.ceson.CType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Int Value</b></em>'.
+ * An implementation of the model object '<em><b>Real Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.impl.CesonIntValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.impl.CRealValueImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
+public class CRealValueImpl extends CValueImpl implements CRealValue {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,7 +32,7 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int VALUE_EDEFAULT = 0;
+	protected static final BigDecimal VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -41,14 +42,14 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected int value = VALUE_EDEFAULT;
+	protected BigDecimal value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CesonIntValueImpl() {
+	protected CRealValueImpl() {
 		super();
 	}
 
@@ -59,7 +60,7 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CesonPackage.Literals.CESON_INT_VALUE;
+		return CesonPackage.Literals.CREAL_VALUE;
 	}
 
 	/**
@@ -67,7 +68,7 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getValue() {
+	public BigDecimal getValue() {
 		return value;
 	}
 
@@ -76,11 +77,11 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(int newValue) {
-		int oldValue = value;
+	public void setValue(BigDecimal newValue) {
+		BigDecimal oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CesonPackage.CESON_INT_VALUE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, CesonPackage.CREAL_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -91,7 +92,7 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CesonPackage.CESON_INT_VALUE__VALUE:
+			case CesonPackage.CREAL_VALUE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -105,8 +106,8 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CesonPackage.CESON_INT_VALUE__VALUE:
-				setValue((Integer)newValue);
+			case CesonPackage.CREAL_VALUE__VALUE:
+				setValue((BigDecimal)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -120,7 +121,7 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CESON_INT_VALUE__VALUE:
+			case CesonPackage.CREAL_VALUE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -135,8 +136,8 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CESON_INT_VALUE__VALUE:
-				return value != VALUE_EDEFAULT;
+			case CesonPackage.CREAL_VALUE__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -157,8 +158,8 @@ public class CesonIntValueImpl extends CesonValueImpl implements CesonIntValue {
 		return result.toString();
 	}
 	@Override
-	public CesonType getType() {
-		return CesonType.INT;
+	public CType getType() {
+		return CType.REAL;
 	}
 
-} //CesonIntValueImpl
+} //CesonRealValueImpl

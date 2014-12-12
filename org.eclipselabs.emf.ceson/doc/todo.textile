@@ -8,6 +8,8 @@ h1. Todo List for Ceson Parser
 | TODO04   | write the Ceson2EMF transformer ||
 | TODO05   | define and write the Ceson user API ||
 | TODO06   | extend the language to include navigation capabilities ||
+| TODO07   | clean up source code for publication (branding, copyright, licence, etc.) ||
+
 
  
  

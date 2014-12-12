@@ -70,28 +70,28 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 				return createCFeatureAdapter();
 			}
 			@Override
-			public Adapter caseCesonValue(CesonValue object) {
-				return createCesonValueAdapter();
+			public Adapter caseCValue(CValue object) {
+				return createCValueAdapter();
 			}
 			@Override
 			public Adapter caseCAnyValue(CAnyValue object) {
 				return createCAnyValueAdapter();
 			}
 			@Override
-			public Adapter caseCesonIntValue(CesonIntValue object) {
-				return createCesonIntValueAdapter();
+			public Adapter caseCIntValue(CIntValue object) {
+				return createCIntValueAdapter();
 			}
 			@Override
-			public Adapter caseCesonRealValue(CesonRealValue object) {
-				return createCesonRealValueAdapter();
+			public Adapter caseCRealValue(CRealValue object) {
+				return createCRealValueAdapter();
 			}
 			@Override
-			public Adapter caseCesonStringValue(CesonStringValue object) {
-				return createCesonStringValueAdapter();
+			public Adapter caseCStringValue(CStringValue object) {
+				return createCStringValueAdapter();
 			}
 			@Override
-			public Adapter caseCesonObjectValue(CesonObjectValue object) {
-				return createCesonObjectValueAdapter();
+			public Adapter caseCObjectValue(CObjectValue object) {
+				return createCObjectValueAdapter();
 			}
 			@Override
 			public Adapter caseCJavaObjectValue(CJavaObjectValue object) {
@@ -102,12 +102,12 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 				return createCArrayValueAdapter();
 			}
 			@Override
-			public Adapter caseStringToCesonValueMap(Map.Entry<String, CesonValue> object) {
+			public Adapter caseStringToCesonValueMap(Map.Entry<String, CValue> object) {
 				return createStringToCesonValueMapAdapter();
 			}
 			@Override
-			public Adapter caseCesonSpecification(CesonSpecification object) {
-				return createCesonSpecificationAdapter();
+			public Adapter caseCSpecification(CSpecification object) {
+				return createCSpecificationAdapter();
 			}
 			@Override
 			public Adapter caseCEnumValue(CEnumValue object) {
@@ -152,16 +152,16 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CesonValue <em>Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CValue <em>CValue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.emf.ceson.CesonValue
+	 * @see org.eclipselabs.emf.ceson.CValue
 	 * @generated
 	 */
-	public Adapter createCesonValueAdapter() {
+	public Adapter createCValueAdapter() {
 		return null;
 	}
 
@@ -180,58 +180,58 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CesonIntValue <em>Int Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CIntValue <em>CInt Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.emf.ceson.CesonIntValue
+	 * @see org.eclipselabs.emf.ceson.CIntValue
 	 * @generated
 	 */
-	public Adapter createCesonIntValueAdapter() {
+	public Adapter createCIntValueAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CesonRealValue <em>Real Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CRealValue <em>CReal Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.emf.ceson.CesonRealValue
+	 * @see org.eclipselabs.emf.ceson.CRealValue
 	 * @generated
 	 */
-	public Adapter createCesonRealValueAdapter() {
+	public Adapter createCRealValueAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CesonStringValue <em>String Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CStringValue <em>CString Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.emf.ceson.CesonStringValue
+	 * @see org.eclipselabs.emf.ceson.CStringValue
 	 * @generated
 	 */
-	public Adapter createCesonStringValueAdapter() {
+	public Adapter createCStringValueAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CesonObjectValue <em>Object Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CObjectValue <em>CObject Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.emf.ceson.CesonObjectValue
+	 * @see org.eclipselabs.emf.ceson.CObjectValue
 	 * @generated
 	 */
-	public Adapter createCesonObjectValueAdapter() {
+	public Adapter createCObjectValueAdapter() {
 		return null;
 	}
 
@@ -278,16 +278,16 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CesonSpecification <em>Specification</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CSpecification <em>CSpecification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.emf.ceson.CesonSpecification
+	 * @see org.eclipselabs.emf.ceson.CSpecification
 	 * @generated
 	 */
-	public Adapter createCesonSpecificationAdapter() {
+	public Adapter createCSpecificationAdapter() {
 		return null;
 	}
 

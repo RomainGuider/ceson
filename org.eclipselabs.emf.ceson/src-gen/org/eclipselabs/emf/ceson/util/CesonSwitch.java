@@ -71,84 +71,84 @@ public class CesonSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CesonPackage.CESON_VALUE: {
-				CesonValue cesonValue = (CesonValue)theEObject;
-				T result = caseCesonValue(cesonValue);
+			case CesonPackage.CVALUE: {
+				CValue cValue = (CValue)theEObject;
+				T result = caseCValue(cValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CesonPackage.CANY_VALUE: {
 				CAnyValue cAnyValue = (CAnyValue)theEObject;
 				T result = caseCAnyValue(cAnyValue);
-				if (result == null) result = caseCesonValue(cAnyValue);
+				if (result == null) result = caseCValue(cAnyValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CesonPackage.CESON_INT_VALUE: {
-				CesonIntValue cesonIntValue = (CesonIntValue)theEObject;
-				T result = caseCesonIntValue(cesonIntValue);
-				if (result == null) result = caseCesonValue(cesonIntValue);
+			case CesonPackage.CINT_VALUE: {
+				CIntValue cIntValue = (CIntValue)theEObject;
+				T result = caseCIntValue(cIntValue);
+				if (result == null) result = caseCValue(cIntValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CesonPackage.CESON_REAL_VALUE: {
-				CesonRealValue cesonRealValue = (CesonRealValue)theEObject;
-				T result = caseCesonRealValue(cesonRealValue);
-				if (result == null) result = caseCesonValue(cesonRealValue);
+			case CesonPackage.CREAL_VALUE: {
+				CRealValue cRealValue = (CRealValue)theEObject;
+				T result = caseCRealValue(cRealValue);
+				if (result == null) result = caseCValue(cRealValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CesonPackage.CESON_STRING_VALUE: {
-				CesonStringValue cesonStringValue = (CesonStringValue)theEObject;
-				T result = caseCesonStringValue(cesonStringValue);
-				if (result == null) result = caseCesonValue(cesonStringValue);
+			case CesonPackage.CSTRING_VALUE: {
+				CStringValue cStringValue = (CStringValue)theEObject;
+				T result = caseCStringValue(cStringValue);
+				if (result == null) result = caseCValue(cStringValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CesonPackage.CESON_OBJECT_VALUE: {
-				CesonObjectValue cesonObjectValue = (CesonObjectValue)theEObject;
-				T result = caseCesonObjectValue(cesonObjectValue);
-				if (result == null) result = caseCesonValue(cesonObjectValue);
+			case CesonPackage.COBJECT_VALUE: {
+				CObjectValue cObjectValue = (CObjectValue)theEObject;
+				T result = caseCObjectValue(cObjectValue);
+				if (result == null) result = caseCValue(cObjectValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CesonPackage.CJAVA_OBJECT_VALUE: {
 				CJavaObjectValue cJavaObjectValue = (CJavaObjectValue)theEObject;
 				T result = caseCJavaObjectValue(cJavaObjectValue);
-				if (result == null) result = caseCesonValue(cJavaObjectValue);
+				if (result == null) result = caseCValue(cJavaObjectValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CesonPackage.CARRAY_VALUE: {
 				CArrayValue cArrayValue = (CArrayValue)theEObject;
 				T result = caseCArrayValue(cArrayValue);
-				if (result == null) result = caseCesonValue(cArrayValue);
+				if (result == null) result = caseCValue(cArrayValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CesonPackage.STRING_TO_CESON_VALUE_MAP: {
-				@SuppressWarnings("unchecked") Map.Entry<String, CesonValue> stringToCesonValueMap = (Map.Entry<String, CesonValue>)theEObject;
+				@SuppressWarnings("unchecked") Map.Entry<String, CValue> stringToCesonValueMap = (Map.Entry<String, CValue>)theEObject;
 				T result = caseStringToCesonValueMap(stringToCesonValueMap);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CesonPackage.CESON_SPECIFICATION: {
-				CesonSpecification cesonSpecification = (CesonSpecification)theEObject;
-				T result = caseCesonSpecification(cesonSpecification);
+			case CesonPackage.CSPECIFICATION: {
+				CSpecification cSpecification = (CSpecification)theEObject;
+				T result = caseCSpecification(cSpecification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CesonPackage.CENUM_VALUE: {
 				CEnumValue cEnumValue = (CEnumValue)theEObject;
 				T result = caseCEnumValue(cEnumValue);
-				if (result == null) result = caseCesonValue(cEnumValue);
+				if (result == null) result = caseCValue(cEnumValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CesonPackage.CREFERENCE: {
 				CReference cReference = (CReference)theEObject;
 				T result = caseCReference(cReference);
-				if (result == null) result = caseCesonValue(cReference);
+				if (result == null) result = caseCValue(cReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -172,17 +172,17 @@ public class CesonSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>CValue</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>CValue</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCesonValue(CesonValue object) {
+	public T caseCValue(CValue object) {
 		return null;
 	}
 
@@ -202,62 +202,62 @@ public class CesonSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Int Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>CInt Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Int Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>CInt Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCesonIntValue(CesonIntValue object) {
+	public T caseCIntValue(CIntValue object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Real Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>CReal Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Real Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>CReal Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCesonRealValue(CesonRealValue object) {
+	public T caseCRealValue(CRealValue object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>CString Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>CString Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCesonStringValue(CesonStringValue object) {
+	public T caseCStringValue(CStringValue object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Object Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>CObject Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Object Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>CObject Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCesonObjectValue(CesonObjectValue object) {
+	public T caseCObjectValue(CObjectValue object) {
 		return null;
 	}
 
@@ -302,22 +302,22 @@ public class CesonSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStringToCesonValueMap(Map.Entry<String, CesonValue> object) {
+	public T caseStringToCesonValueMap(Map.Entry<String, CValue> object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Specification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>CSpecification</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Specification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>CSpecification</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCesonSpecification(CesonSpecification object) {
+	public T caseCSpecification(CSpecification object) {
 		return null;
 	}
 

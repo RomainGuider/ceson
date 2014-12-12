@@ -26,7 +26,7 @@ import org.eclipselabs.emf.ceson.CesonPackage;
  *
  * @generated
  */
-public class CEnumValueImpl extends CesonValueImpl implements CEnumValue {
+public class CEnumValueImpl extends CValueImpl implements CEnumValue {
 	/**
 	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -8,38 +8,38 @@
   <foreignModel>Ceson.ecore</foreignModel>
   <genPackages prefix="Ceson" basePackage="org.eclipselabs.emf" disposableProviderFactory="true"
       ecorePackage="Ceson.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ceson.ecore#//CesonType">
-      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CesonType/ANY"/>
-      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CesonType/INT"/>
-      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CesonType/REAL"/>
-      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CesonType/STRING"/>
-      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CesonType/JOBJECT"/>
-      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CesonType/COBJECT"/>
-      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CesonType/CARRAY"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Ceson.ecore#//CType">
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/ANY"/>
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/REAL"/>
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/JOBJECT"/>
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/COBJECT"/>
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/CARRAY"/>
     </genEnums>
     <genClasses image="false" ecoreClass="Ceson.ecore#//CFeature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CFeature/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CFeature/containment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CFeature/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ceson.ecore#//CesonValue">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CesonValue/type"/>
+    <genClasses image="false" ecoreClass="Ceson.ecore#//CValue">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CValue/type"/>
     </genClasses>
     <genClasses ecoreClass="Ceson.ecore#//CAnyValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CAnyValue/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ceson.ecore#//CesonIntValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CesonIntValue/value"/>
+    <genClasses ecoreClass="Ceson.ecore#//CIntValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CIntValue/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ceson.ecore#//CesonRealValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CesonRealValue/value"/>
+    <genClasses ecoreClass="Ceson.ecore#//CRealValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CRealValue/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ceson.ecore#//CesonStringValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CesonStringValue/value"/>
+    <genClasses ecoreClass="Ceson.ecore#//CStringValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CStringValue/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ceson.ecore#//CesonObjectValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CesonObjectValue/className"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CesonObjectValue/features"/>
+    <genClasses ecoreClass="Ceson.ecore#//CObjectValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CObjectValue/className"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CObjectValue/features"/>
     </genClasses>
     <genClasses ecoreClass="Ceson.ecore#//CJavaObjectValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CJavaObjectValue/value"/>
@@ -51,9 +51,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//StringToCesonValueMap/key"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//StringToCesonValueMap/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ceson.ecore#//CesonSpecification">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CesonSpecification/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CesonSpecification/definitions"/>
+    <genClasses ecoreClass="Ceson.ecore#//CSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CSpecification/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CSpecification/definitions"/>
     </genClasses>
     <genClasses ecoreClass="Ceson.ecore#//CEnumValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CEnumValue/packageName"/>

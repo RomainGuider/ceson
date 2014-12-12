@@ -3,12 +3,10 @@
 package org.eclipselabs.emf.ceson.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipselabs.emf.ceson.CType;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonType;
-import org.eclipselabs.emf.ceson.CesonValue;
+import org.eclipselabs.emf.ceson.CValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,13 +15,13 @@ import org.eclipselabs.emf.ceson.CesonValue;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.impl.CesonValueImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.impl.CValueImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class CesonValueImpl extends MinimalEObjectImpl.Container implements CesonValue {
+public abstract class CValueImpl extends MinimalEObjectImpl.Container implements CValue {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,14 +30,14 @@ public abstract class CesonValueImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CesonType TYPE_EDEFAULT = CesonType.ANY;
+	protected static final CType TYPE_EDEFAULT = CType.ANY;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CesonValueImpl() {
+	protected CValueImpl() {
 		super();
 	}
 
@@ -50,7 +48,7 @@ public abstract class CesonValueImpl extends MinimalEObjectImpl.Container implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CesonPackage.Literals.CESON_VALUE;
+		return CesonPackage.Literals.CVALUE;
 	}
 
 	/**
@@ -58,7 +56,7 @@ public abstract class CesonValueImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonType getType() {
+	public CType getType() {
 		// TODO: implement this method to return the 'Type' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -83,7 +81,7 @@ public abstract class CesonValueImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CesonPackage.CESON_VALUE__TYPE:
+			case CesonPackage.CVALUE__TYPE:
 				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -97,7 +95,7 @@ public abstract class CesonValueImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CESON_VALUE__TYPE:
+			case CesonPackage.CVALUE__TYPE:
 				return isSetType();
 		}
 		return super.eIsSet(featureID);

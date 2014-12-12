@@ -10,50 +10,50 @@ Package ceson <http://org.eclipse.emf.ceson/1.0>
   Class CFeature
     Attribute name : EString
     Attribute containment : EBoolean
-    Reference value : CesonValue
+    Reference value : CValue
 
-  Class CesonValue
-    Attribute /type : CesonType
+  Class CValue
+    Attribute /type : CType
 
-  Class CAnyValue -> CesonValue
+  Class CAnyValue -> CValue
     Attribute value : EJavaObject<<1..1>>
 
-  Class CesonIntValue -> CesonValue
+  Class CIntValue -> CValue
     Attribute value : EInt<<1..1>>
 
-  Class CesonRealValue -> CesonValue
+  Class CRealValue -> CValue
     Attribute value : EBigDecimal<<1..1>>
 
-  Class CesonStringValue -> CesonValue
+  Class CStringValue -> CValue
     Attribute value : EString<<1..1>>
 
-  Class CesonObjectValue -> CesonValue
+  Class CObjectValue -> CValue
     Attribute className : EString
     Reference features : CFeature<<0..*>>
 
-  Class CJavaObjectValue -> CesonValue
+  Class CJavaObjectValue -> CValue
     Attribute value : EJavaObject<<1..1>>
 
-  Class CArrayValue -> CesonValue
-    Reference values : CesonValue<<0..*>>
+  Class CArrayValue -> CValue
+    Reference values : CValue<<0..*>>
 
   Class StringToCesonValueMap
     Attribute key : EString
-    Reference value : CesonValue
+    Reference value : CValue
 
-  Class CesonSpecification
+  Class CSpecification
     Attribute name : EString
     Reference definitions : StringToCesonValueMap<<0..*>>
 
-  Class CEnumValue -> CesonValue
+  Class CEnumValue -> CValue
     Attribute packageName : EString
     Attribute enumTypeName : EString
     Attribute literalName : EString<<1..1>>
 
-  Class CReference -> CesonValue
+  Class CReference -> CValue
     Attribute varName : EString
 
-  Enum CesonType
+  Enum CType
     Literal ANY = 0
     Literal INT = 1
     Literal REAL = 2

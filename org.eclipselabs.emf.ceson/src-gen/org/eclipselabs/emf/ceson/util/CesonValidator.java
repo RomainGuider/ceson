@@ -89,32 +89,32 @@ public class CesonValidator extends EObjectValidator {
 		switch (classifierID) {
 			case CesonPackage.CFEATURE:
 				return validateCFeature((CFeature)value, diagnostics, context);
-			case CesonPackage.CESON_VALUE:
-				return validateCesonValue((CesonValue)value, diagnostics, context);
+			case CesonPackage.CVALUE:
+				return validateCValue((CValue)value, diagnostics, context);
 			case CesonPackage.CANY_VALUE:
 				return validateCAnyValue((CAnyValue)value, diagnostics, context);
-			case CesonPackage.CESON_INT_VALUE:
-				return validateCesonIntValue((CesonIntValue)value, diagnostics, context);
-			case CesonPackage.CESON_REAL_VALUE:
-				return validateCesonRealValue((CesonRealValue)value, diagnostics, context);
-			case CesonPackage.CESON_STRING_VALUE:
-				return validateCesonStringValue((CesonStringValue)value, diagnostics, context);
-			case CesonPackage.CESON_OBJECT_VALUE:
-				return validateCesonObjectValue((CesonObjectValue)value, diagnostics, context);
+			case CesonPackage.CINT_VALUE:
+				return validateCIntValue((CIntValue)value, diagnostics, context);
+			case CesonPackage.CREAL_VALUE:
+				return validateCRealValue((CRealValue)value, diagnostics, context);
+			case CesonPackage.CSTRING_VALUE:
+				return validateCStringValue((CStringValue)value, diagnostics, context);
+			case CesonPackage.COBJECT_VALUE:
+				return validateCObjectValue((CObjectValue)value, diagnostics, context);
 			case CesonPackage.CJAVA_OBJECT_VALUE:
 				return validateCJavaObjectValue((CJavaObjectValue)value, diagnostics, context);
 			case CesonPackage.CARRAY_VALUE:
 				return validateCArrayValue((CArrayValue)value, diagnostics, context);
 			case CesonPackage.STRING_TO_CESON_VALUE_MAP:
 				return validateStringToCesonValueMap((Map.Entry<?, ?>)value, diagnostics, context);
-			case CesonPackage.CESON_SPECIFICATION:
-				return validateCesonSpecification((CesonSpecification)value, diagnostics, context);
+			case CesonPackage.CSPECIFICATION:
+				return validateCSpecification((CSpecification)value, diagnostics, context);
 			case CesonPackage.CENUM_VALUE:
 				return validateCEnumValue((CEnumValue)value, diagnostics, context);
 			case CesonPackage.CREFERENCE:
 				return validateCReference((CReference)value, diagnostics, context);
-			case CesonPackage.CESON_TYPE:
-				return validateCesonType((CesonType)value, diagnostics, context);
+			case CesonPackage.CTYPE:
+				return validateCType((CType)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -134,8 +134,8 @@ public class CesonValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonValue(CesonValue cesonValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(cesonValue, diagnostics, context);
+	public boolean validateCValue(CValue cValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(cValue, diagnostics, context);
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class CesonValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonIntValue(CesonIntValue cesonIntValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(cesonIntValue, diagnostics, context);
+	public boolean validateCIntValue(CIntValue cIntValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(cIntValue, diagnostics, context);
 	}
 
 	/**
@@ -161,8 +161,8 @@ public class CesonValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonRealValue(CesonRealValue cesonRealValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(cesonRealValue, diagnostics, context);
+	public boolean validateCRealValue(CRealValue cRealValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(cRealValue, diagnostics, context);
 	}
 
 	/**
@@ -170,8 +170,8 @@ public class CesonValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonStringValue(CesonStringValue cesonStringValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(cesonStringValue, diagnostics, context);
+	public boolean validateCStringValue(CStringValue cStringValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(cStringValue, diagnostics, context);
 	}
 
 	/**
@@ -179,27 +179,27 @@ public class CesonValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonObjectValue(CesonObjectValue cesonObjectValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(cesonObjectValue, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(cesonObjectValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validateCesonObjectValue_TypeIsQualifiedName(cesonObjectValue, diagnostics, context);
+	public boolean validateCObjectValue(CObjectValue cObjectValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(cObjectValue, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(cObjectValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateCObjectValue_TypeIsQualifiedName(cObjectValue, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the TypeIsQualifiedName constraint of '<em>Object Value</em>'.
+	 * Validates the TypeIsQualifiedName constraint of '<em>CObject Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonObjectValue_TypeIsQualifiedName(CesonObjectValue cesonObjectValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateCObjectValue_TypeIsQualifiedName(CObjectValue cObjectValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
@@ -212,8 +212,8 @@ public class CesonValidator extends EObjectValidator {
 						 DIAGNOSTIC_SOURCE,
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "TypeIsQualifiedName", getObjectLabel(cesonObjectValue, context) },
-						 new Object[] { cesonObjectValue },
+						 new Object[] { "TypeIsQualifiedName", getObjectLabel(cObjectValue, context) },
+						 new Object[] { cObjectValue },
 						 context));
 			}
 			return false;
@@ -253,8 +253,8 @@ public class CesonValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonSpecification(CesonSpecification cesonSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(cesonSpecification, diagnostics, context);
+	public boolean validateCSpecification(CSpecification cSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(cSpecification, diagnostics, context);
 	}
 
 	/**
@@ -280,7 +280,7 @@ public class CesonValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCesonType(CesonType cesonType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateCType(CType cType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

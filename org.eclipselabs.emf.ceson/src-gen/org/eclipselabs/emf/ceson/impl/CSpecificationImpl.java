@@ -2,72 +2,71 @@
  */
 package org.eclipselabs.emf.ceson.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipselabs.emf.ceson.CFeature;
-import org.eclipselabs.emf.ceson.CesonObjectValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonType;
+import org.eclipselabs.emf.ceson.CSpecification;
+import org.eclipselabs.emf.ceson.CValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Object Value</b></em>'.
+ * An implementation of the model object '<em><b>Specification</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.impl.CesonObjectValueImpl#getClassName <em>Class Name</em>}</li>
- *   <li>{@link org.eclipselabs.emf.ceson.impl.CesonObjectValueImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.impl.CSpecificationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.impl.CSpecificationImpl#getDefinitions <em>Definitions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectValue {
+public class CSpecificationImpl extends MinimalEObjectImpl.Container implements CSpecification {
 	/**
-	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClassName()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CLASS_NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClassName()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String className = CLASS_NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+	 * The cached value of the '{@link #getDefinitions() <em>Definitions</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatures()
+	 * @see #getDefinitions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CFeature> features;
+	protected EMap<String, CValue> definitions;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CesonObjectValueImpl() {
+	protected CSpecificationImpl() {
 		super();
 	}
 
@@ -78,7 +77,7 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CesonPackage.Literals.CESON_OBJECT_VALUE;
+		return CesonPackage.Literals.CSPECIFICATION;
 	}
 
 	/**
@@ -86,8 +85,8 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClassName() {
-		return className;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -95,11 +94,11 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClassName(String newClassName) {
-		String oldClassName = className;
-		className = newClassName;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CesonPackage.CESON_OBJECT_VALUE__CLASS_NAME, oldClassName, className));
+			eNotify(new ENotificationImpl(this, Notification.SET, CesonPackage.CSPECIFICATION__NAME, oldName, name));
 	}
 
 	/**
@@ -107,11 +106,11 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CFeature> getFeatures() {
-		if (features == null) {
-			features = new EObjectContainmentEList<CFeature>(CFeature.class, this, CesonPackage.CESON_OBJECT_VALUE__FEATURES);
+	public EMap<String, CValue> getDefinitions() {
+		if (definitions == null) {
+			definitions = new EcoreEMap<String,CValue>(CesonPackage.Literals.STRING_TO_CESON_VALUE_MAP, StringToCesonValueMapImpl.class, this, CesonPackage.CSPECIFICATION__DEFINITIONS);
 		}
-		return features;
+		return definitions;
 	}
 
 	/**
@@ -122,8 +121,8 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CesonPackage.CESON_OBJECT_VALUE__FEATURES:
-				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
+			case CesonPackage.CSPECIFICATION__DEFINITIONS:
+				return ((InternalEList<?>)getDefinitions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,10 +135,11 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CesonPackage.CESON_OBJECT_VALUE__CLASS_NAME:
-				return getClassName();
-			case CesonPackage.CESON_OBJECT_VALUE__FEATURES:
-				return getFeatures();
+			case CesonPackage.CSPECIFICATION__NAME:
+				return getName();
+			case CesonPackage.CSPECIFICATION__DEFINITIONS:
+				if (coreType) return getDefinitions();
+				else return getDefinitions().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,12 +153,11 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CesonPackage.CESON_OBJECT_VALUE__CLASS_NAME:
-				setClassName((String)newValue);
+			case CesonPackage.CSPECIFICATION__NAME:
+				setName((String)newValue);
 				return;
-			case CesonPackage.CESON_OBJECT_VALUE__FEATURES:
-				getFeatures().clear();
-				getFeatures().addAll((Collection<? extends CFeature>)newValue);
+			case CesonPackage.CSPECIFICATION__DEFINITIONS:
+				((EStructuralFeature.Setting)getDefinitions()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -172,11 +171,11 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CESON_OBJECT_VALUE__CLASS_NAME:
-				setClassName(CLASS_NAME_EDEFAULT);
+			case CesonPackage.CSPECIFICATION__NAME:
+				setName(NAME_EDEFAULT);
 				return;
-			case CesonPackage.CESON_OBJECT_VALUE__FEATURES:
-				getFeatures().clear();
+			case CesonPackage.CSPECIFICATION__DEFINITIONS:
+				getDefinitions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,10 +189,10 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CESON_OBJECT_VALUE__CLASS_NAME:
-				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
-			case CesonPackage.CESON_OBJECT_VALUE__FEATURES:
-				return features != null && !features.isEmpty();
+			case CesonPackage.CSPECIFICATION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CesonPackage.CSPECIFICATION__DEFINITIONS:
+				return definitions != null && !definitions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -208,14 +207,10 @@ public class CesonObjectValueImpl extends CesonValueImpl implements CesonObjectV
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (className: ");
-		result.append(className);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
-	@Override
-	public CesonType getType() {
-		return CesonType.COBJECT;
-	}
 
-} //CesonObjectValueImpl
+} //CesonSpecificationImpl

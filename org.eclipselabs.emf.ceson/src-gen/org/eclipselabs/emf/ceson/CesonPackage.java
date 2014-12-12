@@ -113,14 +113,14 @@ public interface CesonPackage extends EPackage {
 	int CFEATURE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CesonValueImpl <em>Value</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CValueImpl <em>CValue</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.impl.CesonValueImpl
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonValue()
+	 * @see org.eclipselabs.emf.ceson.impl.CValueImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCValue()
 	 * @generated
 	 */
-	int CESON_VALUE = 1;
+	int CVALUE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -129,25 +129,25 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_VALUE__TYPE = 0;
+	int CVALUE__TYPE = 0;
 
 	/**
-	 * The number of structural features of the '<em>Value</em>' class.
+	 * The number of structural features of the '<em>CValue</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_VALUE_FEATURE_COUNT = 1;
+	int CVALUE_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Value</em>' class.
+	 * The number of operations of the '<em>CValue</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_VALUE_OPERATION_COUNT = 0;
+	int CVALUE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CAnyValueImpl <em>CAny Value</em>}' class.
@@ -166,7 +166,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CANY_VALUE__TYPE = CESON_VALUE__TYPE;
+	int CANY_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -175,7 +175,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CANY_VALUE__VALUE = CESON_VALUE_FEATURE_COUNT + 0;
+	int CANY_VALUE__VALUE = CVALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>CAny Value</em>' class.
@@ -184,7 +184,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CANY_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 1;
+	int CANY_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>CAny Value</em>' class.
@@ -193,17 +193,17 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CANY_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CANY_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CesonIntValueImpl <em>Int Value</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CIntValueImpl <em>CInt Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.impl.CesonIntValueImpl
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonIntValue()
+	 * @see org.eclipselabs.emf.ceson.impl.CIntValueImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCIntValue()
 	 * @generated
 	 */
-	int CESON_INT_VALUE = 3;
+	int CINT_VALUE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -212,7 +212,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_INT_VALUE__TYPE = CESON_VALUE__TYPE;
+	int CINT_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -221,35 +221,35 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_INT_VALUE__VALUE = CESON_VALUE_FEATURE_COUNT + 0;
+	int CINT_VALUE__VALUE = CVALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Int Value</em>' class.
+	 * The number of structural features of the '<em>CInt Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_INT_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 1;
+	int CINT_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Int Value</em>' class.
+	 * The number of operations of the '<em>CInt Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_INT_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CINT_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CesonRealValueImpl <em>Real Value</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CRealValueImpl <em>CReal Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.impl.CesonRealValueImpl
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonRealValue()
+	 * @see org.eclipselabs.emf.ceson.impl.CRealValueImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCRealValue()
 	 * @generated
 	 */
-	int CESON_REAL_VALUE = 4;
+	int CREAL_VALUE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -258,7 +258,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_REAL_VALUE__TYPE = CESON_VALUE__TYPE;
+	int CREAL_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -267,35 +267,35 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_REAL_VALUE__VALUE = CESON_VALUE_FEATURE_COUNT + 0;
+	int CREAL_VALUE__VALUE = CVALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Real Value</em>' class.
+	 * The number of structural features of the '<em>CReal Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_REAL_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 1;
+	int CREAL_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Real Value</em>' class.
+	 * The number of operations of the '<em>CReal Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_REAL_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CREAL_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CesonStringValueImpl <em>String Value</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CStringValueImpl <em>CString Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.impl.CesonStringValueImpl
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonStringValue()
+	 * @see org.eclipselabs.emf.ceson.impl.CStringValueImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCStringValue()
 	 * @generated
 	 */
-	int CESON_STRING_VALUE = 5;
+	int CSTRING_VALUE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -304,7 +304,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_STRING_VALUE__TYPE = CESON_VALUE__TYPE;
+	int CSTRING_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -313,35 +313,35 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_STRING_VALUE__VALUE = CESON_VALUE_FEATURE_COUNT + 0;
+	int CSTRING_VALUE__VALUE = CVALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>String Value</em>' class.
+	 * The number of structural features of the '<em>CString Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_STRING_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 1;
+	int CSTRING_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>String Value</em>' class.
+	 * The number of operations of the '<em>CString Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_STRING_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CSTRING_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CesonObjectValueImpl <em>Object Value</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CObjectValueImpl <em>CObject Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.impl.CesonObjectValueImpl
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonObjectValue()
+	 * @see org.eclipselabs.emf.ceson.impl.CObjectValueImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCObjectValue()
 	 * @generated
 	 */
-	int CESON_OBJECT_VALUE = 6;
+	int COBJECT_VALUE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -350,7 +350,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_OBJECT_VALUE__TYPE = CESON_VALUE__TYPE;
+	int COBJECT_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -359,7 +359,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_OBJECT_VALUE__CLASS_NAME = CESON_VALUE_FEATURE_COUNT + 0;
+	int COBJECT_VALUE__CLASS_NAME = CVALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -368,25 +368,25 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_OBJECT_VALUE__FEATURES = CESON_VALUE_FEATURE_COUNT + 1;
+	int COBJECT_VALUE__FEATURES = CVALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Object Value</em>' class.
+	 * The number of structural features of the '<em>CObject Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_OBJECT_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 2;
+	int COBJECT_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Object Value</em>' class.
+	 * The number of operations of the '<em>CObject Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_OBJECT_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int COBJECT_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CJavaObjectValueImpl <em>CJava Object Value</em>}' class.
@@ -405,7 +405,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CJAVA_OBJECT_VALUE__TYPE = CESON_VALUE__TYPE;
+	int CJAVA_OBJECT_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -414,7 +414,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CJAVA_OBJECT_VALUE__VALUE = CESON_VALUE_FEATURE_COUNT + 0;
+	int CJAVA_OBJECT_VALUE__VALUE = CVALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>CJava Object Value</em>' class.
@@ -423,7 +423,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CJAVA_OBJECT_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 1;
+	int CJAVA_OBJECT_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>CJava Object Value</em>' class.
@@ -432,7 +432,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CJAVA_OBJECT_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CJAVA_OBJECT_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CArrayValueImpl <em>CArray Value</em>}' class.
@@ -451,7 +451,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARRAY_VALUE__TYPE = CESON_VALUE__TYPE;
+	int CARRAY_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -460,7 +460,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARRAY_VALUE__VALUES = CESON_VALUE_FEATURE_COUNT + 0;
+	int CARRAY_VALUE__VALUES = CVALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>CArray Value</em>' class.
@@ -469,7 +469,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARRAY_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 1;
+	int CARRAY_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>CArray Value</em>' class.
@@ -478,7 +478,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARRAY_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CARRAY_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl <em>String To Ceson Value Map</em>}' class.
@@ -527,14 +527,14 @@ public interface CesonPackage extends EPackage {
 	int STRING_TO_CESON_VALUE_MAP_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CesonSpecificationImpl <em>Specification</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CSpecificationImpl <em>CSpecification</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.impl.CesonSpecificationImpl
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonSpecification()
+	 * @see org.eclipselabs.emf.ceson.impl.CSpecificationImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCSpecification()
 	 * @generated
 	 */
-	int CESON_SPECIFICATION = 10;
+	int CSPECIFICATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -543,7 +543,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_SPECIFICATION__NAME = 0;
+	int CSPECIFICATION__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Definitions</b></em>' map.
@@ -552,25 +552,25 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_SPECIFICATION__DEFINITIONS = 1;
+	int CSPECIFICATION__DEFINITIONS = 1;
 
 	/**
-	 * The number of structural features of the '<em>Specification</em>' class.
+	 * The number of structural features of the '<em>CSpecification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_SPECIFICATION_FEATURE_COUNT = 2;
+	int CSPECIFICATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Specification</em>' class.
+	 * The number of operations of the '<em>CSpecification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CESON_SPECIFICATION_OPERATION_COUNT = 0;
+	int CSPECIFICATION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CEnumValueImpl <em>CEnum Value</em>}' class.
@@ -589,7 +589,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CENUM_VALUE__TYPE = CESON_VALUE__TYPE;
+	int CENUM_VALUE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -598,7 +598,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CENUM_VALUE__PACKAGE_NAME = CESON_VALUE_FEATURE_COUNT + 0;
+	int CENUM_VALUE__PACKAGE_NAME = CVALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Enum Type Name</b></em>' attribute.
@@ -607,7 +607,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CENUM_VALUE__ENUM_TYPE_NAME = CESON_VALUE_FEATURE_COUNT + 1;
+	int CENUM_VALUE__ENUM_TYPE_NAME = CVALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Literal Name</b></em>' attribute.
@@ -616,7 +616,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CENUM_VALUE__LITERAL_NAME = CESON_VALUE_FEATURE_COUNT + 2;
+	int CENUM_VALUE__LITERAL_NAME = CVALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>CEnum Value</em>' class.
@@ -625,7 +625,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CENUM_VALUE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 3;
+	int CENUM_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>CEnum Value</em>' class.
@@ -634,7 +634,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CENUM_VALUE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CENUM_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CReferenceImpl <em>CReference</em>}' class.
@@ -653,7 +653,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CREFERENCE__TYPE = CESON_VALUE__TYPE;
+	int CREFERENCE__TYPE = CVALUE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -662,7 +662,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CREFERENCE__VAR_NAME = CESON_VALUE_FEATURE_COUNT + 0;
+	int CREFERENCE__VAR_NAME = CVALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>CReference</em>' class.
@@ -671,7 +671,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CREFERENCE_FEATURE_COUNT = CESON_VALUE_FEATURE_COUNT + 1;
+	int CREFERENCE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>CReference</em>' class.
@@ -680,18 +680,17 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CREFERENCE_OPERATION_COUNT = CESON_VALUE_OPERATION_COUNT + 0;
+	int CREFERENCE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.CesonType <em>Type</em>}' enum.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.CType <em>CType</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.CesonType
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonType()
+	 * @see org.eclipselabs.emf.ceson.CType
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCType()
 	 * @generated
 	 */
-	int CESON_TYPE = 13;
-
+	int CTYPE = 13;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CFeature <em>CFeature</em>}'.
@@ -737,25 +736,25 @@ public interface CesonPackage extends EPackage {
 	EReference getCFeature_Value();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CesonValue <em>Value</em>}'.
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CValue <em>CValue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonValue
+	 * @return the meta object for class '<em>CValue</em>'.
+	 * @see org.eclipselabs.emf.ceson.CValue
 	 * @generated
 	 */
-	EClass getCesonValue();
+	EClass getCValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CesonValue#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CValue#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonValue#getType()
-	 * @see #getCesonValue()
+	 * @see org.eclipselabs.emf.ceson.CValue#getType()
+	 * @see #getCValue()
 	 * @generated
 	 */
-	EAttribute getCesonValue_Type();
+	EAttribute getCValue_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CAnyValue <em>CAny Value</em>}'.
@@ -779,99 +778,99 @@ public interface CesonPackage extends EPackage {
 	EAttribute getCAnyValue_Value();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CesonIntValue <em>Int Value</em>}'.
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CIntValue <em>CInt Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Int Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonIntValue
+	 * @return the meta object for class '<em>CInt Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CIntValue
 	 * @generated
 	 */
-	EClass getCesonIntValue();
+	EClass getCIntValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CesonIntValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonIntValue#getValue()
-	 * @see #getCesonIntValue()
-	 * @generated
-	 */
-	EAttribute getCesonIntValue_Value();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CesonRealValue <em>Real Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Real Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonRealValue
-	 * @generated
-	 */
-	EClass getCesonRealValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CesonRealValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CIntValue#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonRealValue#getValue()
-	 * @see #getCesonRealValue()
+	 * @see org.eclipselabs.emf.ceson.CIntValue#getValue()
+	 * @see #getCIntValue()
 	 * @generated
 	 */
-	EAttribute getCesonRealValue_Value();
+	EAttribute getCIntValue_Value();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CesonStringValue <em>String Value</em>}'.
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CRealValue <em>CReal Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>String Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonStringValue
+	 * @return the meta object for class '<em>CReal Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CRealValue
 	 * @generated
 	 */
-	EClass getCesonStringValue();
+	EClass getCRealValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CesonStringValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CRealValue#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonStringValue#getValue()
-	 * @see #getCesonStringValue()
+	 * @see org.eclipselabs.emf.ceson.CRealValue#getValue()
+	 * @see #getCRealValue()
 	 * @generated
 	 */
-	EAttribute getCesonStringValue_Value();
+	EAttribute getCRealValue_Value();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CesonObjectValue <em>Object Value</em>}'.
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CStringValue <em>CString Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Object Value</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonObjectValue
+	 * @return the meta object for class '<em>CString Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CStringValue
 	 * @generated
 	 */
-	EClass getCesonObjectValue();
+	EClass getCStringValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CesonObjectValue#getClassName <em>Class Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CStringValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CStringValue#getValue()
+	 * @see #getCStringValue()
+	 * @generated
+	 */
+	EAttribute getCStringValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CObjectValue <em>CObject Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>CObject Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CObjectValue
+	 * @generated
+	 */
+	EClass getCObjectValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CObjectValue#getClassName <em>Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Class Name</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonObjectValue#getClassName()
-	 * @see #getCesonObjectValue()
+	 * @see org.eclipselabs.emf.ceson.CObjectValue#getClassName()
+	 * @see #getCObjectValue()
 	 * @generated
 	 */
-	EAttribute getCesonObjectValue_ClassName();
+	EAttribute getCObjectValue_ClassName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.emf.ceson.CesonObjectValue#getFeatures <em>Features</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.emf.ceson.CObjectValue#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Features</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonObjectValue#getFeatures()
-	 * @see #getCesonObjectValue()
+	 * @see org.eclipselabs.emf.ceson.CObjectValue#getFeatures()
+	 * @see #getCObjectValue()
 	 * @generated
 	 */
-	EReference getCesonObjectValue_Features();
+	EReference getCObjectValue_Features();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CJavaObjectValue <em>CJava Object Value</em>}'.
@@ -922,7 +921,7 @@ public interface CesonPackage extends EPackage {
 	 * @return the meta object for class '<em>String To Ceson Value Map</em>'.
 	 * @see java.util.Map.Entry
 	 * @model keyDataType="org.eclipse.emf.ecore.EString"
-	 *        valueType="org.eclipselabs.emf.ceson.CesonValue" valueContainment="true"
+	 *        valueType="org.eclipselabs.emf.ceson.CValue" valueContainment="true"
 	 * @generated
 	 */
 	EClass getStringToCesonValueMap();
@@ -950,36 +949,36 @@ public interface CesonPackage extends EPackage {
 	EReference getStringToCesonValueMap_Value();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CesonSpecification <em>Specification</em>}'.
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CSpecification <em>CSpecification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Specification</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonSpecification
+	 * @return the meta object for class '<em>CSpecification</em>'.
+	 * @see org.eclipselabs.emf.ceson.CSpecification
 	 * @generated
 	 */
-	EClass getCesonSpecification();
+	EClass getCSpecification();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CesonSpecification#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CSpecification#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonSpecification#getName()
-	 * @see #getCesonSpecification()
+	 * @see org.eclipselabs.emf.ceson.CSpecification#getName()
+	 * @see #getCSpecification()
 	 * @generated
 	 */
-	EAttribute getCesonSpecification_Name();
+	EAttribute getCSpecification_Name();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipselabs.emf.ceson.CesonSpecification#getDefinitions <em>Definitions</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipselabs.emf.ceson.CSpecification#getDefinitions <em>Definitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the map '<em>Definitions</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonSpecification#getDefinitions()
-	 * @see #getCesonSpecification()
+	 * @see org.eclipselabs.emf.ceson.CSpecification#getDefinitions()
+	 * @see #getCSpecification()
 	 * @generated
 	 */
-	EReference getCesonSpecification_Definitions();
+	EReference getCSpecification_Definitions();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CEnumValue <em>CEnum Value</em>}'.
@@ -1046,14 +1045,14 @@ public interface CesonPackage extends EPackage {
 	EAttribute getCReference_VarName();
 
 	/**
-	 * Returns the meta object for enum '{@link org.eclipselabs.emf.ceson.CesonType <em>Type</em>}'.
+	 * Returns the meta object for enum '{@link org.eclipselabs.emf.ceson.CType <em>CType</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Type</em>'.
-	 * @see org.eclipselabs.emf.ceson.CesonType
+	 * @return the meta object for enum '<em>CType</em>'.
+	 * @see org.eclipselabs.emf.ceson.CType
 	 * @generated
 	 */
-	EEnum getCesonType();
+	EEnum getCType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1113,14 +1112,14 @@ public interface CesonPackage extends EPackage {
 		EReference CFEATURE__VALUE = eINSTANCE.getCFeature_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CesonValueImpl <em>Value</em>}' class.
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CValueImpl <em>CValue</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.impl.CesonValueImpl
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonValue()
+		 * @see org.eclipselabs.emf.ceson.impl.CValueImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCValue()
 		 * @generated
 		 */
-		EClass CESON_VALUE = eINSTANCE.getCesonValue();
+		EClass CVALUE = eINSTANCE.getCValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -1128,7 +1127,7 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CESON_VALUE__TYPE = eINSTANCE.getCesonValue_Type();
+		EAttribute CVALUE__TYPE = eINSTANCE.getCValue_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CAnyValueImpl <em>CAny Value</em>}' class.
@@ -1149,14 +1148,14 @@ public interface CesonPackage extends EPackage {
 		EAttribute CANY_VALUE__VALUE = eINSTANCE.getCAnyValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CesonIntValueImpl <em>Int Value</em>}' class.
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CIntValueImpl <em>CInt Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.impl.CesonIntValueImpl
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonIntValue()
+		 * @see org.eclipselabs.emf.ceson.impl.CIntValueImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCIntValue()
 		 * @generated
 		 */
-		EClass CESON_INT_VALUE = eINSTANCE.getCesonIntValue();
+		EClass CINT_VALUE = eINSTANCE.getCIntValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1164,35 +1163,17 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CESON_INT_VALUE__VALUE = eINSTANCE.getCesonIntValue_Value();
+		EAttribute CINT_VALUE__VALUE = eINSTANCE.getCIntValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CesonRealValueImpl <em>Real Value</em>}' class.
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CRealValueImpl <em>CReal Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.impl.CesonRealValueImpl
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonRealValue()
+		 * @see org.eclipselabs.emf.ceson.impl.CRealValueImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCRealValue()
 		 * @generated
 		 */
-		EClass CESON_REAL_VALUE = eINSTANCE.getCesonRealValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CESON_REAL_VALUE__VALUE = eINSTANCE.getCesonRealValue_Value();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CesonStringValueImpl <em>String Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.impl.CesonStringValueImpl
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonStringValue()
-		 * @generated
-		 */
-		EClass CESON_STRING_VALUE = eINSTANCE.getCesonStringValue();
+		EClass CREAL_VALUE = eINSTANCE.getCRealValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1200,17 +1181,35 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CESON_STRING_VALUE__VALUE = eINSTANCE.getCesonStringValue_Value();
+		EAttribute CREAL_VALUE__VALUE = eINSTANCE.getCRealValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CesonObjectValueImpl <em>Object Value</em>}' class.
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CStringValueImpl <em>CString Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.impl.CesonObjectValueImpl
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonObjectValue()
+		 * @see org.eclipselabs.emf.ceson.impl.CStringValueImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCStringValue()
 		 * @generated
 		 */
-		EClass CESON_OBJECT_VALUE = eINSTANCE.getCesonObjectValue();
+		EClass CSTRING_VALUE = eINSTANCE.getCStringValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CSTRING_VALUE__VALUE = eINSTANCE.getCStringValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CObjectValueImpl <em>CObject Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.emf.ceson.impl.CObjectValueImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCObjectValue()
+		 * @generated
+		 */
+		EClass COBJECT_VALUE = eINSTANCE.getCObjectValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
@@ -1218,7 +1217,7 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CESON_OBJECT_VALUE__CLASS_NAME = eINSTANCE.getCesonObjectValue_ClassName();
+		EAttribute COBJECT_VALUE__CLASS_NAME = eINSTANCE.getCObjectValue_ClassName();
 
 		/**
 		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
@@ -1226,7 +1225,7 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CESON_OBJECT_VALUE__FEATURES = eINSTANCE.getCesonObjectValue_Features();
+		EReference COBJECT_VALUE__FEATURES = eINSTANCE.getCObjectValue_Features();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CJavaObjectValueImpl <em>CJava Object Value</em>}' class.
@@ -1291,14 +1290,14 @@ public interface CesonPackage extends EPackage {
 		EReference STRING_TO_CESON_VALUE_MAP__VALUE = eINSTANCE.getStringToCesonValueMap_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CesonSpecificationImpl <em>Specification</em>}' class.
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CSpecificationImpl <em>CSpecification</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.impl.CesonSpecificationImpl
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonSpecification()
+		 * @see org.eclipselabs.emf.ceson.impl.CSpecificationImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCSpecification()
 		 * @generated
 		 */
-		EClass CESON_SPECIFICATION = eINSTANCE.getCesonSpecification();
+		EClass CSPECIFICATION = eINSTANCE.getCSpecification();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1306,7 +1305,7 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CESON_SPECIFICATION__NAME = eINSTANCE.getCesonSpecification_Name();
+		EAttribute CSPECIFICATION__NAME = eINSTANCE.getCSpecification_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Definitions</b></em>' map feature.
@@ -1314,7 +1313,7 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CESON_SPECIFICATION__DEFINITIONS = eINSTANCE.getCesonSpecification_Definitions();
+		EReference CSPECIFICATION__DEFINITIONS = eINSTANCE.getCSpecification_Definitions();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CEnumValueImpl <em>CEnum Value</em>}' class.
@@ -1369,14 +1368,14 @@ public interface CesonPackage extends EPackage {
 		EAttribute CREFERENCE__VAR_NAME = eINSTANCE.getCReference_VarName();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.CesonType <em>Type</em>}' enum.
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.CType <em>CType</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.CesonType
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCesonType()
+		 * @see org.eclipselabs.emf.ceson.CType
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCType()
 		 * @generated
 		 */
-		EEnum CESON_TYPE = eINSTANCE.getCesonType();
+		EEnum CTYPE = eINSTANCE.getCType();
 
 	}
 

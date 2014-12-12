@@ -24,7 +24,7 @@ import org.eclipselabs.emf.ceson.CesonPackage;
  *
  * @generated
  */
-public class CReferenceImpl extends CesonValueImpl implements CReference {
+public class CReferenceImpl extends CValueImpl implements CReference {
 	/**
 	 * The default value of the '{@link #getVarName() <em>Var Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

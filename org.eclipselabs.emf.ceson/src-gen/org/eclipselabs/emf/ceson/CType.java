@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.eclipselabs.emf.ceson.CesonPackage#getCesonType()
+ * @see org.eclipselabs.emf.ceson.CesonPackage#getCType()
  * @model
  * @generated
  */
-public enum CesonType implements Enumerator {
+public enum CType implements Enumerator {
 	/**
 	 * The '<em><b>ANY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -194,13 +194,13 @@ public enum CesonType implements Enumerator {
 	public static final int CARRAY_VALUE = 6;
 
 	/**
-	 * An array of all the '<em><b>Type</b></em>' enumerators.
+	 * An array of all the '<em><b>CType</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final CesonType[] VALUES_ARRAY =
-		new CesonType[] {
+	private static final CType[] VALUES_ARRAY =
+		new CType[] {
 			ANY,
 			INT,
 			REAL,
@@ -211,22 +211,22 @@ public enum CesonType implements Enumerator {
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>CType</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<CesonType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<CType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>CType</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static CesonType get(String literal) {
+	public static CType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			CesonType result = VALUES_ARRAY[i];
+			CType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -235,14 +235,14 @@ public enum CesonType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>CType</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static CesonType getByName(String name) {
+	public static CType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			CesonType result = VALUES_ARRAY[i];
+			CType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -251,12 +251,12 @@ public enum CesonType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>CType</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static CesonType get(int value) {
+	public static CType get(int value) {
 		switch (value) {
 			case ANY_VALUE: return ANY;
 			case INT_VALUE: return INT;
@@ -296,7 +296,7 @@ public enum CesonType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private CesonType(int value, String name, String literal) {
+	private CType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

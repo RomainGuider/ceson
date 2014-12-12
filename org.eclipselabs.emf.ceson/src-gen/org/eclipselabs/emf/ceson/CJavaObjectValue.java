@@ -19,7 +19,7 @@ package org.eclipselabs.emf.ceson;
  * @model
  * @generated
  */
-public interface CJavaObjectValue extends CesonValue {
+public interface CJavaObjectValue extends CValue {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

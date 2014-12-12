@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.CesonDefinition#getVariableName <em>Variable Name</em>}</li>
- *   <li>{@link org.eclipselabs.emf.ceson.CesonDefinition#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.CDefinition#getVariableName <em>Variable Name</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.CDefinition#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface CesonDefinition extends EObject {
+public interface CDefinition extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Variable Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public interface CesonDefinition extends EObject {
 	String getVariableName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CesonDefinition#getVariableName <em>Variable Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CDefinition#getVariableName <em>Variable Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Variable Name</em>' attribute.
@@ -57,21 +57,21 @@ public interface CesonDefinition extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(CesonValue)
+	 * @see #setValue(CValue)
 	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCesonDefinition_Value()
 	 * @model containment="true"
 	 * @generated
 	 */
-	CesonValue getValue();
+	CValue getValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CesonDefinition#getValue <em>Value</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CDefinition#getValue <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' containment reference.
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(CesonValue value);
+	void setValue(CValue value);
 
 } // CesonDefinition

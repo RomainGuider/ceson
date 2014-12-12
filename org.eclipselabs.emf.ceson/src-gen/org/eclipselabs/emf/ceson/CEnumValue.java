@@ -21,7 +21,7 @@ package org.eclipselabs.emf.ceson;
  * @model
  * @generated
  */
-public interface CEnumValue extends CesonValue {
+public interface CEnumValue extends CValue {
 	/**
 	 * Returns the value of the '<em><b>Package Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

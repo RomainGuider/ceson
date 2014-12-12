@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.emf.ceson.CArrayValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonType;
-import org.eclipselabs.emf.ceson.CesonValue;
+import org.eclipselabs.emf.ceson.CType;
+import org.eclipselabs.emf.ceson.CValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +28,7 @@ import org.eclipselabs.emf.ceson.CesonValue;
  *
  * @generated
  */
-public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
+public class CArrayValueImpl extends CValueImpl implements CArrayValue {
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CesonValue> values;
+	protected EList<CValue> values;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,9 +62,9 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CesonValue> getValues() {
+	public EList<CValue> getValues() {
 		if (values == null) {
-			values = new EObjectContainmentEList<CesonValue>(CesonValue.class, this, CesonPackage.CARRAY_VALUE__VALUES);
+			values = new EObjectContainmentEList<CValue>(CValue.class, this, CesonPackage.CARRAY_VALUE__VALUES);
 		}
 		return values;
 	}
@@ -108,7 +108,7 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 		switch (featureID) {
 			case CesonPackage.CARRAY_VALUE__VALUES:
 				getValues().clear();
-				getValues().addAll((Collection<? extends CesonValue>)newValue);
+				getValues().addAll((Collection<? extends CValue>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class CArrayValueImpl extends CesonValueImpl implements CArrayValue {
 		return super.eIsSet(featureID);
 	}
 	@Override
-	public CesonType getType() {
-		return CesonType.CARRAY;
+	public CType getType() {
+		return CType.CARRAY;
 	}
 
 } //CArrayValueImpl

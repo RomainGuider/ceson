@@ -13,15 +13,15 @@ import java.math.BigDecimal;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.CesonRealValue#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.CRealValue#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.emf.ceson.CesonPackage#getCesonRealValue()
+ * @see org.eclipselabs.emf.ceson.CesonPackage#getCRealValue()
  * @model
  * @generated
  */
-public interface CesonRealValue extends CesonValue {
+public interface CRealValue extends CValue {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,14 +32,14 @@ public interface CesonRealValue extends CesonValue {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(BigDecimal)
-	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCesonRealValue_Value()
+	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCRealValue_Value()
 	 * @model required="true"
 	 * @generated
 	 */
 	BigDecimal getValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CesonRealValue#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CRealValue#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.

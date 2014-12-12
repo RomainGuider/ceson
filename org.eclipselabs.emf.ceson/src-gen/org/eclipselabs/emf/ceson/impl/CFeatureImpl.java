@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonValue;
+import org.eclipselabs.emf.ceson.CValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class CFeatureImpl extends MinimalEObjectImpl.Container implements CFeatu
 	 * @generated
 	 * @ordered
 	 */
-	protected CesonValue value;
+	protected CValue value;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,7 +147,7 @@ public class CFeatureImpl extends MinimalEObjectImpl.Container implements CFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonValue getValue() {
+	public CValue getValue() {
 		return value;
 	}
 
@@ -156,8 +156,8 @@ public class CFeatureImpl extends MinimalEObjectImpl.Container implements CFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValue(CesonValue newValue, NotificationChain msgs) {
-		CesonValue oldValue = value;
+	public NotificationChain basicSetValue(CValue newValue, NotificationChain msgs) {
+		CValue oldValue = value;
 		value = newValue;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CesonPackage.CFEATURE__VALUE, oldValue, newValue);
@@ -171,7 +171,7 @@ public class CFeatureImpl extends MinimalEObjectImpl.Container implements CFeatu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(CesonValue newValue) {
+	public void setValue(CValue newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;
 			if (value != null)
@@ -232,7 +232,7 @@ public class CFeatureImpl extends MinimalEObjectImpl.Container implements CFeatu
 				setContainment((Boolean)newValue);
 				return;
 			case CesonPackage.CFEATURE__VALUE:
-				setValue((CesonValue)newValue);
+				setValue((CValue)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,7 +253,7 @@ public class CFeatureImpl extends MinimalEObjectImpl.Container implements CFeatu
 				setContainment(CONTAINMENT_EDEFAULT);
 				return;
 			case CesonPackage.CFEATURE__VALUE:
-				setValue((CesonValue)null);
+				setValue((CValue)null);
 				return;
 		}
 		super.eUnset(featureID);

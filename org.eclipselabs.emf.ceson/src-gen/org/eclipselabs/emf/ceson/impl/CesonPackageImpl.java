@@ -17,14 +17,14 @@ import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CJavaObjectValue;
 import org.eclipselabs.emf.ceson.CReference;
 import org.eclipselabs.emf.ceson.CesonFactory;
-import org.eclipselabs.emf.ceson.CesonIntValue;
-import org.eclipselabs.emf.ceson.CesonObjectValue;
+import org.eclipselabs.emf.ceson.CIntValue;
+import org.eclipselabs.emf.ceson.CObjectValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonRealValue;
-import org.eclipselabs.emf.ceson.CesonSpecification;
-import org.eclipselabs.emf.ceson.CesonStringValue;
-import org.eclipselabs.emf.ceson.CesonType;
-import org.eclipselabs.emf.ceson.CesonValue;
+import org.eclipselabs.emf.ceson.CRealValue;
+import org.eclipselabs.emf.ceson.CSpecification;
+import org.eclipselabs.emf.ceson.CStringValue;
+import org.eclipselabs.emf.ceson.CType;
+import org.eclipselabs.emf.ceson.CValue;
 import org.eclipselabs.emf.ceson.util.CesonValidator;
 
 /**
@@ -46,7 +46,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cesonValueEClass = null;
+	private EClass cValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,28 +60,28 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cesonIntValueEClass = null;
+	private EClass cIntValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cesonRealValueEClass = null;
+	private EClass cRealValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cesonStringValueEClass = null;
+	private EClass cStringValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cesonObjectValueEClass = null;
+	private EClass cObjectValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +109,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cesonSpecificationEClass = null;
+	private EClass cSpecificationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,7 +130,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum cesonTypeEEnum = null;
+	private EEnum cTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -243,8 +243,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCesonValue() {
-		return cesonValueEClass;
+	public EClass getCValue() {
+		return cValueEClass;
 	}
 
 	/**
@@ -252,8 +252,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCesonValue_Type() {
-		return (EAttribute)cesonValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCValue_Type() {
+		return (EAttribute)cValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -279,8 +279,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCesonIntValue() {
-		return cesonIntValueEClass;
+	public EClass getCIntValue() {
+		return cIntValueEClass;
 	}
 
 	/**
@@ -288,8 +288,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCesonIntValue_Value() {
-		return (EAttribute)cesonIntValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCIntValue_Value() {
+		return (EAttribute)cIntValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -297,8 +297,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCesonRealValue() {
-		return cesonRealValueEClass;
+	public EClass getCRealValue() {
+		return cRealValueEClass;
 	}
 
 	/**
@@ -306,8 +306,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCesonRealValue_Value() {
-		return (EAttribute)cesonRealValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCRealValue_Value() {
+		return (EAttribute)cRealValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -315,8 +315,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCesonStringValue() {
-		return cesonStringValueEClass;
+	public EClass getCStringValue() {
+		return cStringValueEClass;
 	}
 
 	/**
@@ -324,8 +324,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCesonStringValue_Value() {
-		return (EAttribute)cesonStringValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCStringValue_Value() {
+		return (EAttribute)cStringValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -333,8 +333,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCesonObjectValue() {
-		return cesonObjectValueEClass;
+	public EClass getCObjectValue() {
+		return cObjectValueEClass;
 	}
 
 	/**
@@ -342,8 +342,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCesonObjectValue_ClassName() {
-		return (EAttribute)cesonObjectValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCObjectValue_ClassName() {
+		return (EAttribute)cObjectValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -351,8 +351,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCesonObjectValue_Features() {
-		return (EReference)cesonObjectValueEClass.getEStructuralFeatures().get(1);
+	public EReference getCObjectValue_Features() {
+		return (EReference)cObjectValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -423,8 +423,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCesonSpecification() {
-		return cesonSpecificationEClass;
+	public EClass getCSpecification() {
+		return cSpecificationEClass;
 	}
 
 	/**
@@ -432,8 +432,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCesonSpecification_Name() {
-		return (EAttribute)cesonSpecificationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCSpecification_Name() {
+		return (EAttribute)cSpecificationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -441,8 +441,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCesonSpecification_Definitions() {
-		return (EReference)cesonSpecificationEClass.getEStructuralFeatures().get(1);
+	public EReference getCSpecification_Definitions() {
+		return (EReference)cSpecificationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -504,8 +504,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getCesonType() {
-		return cesonTypeEEnum;
+	public EEnum getCType() {
+		return cTypeEEnum;
 	}
 
 	/**
@@ -541,24 +541,24 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		createEAttribute(cFeatureEClass, CFEATURE__CONTAINMENT);
 		createEReference(cFeatureEClass, CFEATURE__VALUE);
 
-		cesonValueEClass = createEClass(CESON_VALUE);
-		createEAttribute(cesonValueEClass, CESON_VALUE__TYPE);
+		cValueEClass = createEClass(CVALUE);
+		createEAttribute(cValueEClass, CVALUE__TYPE);
 
 		cAnyValueEClass = createEClass(CANY_VALUE);
 		createEAttribute(cAnyValueEClass, CANY_VALUE__VALUE);
 
-		cesonIntValueEClass = createEClass(CESON_INT_VALUE);
-		createEAttribute(cesonIntValueEClass, CESON_INT_VALUE__VALUE);
+		cIntValueEClass = createEClass(CINT_VALUE);
+		createEAttribute(cIntValueEClass, CINT_VALUE__VALUE);
 
-		cesonRealValueEClass = createEClass(CESON_REAL_VALUE);
-		createEAttribute(cesonRealValueEClass, CESON_REAL_VALUE__VALUE);
+		cRealValueEClass = createEClass(CREAL_VALUE);
+		createEAttribute(cRealValueEClass, CREAL_VALUE__VALUE);
 
-		cesonStringValueEClass = createEClass(CESON_STRING_VALUE);
-		createEAttribute(cesonStringValueEClass, CESON_STRING_VALUE__VALUE);
+		cStringValueEClass = createEClass(CSTRING_VALUE);
+		createEAttribute(cStringValueEClass, CSTRING_VALUE__VALUE);
 
-		cesonObjectValueEClass = createEClass(CESON_OBJECT_VALUE);
-		createEAttribute(cesonObjectValueEClass, CESON_OBJECT_VALUE__CLASS_NAME);
-		createEReference(cesonObjectValueEClass, CESON_OBJECT_VALUE__FEATURES);
+		cObjectValueEClass = createEClass(COBJECT_VALUE);
+		createEAttribute(cObjectValueEClass, COBJECT_VALUE__CLASS_NAME);
+		createEReference(cObjectValueEClass, COBJECT_VALUE__FEATURES);
 
 		cJavaObjectValueEClass = createEClass(CJAVA_OBJECT_VALUE);
 		createEAttribute(cJavaObjectValueEClass, CJAVA_OBJECT_VALUE__VALUE);
@@ -570,9 +570,9 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		createEAttribute(stringToCesonValueMapEClass, STRING_TO_CESON_VALUE_MAP__KEY);
 		createEReference(stringToCesonValueMapEClass, STRING_TO_CESON_VALUE_MAP__VALUE);
 
-		cesonSpecificationEClass = createEClass(CESON_SPECIFICATION);
-		createEAttribute(cesonSpecificationEClass, CESON_SPECIFICATION__NAME);
-		createEReference(cesonSpecificationEClass, CESON_SPECIFICATION__DEFINITIONS);
+		cSpecificationEClass = createEClass(CSPECIFICATION);
+		createEAttribute(cSpecificationEClass, CSPECIFICATION__NAME);
+		createEReference(cSpecificationEClass, CSPECIFICATION__DEFINITIONS);
 
 		cEnumValueEClass = createEClass(CENUM_VALUE);
 		createEAttribute(cEnumValueEClass, CENUM_VALUE__PACKAGE_NAME);
@@ -583,7 +583,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		createEAttribute(cReferenceEClass, CREFERENCE__VAR_NAME);
 
 		// Create enums
-		cesonTypeEEnum = createEEnum(CESON_TYPE);
+		cTypeEEnum = createEEnum(CTYPE);
 	}
 
 	/**
@@ -614,54 +614,54 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		cAnyValueEClass.getESuperTypes().add(this.getCesonValue());
-		cesonIntValueEClass.getESuperTypes().add(this.getCesonValue());
-		cesonRealValueEClass.getESuperTypes().add(this.getCesonValue());
-		cesonStringValueEClass.getESuperTypes().add(this.getCesonValue());
-		cesonObjectValueEClass.getESuperTypes().add(this.getCesonValue());
-		cJavaObjectValueEClass.getESuperTypes().add(this.getCesonValue());
-		cArrayValueEClass.getESuperTypes().add(this.getCesonValue());
-		cEnumValueEClass.getESuperTypes().add(this.getCesonValue());
-		cReferenceEClass.getESuperTypes().add(this.getCesonValue());
+		cAnyValueEClass.getESuperTypes().add(this.getCValue());
+		cIntValueEClass.getESuperTypes().add(this.getCValue());
+		cRealValueEClass.getESuperTypes().add(this.getCValue());
+		cStringValueEClass.getESuperTypes().add(this.getCValue());
+		cObjectValueEClass.getESuperTypes().add(this.getCValue());
+		cJavaObjectValueEClass.getESuperTypes().add(this.getCValue());
+		cArrayValueEClass.getESuperTypes().add(this.getCValue());
+		cEnumValueEClass.getESuperTypes().add(this.getCValue());
+		cReferenceEClass.getESuperTypes().add(this.getCValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(cFeatureEClass, CFeature.class, "CFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, CFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCFeature_Containment(), ecorePackage.getEBoolean(), "containment", "true", 0, 1, CFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCFeature_Value(), this.getCesonValue(), null, "value", null, 0, 1, CFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCFeature_Value(), this.getCValue(), null, "value", null, 0, 1, CFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cesonValueEClass, CesonValue.class, "CesonValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCesonValue_Type(), this.getCesonType(), "type", null, 0, 1, CesonValue.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(cValueEClass, CValue.class, "CValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCValue_Type(), this.getCType(), "type", null, 0, 1, CValue.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(cAnyValueEClass, CAnyValue.class, "CAnyValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCAnyValue_Value(), ecorePackage.getEJavaObject(), "value", null, 1, 1, CAnyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cesonIntValueEClass, CesonIntValue.class, "CesonIntValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCesonIntValue_Value(), ecorePackage.getEInt(), "value", null, 1, 1, CesonIntValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(cIntValueEClass, CIntValue.class, "CIntValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCIntValue_Value(), ecorePackage.getEInt(), "value", null, 1, 1, CIntValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cesonRealValueEClass, CesonRealValue.class, "CesonRealValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCesonRealValue_Value(), ecorePackage.getEBigDecimal(), "value", null, 1, 1, CesonRealValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(cRealValueEClass, CRealValue.class, "CRealValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCRealValue_Value(), ecorePackage.getEBigDecimal(), "value", null, 1, 1, CRealValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cesonStringValueEClass, CesonStringValue.class, "CesonStringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCesonStringValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, CesonStringValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(cStringValueEClass, CStringValue.class, "CStringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCStringValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, CStringValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cesonObjectValueEClass, CesonObjectValue.class, "CesonObjectValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCesonObjectValue_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, CesonObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCesonObjectValue_Features(), this.getCFeature(), null, "features", null, 0, -1, CesonObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(cObjectValueEClass, CObjectValue.class, "CObjectValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCObjectValue_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, CObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCObjectValue_Features(), this.getCFeature(), null, "features", null, 0, -1, CObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cJavaObjectValueEClass, CJavaObjectValue.class, "CJavaObjectValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCJavaObjectValue_Value(), ecorePackage.getEJavaObject(), "value", null, 1, 1, CJavaObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cArrayValueEClass, CArrayValue.class, "CArrayValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCArrayValue_Values(), this.getCesonValue(), null, "values", null, 0, -1, CArrayValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCArrayValue_Values(), this.getCValue(), null, "values", null, 0, -1, CArrayValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToCesonValueMapEClass, Map.Entry.class, "StringToCesonValueMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToCesonValueMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStringToCesonValueMap_Value(), this.getCesonValue(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringToCesonValueMap_Value(), this.getCValue(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cesonSpecificationEClass, CesonSpecification.class, "CesonSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCesonSpecification_Name(), ecorePackage.getEString(), "name", null, 0, 1, CesonSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCesonSpecification_Definitions(), this.getStringToCesonValueMap(), null, "definitions", null, 0, -1, CesonSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(cSpecificationEClass, CSpecification.class, "CSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCSpecification_Name(), ecorePackage.getEString(), "name", null, 0, 1, CSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCSpecification_Definitions(), this.getStringToCesonValueMap(), null, "definitions", null, 0, -1, CSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cEnumValueEClass, CEnumValue.class, "CEnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCEnumValue_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, CEnumValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -672,14 +672,14 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		initEAttribute(getCReference_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, CReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(cesonTypeEEnum, CesonType.class, "CesonType");
-		addEEnumLiteral(cesonTypeEEnum, CesonType.ANY);
-		addEEnumLiteral(cesonTypeEEnum, CesonType.INT);
-		addEEnumLiteral(cesonTypeEEnum, CesonType.REAL);
-		addEEnumLiteral(cesonTypeEEnum, CesonType.STRING);
-		addEEnumLiteral(cesonTypeEEnum, CesonType.JOBJECT);
-		addEEnumLiteral(cesonTypeEEnum, CesonType.COBJECT);
-		addEEnumLiteral(cesonTypeEEnum, CesonType.CARRAY);
+		initEEnum(cTypeEEnum, CType.class, "CType");
+		addEEnumLiteral(cTypeEEnum, CType.ANY);
+		addEEnumLiteral(cTypeEEnum, CType.INT);
+		addEEnumLiteral(cTypeEEnum, CType.REAL);
+		addEEnumLiteral(cTypeEEnum, CType.STRING);
+		addEEnumLiteral(cTypeEEnum, CType.JOBJECT);
+		addEEnumLiteral(cTypeEEnum, CType.COBJECT);
+		addEEnumLiteral(cTypeEEnum, CType.CARRAY);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -700,7 +700,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";	
 		addAnnotation
-		  (cesonObjectValueEClass, 
+		  (cObjectValueEClass, 
 		   source, 
 		   new String[] {
 			 "constraints", "TypeIsQualifiedName"
@@ -716,7 +716,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	protected void createGenmodelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Genmodel";	
 		addAnnotation
-		  (cesonObjectValueEClass, 
+		  (cObjectValueEClass, 
 		   source, 
 		   new String[] {
 			 "documentation", "{@link CesonObject} instances are used to represent the result of \r\nparsing the notation without having to map it to an eObject."

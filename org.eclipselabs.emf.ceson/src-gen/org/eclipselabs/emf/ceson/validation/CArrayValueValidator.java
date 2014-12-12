@@ -6,7 +6,7 @@ package org.eclipselabs.emf.ceson.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipselabs.emf.ceson.CesonValue;
+import org.eclipselabs.emf.ceson.CValue;
 
 /**
  * A sample validator interface for {@link org.eclipselabs.emf.ceson.CArrayValue}.
@@ -17,7 +17,7 @@ import org.eclipselabs.emf.ceson.CesonValue;
 public interface CArrayValueValidator {
 	boolean validate();
 
-	boolean validateValues(EList<CesonValue> value);
+	boolean validateValues(EList<CValue> value);
 
-	boolean validateValue(EList<CesonValue> value);
+	boolean validateValue(EList<CValue> value);
 }

@@ -20,10 +20,10 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface CArrayValue extends CesonValue {
+public interface CArrayValue extends CValue {
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.emf.ceson.CesonValue}.
+	 * The list contents are of type {@link org.eclipselabs.emf.ceson.CValue}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear,
@@ -35,6 +35,6 @@ public interface CArrayValue extends CesonValue {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<CesonValue> getValues();
+	EList<CValue> getValues();
 
 } // CArrayValue

@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipselabs.emf.ceson.CAnyValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonType;
+import org.eclipselabs.emf.ceson.CType;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +22,7 @@ import org.eclipselabs.emf.ceson.CesonType;
  *
  * @generated
  */
-public class CAnyValueImpl extends CesonValueImpl implements CAnyValue {
+public class CAnyValueImpl extends CValueImpl implements CAnyValue {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -158,8 +158,8 @@ public class CAnyValueImpl extends CesonValueImpl implements CAnyValue {
 	}
 	
 	@Override
-	public CesonType getType() {
-		return CesonType.ANY;
+	public CType getType() {
+		return CType.ANY;
 	}
 
 } //CAnyValueImpl

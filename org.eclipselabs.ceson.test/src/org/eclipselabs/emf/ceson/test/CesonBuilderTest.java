@@ -12,11 +12,11 @@ import org.eclipselabs.emf.ceson.CArrayValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CesonBuilder;
-import org.eclipselabs.emf.ceson.CesonIntValue;
-import org.eclipselabs.emf.ceson.CesonObjectValue;
+import org.eclipselabs.emf.ceson.CIntValue;
+import org.eclipselabs.emf.ceson.CObjectValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonRealValue;
-import org.eclipselabs.emf.ceson.CesonStringValue;
+import org.eclipselabs.emf.ceson.CRealValue;
+import org.eclipselabs.emf.ceson.CStringValue;
 import org.junit.Test;
 
 public class CesonBuilderTest {
@@ -28,25 +28,25 @@ public class CesonBuilderTest {
 	@Test
 	public void intValueBuilderTest() {
 		CesonBuilder builder = new CesonBuilder();
-		CesonIntValue value = builder.intValue(10);
+		CIntValue value = builder.intValue(10);
 		assertNotNull(value);
-		assertEquals(10, ((CesonIntValue) value).getValue());
+		assertEquals(10, ((CIntValue) value).getValue());
 	}
 
 	@Test
 	public void realValueBuilderTest() {
 		CesonBuilder builder = new CesonBuilder();
-		CesonRealValue value = builder.realValue(new BigDecimal(10.0));
+		CRealValue value = builder.realValue(new BigDecimal(10.0));
 		assertNotNull(value);
-		assertEquals(new BigDecimal(10.0), ((CesonRealValue) value).getValue());
+		assertEquals(new BigDecimal(10.0), ((CRealValue) value).getValue());
 	}
 
 	@Test
 	public void stringValueBuilderTest() {
 		CesonBuilder builder = new CesonBuilder();
-		CesonStringValue value = builder.stringValue("string");
+		CStringValue value = builder.stringValue("string");
 		assertNotNull(value);
-		assertEquals("string", ((CesonStringValue) value).getValue());
+		assertEquals("string", ((CStringValue) value).getValue());
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class CesonBuilderTest {
 		feature.setName("feature3");
 		feature.setValue(new CesonBuilder().intValue(30));
 		features.add(feature);
-		CesonObjectValue value = new CesonBuilder().objectValue(
+		CObjectValue value = new CesonBuilder().objectValue(
 				"mypackage.MyClass", features);
 		assertNotNull(value);
 		assertEquals("mypackage.MyClass", value.getClassName());

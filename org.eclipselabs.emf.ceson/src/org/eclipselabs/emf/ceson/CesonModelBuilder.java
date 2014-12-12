@@ -21,19 +21,19 @@ import org.eclipselabs.emf.ceson.parser.CesonParser.StringLiteralContext;
 
 public class CesonModelBuilder extends CesonBaseListener {
 
-	private CesonSpecification specification;
+	private CSpecification specification;
 	private CesonBuilder builder = new CesonBuilder();
 	private Stack<Object> stack = new Stack<Object>();
 
 	private final Object arrayStart = new Object();
 
 	public CesonModelBuilder(String specificationName) {
-		specification = (CesonSpecification) EcoreUtil
-				.create(CesonPackage.Literals.CESON_SPECIFICATION);
+		specification = (CSpecification) EcoreUtil
+				.create(CesonPackage.Literals.CSPECIFICATION);
 		specification.setName(specificationName);
 	}
 
-	public CesonSpecification getSpecification() {
+	public CSpecification getSpecification() {
 		return specification;
 	}
 
@@ -72,11 +72,11 @@ public class CesonModelBuilder extends CesonBaseListener {
 	@Override
 	public void exitArray(ArrayContext ctx) {
 		CArrayValue value = builder.arrayValue();
-		List<CesonValue> values = new ArrayList<CesonValue>();
+		List<CValue> values = new ArrayList<CValue>();
 		while (!stack.isEmpty() && stack.peek() != arrayStart) {
 			Object element = stack.pop();
-			if (element instanceof CesonValue) {
-				values.add(((CesonValue) element));
+			if (element instanceof CValue) {
+				values.add(((CValue) element));
 			} else {
 				throw new IllegalStateException(
 						"Value expected on the stack. Got "
@@ -114,8 +114,7 @@ public class CesonModelBuilder extends CesonBaseListener {
 	public void exitDefinition(DefinitionContext ctx) {
 		String varName = ctx.getChild(0).getText();
 		if (!stack.isEmpty()) {
-			specification.getDefinitions().put(varName,
-					(CesonValue) stack.pop());
+			specification.getDefinitions().put(varName, (CValue) stack.pop());
 		} else {
 			throw new IllegalStateException(
 					"stack should contain a value to map to the definition's name.");
@@ -129,9 +128,9 @@ public class CesonModelBuilder extends CesonBaseListener {
 
 	@Override
 	public void exitContainment(ContainmentContext ctx) {
-		if (!stack.isEmpty() && stack.peek() instanceof CesonValue) {
+		if (!stack.isEmpty() && stack.peek() instanceof CValue) {
 			stack.push(createFeature(ctx.getChild(0).getText(),
-					(CesonValue) stack.pop(), true));
+					(CValue) stack.pop(), true));
 		} else {
 			throw new IllegalStateException("value expected on the stack.");
 		}
@@ -139,16 +138,15 @@ public class CesonModelBuilder extends CesonBaseListener {
 
 	@Override
 	public void exitReference(ReferenceContext ctx) {
-		if (!stack.isEmpty() && stack.peek() instanceof CesonValue) {
+		if (!stack.isEmpty() && stack.peek() instanceof CValue) {
 			stack.push(createFeature(ctx.getChild(0).getText(),
-					(CesonValue) stack.pop(), false));
+					(CValue) stack.pop(), false));
 		} else {
 			throw new IllegalStateException("value expected on the stack.");
 		}
 	}
 
-	CFeature createFeature(String featureName, CesonValue value,
-			boolean containment) {
+	CFeature createFeature(String featureName, CValue value, boolean containment) {
 		CFeature feature = (CFeature) EcoreUtil
 				.create(CesonPackage.Literals.CFEATURE);
 		feature.setName(featureName);
@@ -159,8 +157,7 @@ public class CesonModelBuilder extends CesonBaseListener {
 
 	@Override
 	public void enterObject(ObjectContext ctx) {
-		CesonObjectValue result = builder.objectValue(null,
-				Collections.EMPTY_LIST);
+		CObjectValue result = builder.objectValue(null, Collections.EMPTY_LIST);
 		stack.push(result);
 	}
 
@@ -171,8 +168,8 @@ public class CesonModelBuilder extends CesonBaseListener {
 		while (!stack.isEmpty() && stack.peek() instanceof CFeature) {
 			features.push((CFeature) stack.pop());
 		}
-		if (stack.peek() instanceof CesonObjectValue) {
-			CesonObjectValue object = (CesonObjectValue) stack.peek();
+		if (stack.peek() instanceof CObjectValue) {
+			CObjectValue object = (CObjectValue) stack.peek();
 			while (!features.isEmpty()) {
 				object.getFeatures().add(features.pop());
 			}

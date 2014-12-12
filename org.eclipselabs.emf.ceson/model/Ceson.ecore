@@ -5,10 +5,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="containment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//CesonValue"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//CValue"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CesonType">
+  <eClassifiers xsi:type="ecore:EEnum" name="CType">
     <eLiterals name="ANY"/>
     <eLiterals name="INT" value="1"/>
     <eLiterals name="REAL" value="2"/>
@@ -17,23 +17,23 @@
     <eLiterals name="COBJECT" value="5" literal="COBJECT"/>
     <eLiterals name="CARRAY" value="6" literal="CARRAY"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CesonValue" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CesonType"
+  <eClassifiers xsi:type="ecore:EClass" name="CValue" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CType"
         changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CAnyValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CAnyValue" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CesonIntValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CIntValue" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CesonRealValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CRealValue" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CesonStringValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CStringValue" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CesonObjectValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CObjectValue" eSuperTypes="#//CValue">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="TypeIsQualifiedName"/>
     </eAnnotations>
@@ -44,30 +44,30 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//CFeature" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CJavaObjectValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CJavaObjectValue" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CArrayValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CArrayValue" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="#//CesonValue" containment="true"/>
+        eType="#//CValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToCesonValueMap" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//CesonValue"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//CValue"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CesonSpecification">
+  <eClassifiers xsi:type="ecore:EClass" name="CSpecification">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
         eType="#//StringToCesonValueMap" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CEnumValue" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CEnumValue" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literalName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CReference" eSuperTypes="#//CesonValue">
+  <eClassifiers xsi:type="ecore:EClass" name="CReference" eSuperTypes="#//CValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

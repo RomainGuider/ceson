@@ -4,7 +4,7 @@
  */
 package org.eclipselabs.emf.ceson.validation;
 
-import org.eclipselabs.emf.ceson.CesonValue;
+import org.eclipselabs.emf.ceson.CValue;
 
 /**
  * A sample validator interface for {@link java.utl.Map.Entry}.
@@ -17,8 +17,8 @@ public interface StringToCesonValueMapValidator {
 
 	boolean validateTypedKey(String value);
 
-	boolean validateTypedValue(CesonValue value);
+	boolean validateTypedValue(CValue value);
 
 	boolean validateKey(String value);
-	boolean validateValue(CesonValue value);
+	boolean validateValue(CValue value);
 }

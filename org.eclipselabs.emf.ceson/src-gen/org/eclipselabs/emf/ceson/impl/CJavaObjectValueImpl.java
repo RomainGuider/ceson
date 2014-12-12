@@ -24,7 +24,7 @@ import org.eclipselabs.emf.ceson.CesonPackage;
  *
  * @generated
  */
-public class CJavaObjectValueImpl extends CesonValueImpl implements CJavaObjectValue {
+public class CJavaObjectValueImpl extends CValueImpl implements CJavaObjectValue {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

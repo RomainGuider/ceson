@@ -85,12 +85,12 @@ public interface CFeature extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(CesonValue)
+	 * @see #setValue(CValue)
 	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCFeature_Value()
 	 * @model containment="true"
 	 * @generated
 	 */
-	CesonValue getValue();
+	CValue getValue();
 
 	/**
 	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CFeature#getValue <em>Value</em>}' containment reference.
@@ -100,6 +100,6 @@ public interface CFeature extends EObject {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(CesonValue value);
+	void setValue(CValue value);
 
 } // CFeature

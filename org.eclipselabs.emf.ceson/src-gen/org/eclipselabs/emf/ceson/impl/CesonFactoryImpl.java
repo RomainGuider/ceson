@@ -57,14 +57,14 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 		switch (eClass.getClassifierID()) {
 			case CesonPackage.CFEATURE: return createCFeature();
 			case CesonPackage.CANY_VALUE: return createCAnyValue();
-			case CesonPackage.CESON_INT_VALUE: return createCesonIntValue();
-			case CesonPackage.CESON_REAL_VALUE: return createCesonRealValue();
-			case CesonPackage.CESON_STRING_VALUE: return createCesonStringValue();
-			case CesonPackage.CESON_OBJECT_VALUE: return createCesonObjectValue();
+			case CesonPackage.CINT_VALUE: return createCIntValue();
+			case CesonPackage.CREAL_VALUE: return createCRealValue();
+			case CesonPackage.CSTRING_VALUE: return createCStringValue();
+			case CesonPackage.COBJECT_VALUE: return createCObjectValue();
 			case CesonPackage.CJAVA_OBJECT_VALUE: return createCJavaObjectValue();
 			case CesonPackage.CARRAY_VALUE: return createCArrayValue();
 			case CesonPackage.STRING_TO_CESON_VALUE_MAP: return (EObject)createStringToCesonValueMap();
-			case CesonPackage.CESON_SPECIFICATION: return createCesonSpecification();
+			case CesonPackage.CSPECIFICATION: return createCSpecification();
 			case CesonPackage.CENUM_VALUE: return createCEnumValue();
 			case CesonPackage.CREFERENCE: return createCReference();
 			default:
@@ -80,8 +80,8 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case CesonPackage.CESON_TYPE:
-				return createCesonTypeFromString(eDataType, initialValue);
+			case CesonPackage.CTYPE:
+				return createCTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -95,8 +95,8 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case CesonPackage.CESON_TYPE:
-				return convertCesonTypeToString(eDataType, instanceValue);
+			case CesonPackage.CTYPE:
+				return convertCTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -127,9 +127,9 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonIntValue createCesonIntValue() {
-		CesonIntValueImpl cesonIntValue = new CesonIntValueImpl();
-		return cesonIntValue;
+	public CIntValue createCIntValue() {
+		CIntValueImpl cIntValue = new CIntValueImpl();
+		return cIntValue;
 	}
 
 	/**
@@ -137,9 +137,9 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonRealValue createCesonRealValue() {
-		CesonRealValueImpl cesonRealValue = new CesonRealValueImpl();
-		return cesonRealValue;
+	public CRealValue createCRealValue() {
+		CRealValueImpl cRealValue = new CRealValueImpl();
+		return cRealValue;
 	}
 
 	/**
@@ -147,9 +147,9 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonStringValue createCesonStringValue() {
-		CesonStringValueImpl cesonStringValue = new CesonStringValueImpl();
-		return cesonStringValue;
+	public CStringValue createCStringValue() {
+		CStringValueImpl cStringValue = new CStringValueImpl();
+		return cStringValue;
 	}
 
 	/**
@@ -157,9 +157,9 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonObjectValue createCesonObjectValue() {
-		CesonObjectValueImpl cesonObjectValue = new CesonObjectValueImpl();
-		return cesonObjectValue;
+	public CObjectValue createCObjectValue() {
+		CObjectValueImpl cObjectValue = new CObjectValueImpl();
+		return cObjectValue;
 	}
 
 	/**
@@ -187,7 +187,7 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<String, CesonValue> createStringToCesonValueMap() {
+	public Map.Entry<String, CValue> createStringToCesonValueMap() {
 		StringToCesonValueMapImpl stringToCesonValueMap = new StringToCesonValueMapImpl();
 		return stringToCesonValueMap;
 	}
@@ -197,9 +197,9 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonSpecification createCesonSpecification() {
-		CesonSpecificationImpl cesonSpecification = new CesonSpecificationImpl();
-		return cesonSpecification;
+	public CSpecification createCSpecification() {
+		CSpecificationImpl cSpecification = new CSpecificationImpl();
+		return cSpecification;
 	}
 
 	/**
@@ -227,8 +227,8 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CesonType createCesonTypeFromString(EDataType eDataType, String initialValue) {
-		CesonType result = CesonType.get(initialValue);
+	public CType createCTypeFromString(EDataType eDataType, String initialValue) {
+		CType result = CType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -238,7 +238,7 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCesonTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertCTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

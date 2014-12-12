@@ -12,17 +12,17 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.CesonObjectValue#getClassName <em>Class Name</em>}</li>
- *   <li>{@link org.eclipselabs.emf.ceson.CesonObjectValue#getFeatures <em>Features</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.CObjectValue#getClassName <em>Class Name</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.CObjectValue#getFeatures <em>Features</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.emf.ceson.CesonPackage#getCesonObjectValue()
+ * @see org.eclipselabs.emf.ceson.CesonPackage#getCObjectValue()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='TypeIsQualifiedName'"
  *        annotation="http://www.eclipse.org/emf/2002/Genmodel documentation='{@link CesonObject} instances are used to represent the result of \r\nparsing the notation without having to map it to an eObject.'"
  * @generated
  */
-public interface CesonObjectValue extends CesonValue {
+public interface CObjectValue extends CValue {
 	/**
 	 * Returns the value of the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -33,14 +33,14 @@ public interface CesonObjectValue extends CesonValue {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Class Name</em>' attribute.
 	 * @see #setClassName(String)
-	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCesonObjectValue_ClassName()
+	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCObjectValue_ClassName()
 	 * @model
 	 * @generated
 	 */
 	String getClassName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CesonObjectValue#getClassName <em>Class Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CObjectValue#getClassName <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Class Name</em>' attribute.
@@ -59,7 +59,7 @@ public interface CesonObjectValue extends CesonValue {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Features</em>' containment reference list.
-	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCesonObjectValue_Features()
+	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCObjectValue_Features()
 	 * @model containment="true"
 	 * @generated
 	 */

@@ -5,24 +5,24 @@ package org.eclipselabs.emf.ceson.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipselabs.emf.ceson.CIntValue;
 import org.eclipselabs.emf.ceson.CesonPackage;
-import org.eclipselabs.emf.ceson.CesonStringValue;
-import org.eclipselabs.emf.ceson.CesonType;
+import org.eclipselabs.emf.ceson.CType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String Value</b></em>'.
+ * An implementation of the model object '<em><b>Int Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.impl.CesonStringValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.impl.CIntValueImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CesonStringValueImpl extends CesonValueImpl implements CesonStringValue {
+public class CIntValueImpl extends CValueImpl implements CIntValue {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,7 +31,7 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final int VALUE_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -41,14 +41,14 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected int value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CesonStringValueImpl() {
+	protected CIntValueImpl() {
 		super();
 	}
 
@@ -59,7 +59,7 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CesonPackage.Literals.CESON_STRING_VALUE;
+		return CesonPackage.Literals.CINT_VALUE;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public int getValue() {
 		return value;
 	}
 
@@ -76,11 +76,11 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
+	public void setValue(int newValue) {
+		int oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CesonPackage.CESON_STRING_VALUE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, CesonPackage.CINT_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CesonPackage.CESON_STRING_VALUE__VALUE:
+			case CesonPackage.CINT_VALUE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -105,8 +105,8 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CesonPackage.CESON_STRING_VALUE__VALUE:
-				setValue((String)newValue);
+			case CesonPackage.CINT_VALUE__VALUE:
+				setValue((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -120,7 +120,7 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CESON_STRING_VALUE__VALUE:
+			case CesonPackage.CINT_VALUE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -135,8 +135,8 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CesonPackage.CESON_STRING_VALUE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case CesonPackage.CINT_VALUE__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -157,8 +157,8 @@ public class CesonStringValueImpl extends CesonValueImpl implements CesonStringV
 		return result.toString();
 	}
 	@Override
-	public CesonType getType() {
-		return CesonType.STRING;
+	public CType getType() {
+		return CType.INT;
 	}
 
-} //CesonStringValueImpl
+} //CesonIntValueImpl

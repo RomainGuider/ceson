@@ -40,40 +40,40 @@ public interface CesonFactory extends EFactory {
 	CAnyValue createCAnyValue();
 
 	/**
-	 * Returns a new object of class '<em>Int Value</em>'.
+	 * Returns a new object of class '<em>CInt Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Int Value</em>'.
+	 * @return a new object of class '<em>CInt Value</em>'.
 	 * @generated
 	 */
-	CesonIntValue createCesonIntValue();
+	CIntValue createCIntValue();
 
 	/**
-	 * Returns a new object of class '<em>Real Value</em>'.
+	 * Returns a new object of class '<em>CReal Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Real Value</em>'.
+	 * @return a new object of class '<em>CReal Value</em>'.
 	 * @generated
 	 */
-	CesonRealValue createCesonRealValue();
+	CRealValue createCRealValue();
 
 	/**
-	 * Returns a new object of class '<em>String Value</em>'.
+	 * Returns a new object of class '<em>CString Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String Value</em>'.
+	 * @return a new object of class '<em>CString Value</em>'.
 	 * @generated
 	 */
-	CesonStringValue createCesonStringValue();
+	CStringValue createCStringValue();
 
 	/**
-	 * Returns a new object of class '<em>Object Value</em>'.
+	 * Returns a new object of class '<em>CObject Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Object Value</em>'.
+	 * @return a new object of class '<em>CObject Value</em>'.
 	 * @generated
 	 */
-	CesonObjectValue createCesonObjectValue();
+	CObjectValue createCObjectValue();
 
 	/**
 	 * Returns a new object of class '<em>CJava Object Value</em>'.
@@ -94,13 +94,13 @@ public interface CesonFactory extends EFactory {
 	CArrayValue createCArrayValue();
 
 	/**
-	 * Returns a new object of class '<em>Specification</em>'.
+	 * Returns a new object of class '<em>CSpecification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specification</em>'.
+	 * @return a new object of class '<em>CSpecification</em>'.
 	 * @generated
 	 */
-	CesonSpecification createCesonSpecification();
+	CSpecification createCSpecification();
 
 	/**
 	 * Returns a new object of class '<em>CEnum Value</em>'.
