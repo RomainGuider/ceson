@@ -2,6 +2,7 @@ package org.eclipselabs.emf.ceson.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -11,12 +12,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.emf.ceson.CArrayValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
-import org.eclipselabs.emf.ceson.CesonBuilder;
 import org.eclipselabs.emf.ceson.CIntValue;
 import org.eclipselabs.emf.ceson.CObjectValue;
-import org.eclipselabs.emf.ceson.CesonPackage;
 import org.eclipselabs.emf.ceson.CRealValue;
 import org.eclipselabs.emf.ceson.CStringValue;
+import org.eclipselabs.emf.ceson.CesonBuilder;
+import org.eclipselabs.emf.ceson.CesonPackage;
 import org.junit.Test;
 
 public class CesonBuilderTest {
@@ -55,6 +56,19 @@ public class CesonBuilderTest {
 		CArrayValue value = builder.arrayValue();
 		assertNotNull(value);
 		assertEquals(0, ((CArrayValue) value).getValues().size());
+	}
+
+	@Test
+	public void arrayValueWithValuesBuilderTest() {
+		CesonBuilder builder = new CesonBuilder();
+		CArrayValue value = builder.arrayValue(builder.intValue(1),
+				builder.intValue(2));
+		assertNotNull(value);
+		assertEquals(2, ((CArrayValue) value).getValues().size());
+		assertTrue(EcoreUtil.equals(builder.intValue(1), ((CArrayValue) value)
+				.getValues().get(0)));
+		assertTrue(EcoreUtil.equals(builder.intValue(2), ((CArrayValue) value)
+				.getValues().get(1)));
 	}
 
 	@Test

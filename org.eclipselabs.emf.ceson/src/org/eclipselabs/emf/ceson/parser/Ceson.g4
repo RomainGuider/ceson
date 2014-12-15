@@ -3,7 +3,7 @@
  */
 grammar Ceson;
 
-model : (definition)?(';' definition)+
+model : definition(';' definition)*
 	  ;
 definition : ID '=' value 
 		   ;

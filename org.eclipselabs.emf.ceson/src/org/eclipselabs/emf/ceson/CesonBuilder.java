@@ -37,6 +37,16 @@ public class CesonBuilder {
 				.create(CesonPackage.Literals.CARRAY_VALUE);
 	}
 
+	public CArrayValue arrayValue(CValue... values) {
+		CArrayValue result = (CArrayValue) EcoreUtil
+				.create(CesonPackage.Literals.CARRAY_VALUE);
+		for (CValue value : values) {
+			result.getValues().add(value);
+		}
+		return result;
+
+	}
+
 	public CEnumValue enumValue(String packageName, String enumName,
 			String literalName) {
 		CEnumValue result = (CEnumValue) EcoreUtil
@@ -65,6 +75,14 @@ public class CesonBuilder {
 				.create(CesonPackage.Literals.COBJECT_VALUE);
 		result.setClassName(className);
 		result.getFeatures().addAll(features);
+		return result;
+	}
+
+	public CFeature feature(String name, CValue value) {
+		CFeature result = (CFeature) EcoreUtil
+				.create(CesonPackage.Literals.CFEATURE);
+		result.setName(name);
+		result.setValue(value);
 		return result;
 	}
 }
