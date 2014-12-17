@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2008, 2014 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.eclipselabs.emf.ceson;
 
 import java.util.ArrayList;
@@ -17,12 +27,35 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.emf.ceson.util.CesonSwitch;
 
+/**
+ * {@link EcoreGenerator} is used to generate Ecore models from Ceson models.
+ * 
+ * @author <a href="mailto:romain.guider@obeo.fr">Romain Guider</a>
+ */
 public class EcoreGenerator extends CesonSwitch<Object> {
-
+	/**
+	 * The registered packages.
+	 */
 	private SortedMap<String, EPackage> ePackages;
+	/**
+	 * the current definitions.
+	 */
 	private Map<String, Object> definitions;
+	/**
+	 * the resource where to store created objects.
+	 */
 	private Resource resource;
 
+	/**
+	 * CReates a new {@link EcoreGenerator} instance.
+	 * 
+	 * @param ePackages
+	 *            the registered packaeges.
+	 * @param resource
+	 *            the resource to use
+	 * @param definitions
+	 *            the existing definitions.
+	 */
 	public EcoreGenerator(SortedMap<String, EPackage> ePackages,
 			Resource resource, Map<String, Object> definitions) {
 		this.ePackages = ePackages;
@@ -86,9 +119,17 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		return definitions.get(object.getVarName());
 	}
 
+	/**
+	 * Lookup an {@link EClass} by it's qualified name.
+	 * 
+	 * @param qualifiedClassName
+	 *            the seeked {@link EClass} qualified name.
+	 * @return the found {@link EClass} or <code>null</code>.
+	 */
 	private EClass eClassLookupByName(String qualifiedClassName) {
 		String className = "";
 		String packageName = "";
+		EClass result = null;
 		int lastIndexOfDot = qualifiedClassName.lastIndexOf('.');
 		if (lastIndexOfDot > 0) {
 			packageName = qualifiedClassName.substring(0, lastIndexOfDot);
@@ -100,9 +141,7 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 			EPackage ePackage = ePackages.get(packageName);
 			EClassifier eClassifier = ePackage.getEClassifier(className);
 			if (eClassifier instanceof EClass) {
-				return (EClass) eClassifier;
-			} else {
-				return null;
+				result = (EClass) eClassifier;
 			}
 		} else {
 			// iterate over the packages and return the first class which name
@@ -110,27 +149,46 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 			for (EPackage ePackage : ePackages.values()) {
 				EClassifier eClassifier = ePackage.getEClassifier(className);
 				if (eClassifier instanceof EClass) {
-					return (EClass) eClassifier;
+					result = (EClass) eClassifier;
+					break;
 				}
 			}
-			return null;
 		}
+		return result;
 	}
 
+	/**
+	 * checks whether the value is assignable to the feature.
+	 * 
+	 * @param feature
+	 *            the checked feature.
+	 * @param value
+	 *            the value to check/
+	 * @return <code>true</code> of the value is assignable to the feature.
+	 */
 	private boolean featureMatches(EStructuralFeature feature, Object value) {
-		if (value instanceof Collection) {// All of the values must match
+		if (value instanceof Collection) { // All of the values must match
 											// feature's type
+			boolean result = true;
 			for (Object obj : (Collection<Object>) value) {
 				if (!feature.getEType().isInstance(obj) && obj != null) {
-					return false;
+					result = false;
+					break;
 				}
 			}
-			return true;
+			return result;
 		} else {
 			return feature.getEType().isInstance(value);
 		}
 	}
 
+	/**
+	 * Lookup a class that matches a set of featuers.
+	 * 
+	 * @param features
+	 *            the features used to lookup the class.
+	 * @return the found {@link EClass} or <code>null</code>
+	 */
 	private EClass eClassLookupByFeatures(Map<String, Object> features) {
 		// iterate on ePackages and on classifiers and returns the first
 		// matching, non abstract, EClass
@@ -182,8 +240,7 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 				EStructuralFeature feature = eClass
 						.getEStructuralFeature(featureName);
 				if (feature.isMany()) {
-					setMultipleFeature(feature, result,
-							features.get(featureName));
+					setFeature(feature, result, features.get(featureName));
 				} else {
 					result.eSet(feature, features.get(featureName));
 				}
@@ -192,7 +249,18 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		}
 	}
 
-	private void setMultipleFeature(EStructuralFeature feature, EObject target,
+	/**
+	 * Set a valued feature. If the featuer is many, the value must be a
+	 * collection and all elements will be added to the feature.
+	 * 
+	 * @param feature
+	 *            the feature to set.
+	 * @param target
+	 *            the target object.
+	 * @param value
+	 *            the value to set.
+	 */
+	private void setFeature(EStructuralFeature feature, EObject target,
 			Object value) {
 		List<Object> list = (List<Object>) target.eGet(feature);
 		if (value instanceof Collection) {
@@ -212,6 +280,13 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		return null;
 	}
 
+	/**
+	 * Returns the value associated to the specified variable name.
+	 * 
+	 * @param varName
+	 *            the variable.
+	 * @return the value associated to the variable's name.
+	 */
 	public Object getVar(String varName) {
 		return definitions.get(varName);
 	}

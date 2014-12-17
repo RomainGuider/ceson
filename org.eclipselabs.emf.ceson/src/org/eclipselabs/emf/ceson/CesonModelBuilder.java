@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2008, 2014 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.eclipselabs.emf.ceson;
 
 import java.math.BigDecimal;
@@ -20,24 +30,56 @@ import org.eclipselabs.emf.ceson.parser.CesonParser.RefContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.ReferenceContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.StringLiteralContext;
 
+/**
+ * Parser listener that builds the actual Ceson model from the strings.
+ * 
+ * @author <a href="mailto:romain.guider@obeo.fr">Romain Guider</a>
+ */
 public class CesonModelBuilder extends CesonBaseListener {
 
+	/**
+	 * The produced {@link CSpecification} instance.
+	 */
 	private CSpecification specification;
+	/**
+	 * The model builder.
+	 */
 	private CesonBuilder builder = new CesonBuilder();
+	/**
+	 * The stack used to store temporary objects.
+	 */
 	private Stack<Object> stack = new Stack<Object>();
-
+	/**
+	 * The object used to mark start of array values in the stack.
+	 */
 	private final Object arrayStart = new Object();
 
+	/**
+	 * Creates a new {@link CesonModelBuilder} instance.
+	 * 
+	 * @param specificationName
+	 *            the created specification name.
+	 */
 	public CesonModelBuilder(String specificationName) {
 		specification = (CSpecification) EcoreUtil
 				.create(CesonPackage.Literals.CSPECIFICATION);
 		specification.setName(specificationName);
 	}
 
+	/**
+	 * Returns the created {@link CSpecification} instance.
+	 * 
+	 * @return the created {@link CSpecification} instance.
+	 */
 	public CSpecification getSpecification() {
 		return specification;
 	}
 
+	/**
+	 * Return the last created object on the stack.
+	 * 
+	 * @return the last created object on the stack.
+	 */
 	public Object getResult() {
 		if (!stack.isEmpty()) {
 			return stack.peek();
@@ -87,7 +129,7 @@ public class CesonModelBuilder extends CesonBaseListener {
 		while (!stack.isEmpty() && stack.peek() != arrayStart) {
 			Object element = stack.pop();
 			if (element instanceof CValue) {
-				values.add(((CValue) element));
+				values.add((CValue) element);
 			} else {
 				throw new IllegalStateException(
 						"Value expected on the stack. Got "
@@ -158,6 +200,17 @@ public class CesonModelBuilder extends CesonBaseListener {
 		}
 	}
 
+	/**
+	 * Creates a new {@link CFeature} instance.
+	 * 
+	 * @param featureName
+	 *            the feature's name
+	 * @param value
+	 *            the value
+	 * @param containment
+	 *            whether this is a containment feature
+	 * @return the new {@link CFeature} instance.
+	 */
 	CFeature createFeature(String featureName, CValue value, boolean containment) {
 		CFeature feature = (CFeature) EcoreUtil
 				.create(CesonPackage.Literals.CFEATURE);
