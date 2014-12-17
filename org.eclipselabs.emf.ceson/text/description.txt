@@ -37,6 +37,9 @@ Package ceson <http://org.eclipse.emf.ceson/1.0>
   Class CArrayValue -> CValue
     Reference values : CValue<<0..*>>
 
+  Class CBooleanValue -> CValue
+    Attribute value : EBoolean<<1..1>>
+
   Class StringToCesonValueMap
     Attribute key : EString
     Reference value : CValue

@@ -85,4 +85,11 @@ public class CesonBuilder {
 		result.setValue(value);
 		return result;
 	}
+
+	public Object booleanValue(boolean b) {
+		CBooleanValue result = (CBooleanValue) EcoreUtil
+				.create(CesonPackage.Literals.CBOOLEAN_VALUE);
+		result.setValue(b);
+		return result;
+	}
 }

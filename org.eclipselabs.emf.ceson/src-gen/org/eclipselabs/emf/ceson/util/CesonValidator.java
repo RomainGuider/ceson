@@ -105,6 +105,8 @@ public class CesonValidator extends EObjectValidator {
 				return validateCJavaObjectValue((CJavaObjectValue)value, diagnostics, context);
 			case CesonPackage.CARRAY_VALUE:
 				return validateCArrayValue((CArrayValue)value, diagnostics, context);
+			case CesonPackage.CBOOLEAN_VALUE:
+				return validateCBooleanValue((CBooleanValue)value, diagnostics, context);
 			case CesonPackage.STRING_TO_CESON_VALUE_MAP:
 				return validateStringToCesonValueMap((Map.Entry<?, ?>)value, diagnostics, context);
 			case CesonPackage.CSPECIFICATION:
@@ -237,6 +239,15 @@ public class CesonValidator extends EObjectValidator {
 	 */
 	public boolean validateCArrayValue(CArrayValue cArrayValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(cArrayValue, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCBooleanValue(CBooleanValue cBooleanValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(cBooleanValue, diagnostics, context);
 	}
 
 	/**

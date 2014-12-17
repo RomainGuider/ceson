@@ -102,6 +102,10 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 				return createCArrayValueAdapter();
 			}
 			@Override
+			public Adapter caseCBooleanValue(CBooleanValue object) {
+				return createCBooleanValueAdapter();
+			}
+			@Override
 			public Adapter caseStringToCesonValueMap(Map.Entry<String, CValue> object) {
 				return createStringToCesonValueMapAdapter();
 			}
@@ -260,6 +264,20 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCArrayValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CBooleanValue <em>CBoolean Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.emf.ceson.CBooleanValue
+	 * @generated
+	 */
+	public Adapter createCBooleanValueAdapter() {
 		return null;
 	}
 

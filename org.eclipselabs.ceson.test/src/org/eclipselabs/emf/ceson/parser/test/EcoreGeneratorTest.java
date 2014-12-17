@@ -1,10 +1,12 @@
 package org.eclipselabs.emf.ceson.parser.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipselabs.emf.ceson.CArrayValue;
+import org.eclipselabs.emf.ceson.CBooleanValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CIntValue;
@@ -156,6 +159,18 @@ public class EcoreGeneratorTest {
 	}
 
 	@Test
+	public void booleanValueTest() {
+		CBooleanValue value = (CBooleanValue) EcoreUtil
+				.create(CesonPackage.Literals.CBOOLEAN_VALUE);
+		value.setValue(true);
+		assertEquals(new Boolean(true), new EcoreGenerator(ePackages, resource,
+				Collections.EMPTY_MAP).doSwitch(value));
+		value.setValue(false);
+		assertEquals(new Boolean(false), new EcoreGenerator(ePackages,
+				resource, Collections.EMPTY_MAP).doSwitch(value));
+	}
+
+	@Test
 	public void arrayValueTest() {
 		CArrayValue arrayValue = (CArrayValue) EcoreUtil
 				.create(CesonPackage.Literals.CARRAY_VALUE);
@@ -233,7 +248,7 @@ public class EcoreGeneratorTest {
 	}
 
 	/**
-	 * Tests an object creation without class name and setting a multi-valued
+	 * Tests an object creation with class name and setting a multi-valued
 	 * feature.
 	 */
 	@Test
@@ -260,6 +275,35 @@ public class EcoreGeneratorTest {
 		assertEquals("feature2", objResult.getFeatures().get(1).getName());
 	}
 
+	/**
+	 * Tests an object creation without class name setting a multi-valued
+	 * feature.
+	 */
+	@Test
+	public void objectTest5() {
+		CesonBuilder builder = new CesonBuilder();
+		List<CFeature> features1 = new ArrayList<CFeature>();
+		features1.add(builder.feature("name", builder.stringValue("feature1")));
+		CObjectValue f1 = builder.objectValue("CFeature", features1);
+		List<CFeature> features2 = new ArrayList<CFeature>();
+		features2.add(builder.feature("name", builder.stringValue("feature2")));
+		CObjectValue f2 = builder.objectValue("CFeature", features2);
+		List<CFeature> features = Lists.newArrayList(builder.feature(
+				"features", builder.arrayValue(f1, f2)));
+		CObjectValue obj = builder.objectValue(null, features);
+
+		EcoreGenerator gen = new EcoreGenerator(ePackages, resource,
+				Collections.EMPTY_MAP);
+
+		EObject result = (EObject) gen.doSwitch(obj);
+		assertNotNull(result);
+		assertEquals(CesonPackage.Literals.COBJECT_VALUE, result.eClass());
+		CObjectValue objResult = (CObjectValue) result;
+		assertEquals(2, objResult.getFeatures().size());
+		assertEquals("feature1", objResult.getFeatures().get(0).getName());
+		assertEquals("feature2", objResult.getFeatures().get(1).getName());
+	}
+
 	@Test
 	public void testCSpecification() {
 		CSpecification spec = (CSpecification) EcoreUtil
@@ -268,7 +312,7 @@ public class EcoreGeneratorTest {
 		spec.getDefinitions().put("var1", builder.intValue(10));
 		spec.getDefinitions().put("var2", builder.intValue(20));
 		EcoreGenerator gen = new EcoreGenerator(ePackages, resource,
-				Collections.EMPTY_MAP);
+				new HashMap<String, Object>());
 		EObject result = (EObject) gen.doSwitch(spec);
 		assertEquals(10, gen.getVar("var1"));
 		assertEquals(20, gen.getVar("var2"));

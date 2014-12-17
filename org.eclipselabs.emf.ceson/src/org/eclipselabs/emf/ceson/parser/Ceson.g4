@@ -11,10 +11,12 @@ value : ID 			    #Ref
 	  | Int			    #IntLiteral
 	  | Float		    #RealLiteral
 	  | String			#StringLiteral
+	  | Boolean			#BooleanLiteral
       | enumName 		#EnumLiteral
 	  | object 	   		#ObjectLiteral
 	  | array			#ArrayLiteral
 	  ;
+
 array : '[' (value (','value)*)? ']'
 	  ;
 object : className? '{' featureList '}';
@@ -29,6 +31,9 @@ className : (ID '.')? ID
 feature : ID ':' value #Containment
 		|  ID '>' value #Reference 
 		;
+
+Boolean: 'true' | 'false';
+
 ID : [a-zA-Z][_\-a-zA-Z0-9]+ ;
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
@@ -43,6 +48,7 @@ Int
 :
     DIGIT+
 ;
+
 
 Float : DIGIT+'.'DIGIT+;
 

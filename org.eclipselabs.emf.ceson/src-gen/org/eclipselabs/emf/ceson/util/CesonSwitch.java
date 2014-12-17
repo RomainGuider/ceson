@@ -126,6 +126,13 @@ public class CesonSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CesonPackage.CBOOLEAN_VALUE: {
+				CBooleanValue cBooleanValue = (CBooleanValue)theEObject;
+				T result = caseCBooleanValue(cBooleanValue);
+				if (result == null) result = caseCValue(cBooleanValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CesonPackage.STRING_TO_CESON_VALUE_MAP: {
 				@SuppressWarnings("unchecked") Map.Entry<String, CValue> stringToCesonValueMap = (Map.Entry<String, CValue>)theEObject;
 				T result = caseStringToCesonValueMap(stringToCesonValueMap);
@@ -288,6 +295,21 @@ public class CesonSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCArrayValue(CArrayValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>CBoolean Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>CBoolean Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCBooleanValue(CBooleanValue object) {
 		return null;
 	}
 

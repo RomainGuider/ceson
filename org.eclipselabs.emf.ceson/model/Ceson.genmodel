@@ -47,6 +47,9 @@
     <genClasses ecoreClass="Ceson.ecore#//CArrayValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//CArrayValue/values"/>
     </genClasses>
+    <genClasses ecoreClass="Ceson.ecore#//CBooleanValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CBooleanValue/value"/>
+    </genClasses>
     <genClasses ecoreClass="Ceson.ecore#//StringToCesonValueMap">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//StringToCesonValueMap/key"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//StringToCesonValueMap/value"/>

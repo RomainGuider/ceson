@@ -9,6 +9,7 @@ import java.util.Stack;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.emf.ceson.parser.CesonBaseListener;
 import org.eclipselabs.emf.ceson.parser.CesonParser.ArrayContext;
+import org.eclipselabs.emf.ceson.parser.CesonParser.BooleanLiteralContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.ContainmentContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.DefinitionContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.EnumLiteralContext;
@@ -56,6 +57,16 @@ public class CesonModelBuilder extends CesonBaseListener {
 		String text = ctx.getText();
 		text = text.substring(1, text.length() - 1);
 		stack.push(builder.stringValue(text));
+	}
+
+	@Override
+	public void exitBooleanLiteral(BooleanLiteralContext ctx) {
+		String text = ctx.getText();
+		if ("true".equals(text)) {
+			stack.push(builder.booleanValue(true));
+		} else {
+			stack.push(builder.booleanValue(false));
+		}
 	}
 
 	@Override
@@ -119,6 +130,7 @@ public class CesonModelBuilder extends CesonBaseListener {
 			throw new IllegalStateException(
 					"stack should contain a value to map to the definition's name.");
 		}
+		stack.push(varName);
 	}
 
 	@Override

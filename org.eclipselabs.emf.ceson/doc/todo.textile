@@ -4,9 +4,9 @@ h1. Todo List for Ceson Parser
 |_. ID     |_. Description | State|
 | TODO01   | define the grammar | DONE |
 | TODO02   | write the model builder that listens to the grammar | DONE |
-| TODO03   | uniformly rename classes and concepts with 'C' instead of 'Ceson'| |
-| TODO04   | write the Ceson2EMF transformer ||
-| TODO05   | define and write the Ceson user API ||
+| TODO03   | uniformly rename classes and concepts with 'C' instead of 'Ceson'|DONE |
+| TODO04   | write the Ceson2EMF transformer |DONE|
+| TODO05   | define and write the Ceson user API |DONE |
 | TODO06   | extend the language to include navigation capabilities ||
 | TODO07   | clean up source code for publication (branding, copyright, licence, etc.) ||
 

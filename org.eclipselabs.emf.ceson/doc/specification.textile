@@ -9,7 +9,7 @@ The requirements are the following
 * Ceson must accomodate dynamic metamodel 
 
 
-The quality of such a system are the following : 
+The expected quality of such a system are the following : 
 * the notation should be as readable as possible
 * the notation should be as robust as possible to meta-model changes
 * the notation should be as concise as possible (which actually eases readability	)
@@ -95,7 +95,17 @@ mother = {
 bc. 
 	
 
+h2. API description
 
+The API provides three use cases :
+* parse a value specification: this is intended for isolated usage on small model fragments. The call returns an EObject which corresponds to the specified value if the string correctly represents a value. The complete described model fragment is contained in a single resource. 
+* parse a definition : a definition maps a value to a variable. The value is retained for further use through the API. 
+* parse a specification : a complete specification is merely a series of definitions. 
+
+For each call, there are two modes:
+* the single resource mode where a single resource is reused througout all the calls and the produced model is stored in it. 
+* the multiple resource mode where a new resource is used for the models produced as the result of executing each call. 
+ 
 
 
 

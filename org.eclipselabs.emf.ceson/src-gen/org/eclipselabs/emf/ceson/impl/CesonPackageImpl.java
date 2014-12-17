@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipselabs.emf.ceson.CAnyValue;
 import org.eclipselabs.emf.ceson.CArrayValue;
+import org.eclipselabs.emf.ceson.CBooleanValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CJavaObjectValue;
@@ -96,6 +97,13 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * @generated
 	 */
 	private EClass cArrayValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cBooleanValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -396,6 +404,24 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCBooleanValue() {
+		return cBooleanValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCBooleanValue_Value() {
+		return (EAttribute)cBooleanValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStringToCesonValueMap() {
 		return stringToCesonValueMapEClass;
 	}
@@ -566,6 +592,9 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		cArrayValueEClass = createEClass(CARRAY_VALUE);
 		createEReference(cArrayValueEClass, CARRAY_VALUE__VALUES);
 
+		cBooleanValueEClass = createEClass(CBOOLEAN_VALUE);
+		createEAttribute(cBooleanValueEClass, CBOOLEAN_VALUE__VALUE);
+
 		stringToCesonValueMapEClass = createEClass(STRING_TO_CESON_VALUE_MAP);
 		createEAttribute(stringToCesonValueMapEClass, STRING_TO_CESON_VALUE_MAP__KEY);
 		createEReference(stringToCesonValueMapEClass, STRING_TO_CESON_VALUE_MAP__VALUE);
@@ -621,6 +650,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		cObjectValueEClass.getESuperTypes().add(this.getCValue());
 		cJavaObjectValueEClass.getESuperTypes().add(this.getCValue());
 		cArrayValueEClass.getESuperTypes().add(this.getCValue());
+		cBooleanValueEClass.getESuperTypes().add(this.getCValue());
 		cEnumValueEClass.getESuperTypes().add(this.getCValue());
 		cReferenceEClass.getESuperTypes().add(this.getCValue());
 
@@ -654,6 +684,9 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 
 		initEClass(cArrayValueEClass, CArrayValue.class, "CArrayValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCArrayValue_Values(), this.getCValue(), null, "values", null, 0, -1, CArrayValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cBooleanValueEClass, CBooleanValue.class, "CBooleanValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, CBooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToCesonValueMapEClass, Map.Entry.class, "StringToCesonValueMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToCesonValueMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

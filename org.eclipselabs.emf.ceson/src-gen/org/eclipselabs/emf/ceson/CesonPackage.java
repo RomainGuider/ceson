@@ -481,6 +481,52 @@ public interface CesonPackage extends EPackage {
 	int CARRAY_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CBooleanValueImpl <em>CBoolean Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.emf.ceson.impl.CBooleanValueImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCBooleanValue()
+	 * @generated
+	 */
+	int CBOOLEAN_VALUE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CBOOLEAN_VALUE__TYPE = CVALUE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CBOOLEAN_VALUE__VALUE = CVALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>CBoolean Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CBOOLEAN_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>CBoolean Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CBOOLEAN_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl <em>String To Ceson Value Map</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -488,7 +534,7 @@ public interface CesonPackage extends EPackage {
 	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getStringToCesonValueMap()
 	 * @generated
 	 */
-	int STRING_TO_CESON_VALUE_MAP = 9;
+	int STRING_TO_CESON_VALUE_MAP = 10;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -534,7 +580,7 @@ public interface CesonPackage extends EPackage {
 	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCSpecification()
 	 * @generated
 	 */
-	int CSPECIFICATION = 10;
+	int CSPECIFICATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -580,7 +626,7 @@ public interface CesonPackage extends EPackage {
 	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCEnumValue()
 	 * @generated
 	 */
-	int CENUM_VALUE = 11;
+	int CENUM_VALUE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -644,7 +690,7 @@ public interface CesonPackage extends EPackage {
 	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCReference()
 	 * @generated
 	 */
-	int CREFERENCE = 12;
+	int CREFERENCE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -690,7 +736,7 @@ public interface CesonPackage extends EPackage {
 	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCType()
 	 * @generated
 	 */
-	int CTYPE = 13;
+	int CTYPE = 14;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CFeature <em>CFeature</em>}'.
@@ -913,6 +959,27 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCArrayValue_Values();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CBooleanValue <em>CBoolean Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>CBoolean Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CBooleanValue
+	 * @generated
+	 */
+	EClass getCBooleanValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CBooleanValue#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CBooleanValue#isValue()
+	 * @see #getCBooleanValue()
+	 * @generated
+	 */
+	EAttribute getCBooleanValue_Value();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Ceson Value Map</em>}'.
@@ -1262,6 +1329,24 @@ public interface CesonPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CARRAY_VALUE__VALUES = eINSTANCE.getCArrayValue_Values();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CBooleanValueImpl <em>CBoolean Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.emf.ceson.impl.CBooleanValueImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCBooleanValue()
+		 * @generated
+		 */
+		EClass CBOOLEAN_VALUE = eINSTANCE.getCBooleanValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CBOOLEAN_VALUE__VALUE = eINSTANCE.getCBooleanValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl <em>String To Ceson Value Map</em>}' class.

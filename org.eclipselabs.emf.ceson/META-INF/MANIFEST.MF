@@ -13,5 +13,10 @@ Export-Package: org.eclipselabs.emf.ceson,
  org.eclipselabs.emf.ceson.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.10.1";visibility:=reexport,
- org.antlr4;bundle-version="1.0.0"
+ org.eclipse.emf.ecore.xmi;bundle-version="2.10.1"
 Bundle-ActivationPolicy: lazy
+Import-Package: org.antlr.v4.runtime;version="4.3.0",
+ org.antlr.v4.runtime.atn;version="4.3.0",
+ org.antlr.v4.runtime.dfa;version="4.3.0",
+ org.antlr.v4.runtime.misc;version="4.3.0",
+ org.antlr.v4.runtime.tree;version="4.3.0"

@@ -94,6 +94,15 @@ public interface CesonFactory extends EFactory {
 	CArrayValue createCArrayValue();
 
 	/**
+	 * Returns a new object of class '<em>CBoolean Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>CBoolean Value</em>'.
+	 * @generated
+	 */
+	CBooleanValue createCBooleanValue();
+
+	/**
 	 * Returns a new object of class '<em>CSpecification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

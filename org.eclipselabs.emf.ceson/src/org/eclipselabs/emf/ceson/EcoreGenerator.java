@@ -20,13 +20,13 @@ import org.eclipselabs.emf.ceson.util.CesonSwitch;
 public class EcoreGenerator extends CesonSwitch<Object> {
 
 	private SortedMap<String, EPackage> ePackages;
-	private Map<String, Object> definitions = new HashMap<String, Object>();
+	private Map<String, Object> definitions;
 	private Resource resource;
 
 	public EcoreGenerator(SortedMap<String, EPackage> ePackages,
 			Resource resource, Map<String, Object> definitions) {
 		this.ePackages = ePackages;
-		this.definitions.putAll(definitions);
+		this.definitions = definitions;
 		this.resource = resource;
 	}
 
@@ -43,6 +43,11 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	@Override
 	public Object caseCRealValue(CRealValue object) {
 		return object.getValue();
+	}
+
+	@Override
+	public Object caseCBooleanValue(CBooleanValue object) {
+		return object.isValue();
 	}
 
 	@Override
@@ -112,6 +117,20 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		}
 	}
 
+	private boolean featureMatches(EStructuralFeature feature, Object value) {
+		if (value instanceof Collection) {// All of the values must match
+											// feature's type
+			for (Object obj : (Collection<Object>) value) {
+				if (!feature.getEType().isInstance(obj) && obj != null) {
+					return false;
+				}
+			}
+			return true;
+		} else {
+			return feature.getEType().isInstance(value);
+		}
+	}
+
 	private EClass eClassLookupByFeatures(Map<String, Object> features) {
 		// iterate on ePackages and on classifiers and returns the first
 		// matching, non abstract, EClass
@@ -125,7 +144,7 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 						EStructuralFeature eFeature = ((EClass) eClassifier)
 								.getEStructuralFeature(featureName);
 						if (eFeature == null
-								|| !eFeature.getEType().isInstance(
+								|| !featureMatches(eFeature,
 										features.get(featureName))) {
 							matches = false;
 							break;
@@ -154,18 +173,23 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		} else {
 			eClass = eClassLookupByFeatures(features);
 		}
-		EObject result = EcoreUtil.create(eClass);
-		resource.getContents().add(result);
-		for (String featureName : features.keySet()) {
-			EStructuralFeature feature = eClass
-					.getEStructuralFeature(featureName);
-			if (feature.isMany()) {
-				setMultipleFeature(feature, result, features.get(featureName));
-			} else {
-				result.eSet(feature, features.get(featureName));
+		if (eClass == null) {
+			return null;
+		} else {
+			EObject result = EcoreUtil.create(eClass);
+			resource.getContents().add(result);
+			for (String featureName : features.keySet()) {
+				EStructuralFeature feature = eClass
+						.getEStructuralFeature(featureName);
+				if (feature.isMany()) {
+					setMultipleFeature(feature, result,
+							features.get(featureName));
+				} else {
+					result.eSet(feature, features.get(featureName));
+				}
 			}
+			return result;
 		}
-		return result;
 	}
 
 	private void setMultipleFeature(EStructuralFeature feature, EObject target,

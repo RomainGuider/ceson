@@ -13,6 +13,7 @@ import org.antlr.v4.runtime.TokenStream;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.emf.ceson.CArrayValue;
+import org.eclipselabs.emf.ceson.CBooleanValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CIntValue;
@@ -78,6 +79,20 @@ public class CesonParserTest {
 		Object result = parseValue("10");
 		assertTrue(result instanceof CIntValue);
 		assertEquals(10, ((CIntValue) result).getValue());
+	}
+
+	@Test
+	public void testTrueLiteralParsing() {
+		Object result = parseValue("true");
+		assertTrue(result instanceof CBooleanValue);
+		assertTrue(((CBooleanValue) result).isValue());
+	}
+
+	@Test
+	public void testFalseLiteralParsing() {
+		Object result = parseValue("false");
+		assertTrue(result instanceof CBooleanValue);
+		assertFalse(((CBooleanValue) result).isValue());
 	}
 
 	@Test

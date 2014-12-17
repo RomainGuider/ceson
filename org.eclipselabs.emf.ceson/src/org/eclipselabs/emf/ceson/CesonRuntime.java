@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipselabs.emf.ceson.parser.CesonLexer;
 import org.eclipselabs.emf.ceson.parser.CesonParser;
 
@@ -20,23 +21,35 @@ public class CesonRuntime {
 
 	private SortedMap<String, EPackage> ePackages = new TreeMap<String, EPackage>();
 	private Map<String, Object> definitions = new TreeMap<String, Object>();
-	private Resource resource;
 	private ResourceSet resourceSet;
 	private boolean singleResource;
 
 	public CesonRuntime(ResourceSet rs, boolean singleResource) {
 		this.resourceSet = rs;
+		this.singleResource = singleResource;
+		this.resourceSet.getResourceFactoryRegistry()
+				.getExtensionToFactoryMap()
+				.put("*", new XMIResourceFactoryImpl());
 	}
 
 	public CesonRuntime(boolean singleResource) {
 		this.resourceSet = new ResourceSetImpl();
+		this.resourceSet.getResourceFactoryRegistry()
+				.getExtensionToFactoryMap()
+				.put("*", new XMIResourceFactoryImpl());
 		this.singleResource = singleResource;
 	}
 
 	public CesonRuntime() {
 		this.resourceSet = new ResourceSetImpl();
-		this.singleResource = singleResource;
+		this.resourceSet.getResourceFactoryRegistry()
+				.getExtensionToFactoryMap()
+				.put("*", new XMIResourceFactoryImpl());
 		this.singleResource = true;
+	}
+
+	public void registerEPackage(EPackage ePackage) {
+		ePackages.put(ePackage.getNsPrefix(), ePackage);
 	}
 
 	private CesonParser createParser(String input) {
@@ -86,12 +99,14 @@ public class CesonRuntime {
 				.getName());
 		EcoreGenerator generator = new EcoreGenerator(ePackages, resource,
 				definitions);
-		Object cResult = modelBuilder.getResult();
-		if (cResult == null || !(cResult instanceof CDefinition)) {
+		String varName = (String) modelBuilder.getResult();
+		if (varName == null || !(varName instanceof String)) {
 			throw new CesonException("Couldn't parse the given definition.");
 		}
-		generator.doSwitch((EObject) cResult);
-		return definitions.get(((CDefinition) cResult).getVariableName());
+		Object cResult = generator.doSwitch((EObject) modelBuilder
+				.getSpecification().getDefinitions().get(varName));
+		definitions.put(varName, cResult);
+		return cResult;
 	}
 
 	public Object parseValue(String valueDescription) throws CesonException {
@@ -116,5 +131,13 @@ public class CesonRuntime {
 					"The variable name and the value must be non null.");
 		}
 		return this.definitions.put(varName, value);
+	}
+
+	public Object killDefinition(String varName) {
+		return this.definitions.remove(varName);
+	}
+
+	public void clearDefinitions() {
+		this.definitions.clear();
 	}
 }
