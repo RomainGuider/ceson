@@ -155,7 +155,11 @@ public class CesonRuntime {
 		CesonParser parser = createParser(description);
 		CesonModelBuilder modelBuilder = new CesonModelBuilder("");
 		parser.addParseListener(modelBuilder);
-		parser.model();
+		try {
+			parser.model();
+		} catch (IllegalStateException ise) {
+			throw new CesonException(ise);
+		}
 		Resource resource = getResource(modelBuilder.getSpecification()
 				.getName());
 		EcoreGenerator generator = new EcoreGenerator(ePackages, resource,
@@ -181,15 +185,16 @@ public class CesonRuntime {
 		CesonParser parser = createParser(definition);
 		CesonModelBuilder modelBuilder = new CesonModelBuilder("");
 		parser.addParseListener(modelBuilder);
-		parser.definition();
+		try {
+			parser.definition();
+		} catch (IllegalStateException ise) {
+			throw new CesonException(ise);
+		}
 		Resource resource = getResource(modelBuilder.getSpecification()
 				.getName());
 		EcoreGenerator generator = new EcoreGenerator(ePackages, resource,
 				definitions);
 		String varName = (String) modelBuilder.getResult();
-		if (varName == null || !(varName instanceof String)) {
-			throw new CesonException("Couldn't parse the given definition.");
-		}
 		Object cResult = generator.doSwitch((EObject) modelBuilder
 				.getSpecification().getDefinitions().get(varName));
 		definitions.put(varName, cResult);
@@ -209,7 +214,11 @@ public class CesonRuntime {
 		CesonParser parser = createParser(valueDescription);
 		CesonModelBuilder modelBuilder = new CesonModelBuilder("");
 		parser.addParseListener(modelBuilder);
-		parser.value();
+		try {
+			parser.value();
+		} catch (IllegalStateException ise) {
+			throw new CesonException(ise);
+		}
 		Resource resource = getResource(modelBuilder.getSpecification()
 				.getName());
 		EcoreGenerator generator = new EcoreGenerator(ePackages, resource,
