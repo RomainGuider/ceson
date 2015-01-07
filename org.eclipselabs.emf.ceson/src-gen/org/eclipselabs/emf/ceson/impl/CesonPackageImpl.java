@@ -110,7 +110,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass stringToCesonValueMapEClass = null;
+	private EClass stringToCValueMapEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -422,8 +422,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStringToCesonValueMap() {
-		return stringToCesonValueMapEClass;
+	public EClass getStringToCValueMap() {
+		return stringToCValueMapEClass;
 	}
 
 	/**
@@ -431,8 +431,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringToCesonValueMap_Key() {
-		return (EAttribute)stringToCesonValueMapEClass.getEStructuralFeatures().get(0);
+	public EAttribute getStringToCValueMap_Key() {
+		return (EAttribute)stringToCValueMapEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -440,8 +440,8 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStringToCesonValueMap_Value() {
-		return (EReference)stringToCesonValueMapEClass.getEStructuralFeatures().get(1);
+	public EReference getStringToCValueMap_Value() {
+		return (EReference)stringToCValueMapEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -595,9 +595,9 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		cBooleanValueEClass = createEClass(CBOOLEAN_VALUE);
 		createEAttribute(cBooleanValueEClass, CBOOLEAN_VALUE__VALUE);
 
-		stringToCesonValueMapEClass = createEClass(STRING_TO_CESON_VALUE_MAP);
-		createEAttribute(stringToCesonValueMapEClass, STRING_TO_CESON_VALUE_MAP__KEY);
-		createEReference(stringToCesonValueMapEClass, STRING_TO_CESON_VALUE_MAP__VALUE);
+		stringToCValueMapEClass = createEClass(STRING_TO_CVALUE_MAP);
+		createEAttribute(stringToCValueMapEClass, STRING_TO_CVALUE_MAP__KEY);
+		createEReference(stringToCValueMapEClass, STRING_TO_CVALUE_MAP__VALUE);
 
 		cSpecificationEClass = createEClass(CSPECIFICATION);
 		createEAttribute(cSpecificationEClass, CSPECIFICATION__NAME);
@@ -688,13 +688,13 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		initEClass(cBooleanValueEClass, CBooleanValue.class, "CBooleanValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, CBooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(stringToCesonValueMapEClass, Map.Entry.class, "StringToCesonValueMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringToCesonValueMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStringToCesonValueMap_Value(), this.getCValue(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(stringToCValueMapEClass, Map.Entry.class, "StringToCValueMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringToCValueMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringToCValueMap_Value(), this.getCValue(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cSpecificationEClass, CSpecification.class, "CSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCSpecification_Name(), ecorePackage.getEString(), "name", null, 0, 1, CSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCSpecification_Definitions(), this.getStringToCesonValueMap(), null, "definitions", null, 0, -1, CSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCSpecification_Definitions(), this.getStringToCValueMap(), null, "definitions", null, 0, -1, CSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cEnumValueEClass, CEnumValue.class, "CEnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCEnumValue_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, CEnumValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -61,7 +61,7 @@ public interface CSpecification extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Definitions</em>' map.
 	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCSpecification_Definitions()
-	 * @model mapType="org.eclipselabs.emf.ceson.StringToCesonValueMap<org.eclipse.emf.ecore.EString, org.eclipselabs.emf.ceson.CValue>"
+	 * @model mapType="org.eclipselabs.emf.ceson.StringToCValueMap<org.eclipse.emf.ecore.EString, org.eclipselabs.emf.ceson.CValue>"
 	 * @generated
 	 */
 	EMap<String, CValue> getDefinitions();

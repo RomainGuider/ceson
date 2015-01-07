@@ -55,6 +55,7 @@ child2 = family.Children{
 father = family.Father{
 		name:"Max",
 		children: [child1,child2]
+		wife:mother
 }
 mother = family.Mother{
 	  	 name:"Mireille",

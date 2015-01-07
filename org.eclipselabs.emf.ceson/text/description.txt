@@ -40,13 +40,13 @@ Package ceson <http://org.eclipse.emf.ceson/1.0>
   Class CBooleanValue -> CValue
     Attribute value : EBoolean<<1..1>>
 
-  Class StringToCesonValueMap
+  Class StringToCValueMap
     Attribute key : EString
     Reference value : CValue
 
   Class CSpecification
     Attribute name : EString
-    Reference definitions : StringToCesonValueMap<<0..*>>
+    Reference definitions : StringToCValueMap<<0..*>>
 
   Class CEnumValue -> CValue
     Attribute packageName : EString

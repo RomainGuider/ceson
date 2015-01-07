@@ -64,7 +64,7 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 			case CesonPackage.CJAVA_OBJECT_VALUE: return createCJavaObjectValue();
 			case CesonPackage.CARRAY_VALUE: return createCArrayValue();
 			case CesonPackage.CBOOLEAN_VALUE: return createCBooleanValue();
-			case CesonPackage.STRING_TO_CESON_VALUE_MAP: return (EObject)createStringToCesonValueMap();
+			case CesonPackage.STRING_TO_CVALUE_MAP: return (EObject)createStringToCValueMap();
 			case CesonPackage.CSPECIFICATION: return createCSpecification();
 			case CesonPackage.CENUM_VALUE: return createCEnumValue();
 			case CesonPackage.CREFERENCE: return createCReference();
@@ -198,9 +198,9 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<String, CValue> createStringToCesonValueMap() {
-		StringToCesonValueMapImpl stringToCesonValueMap = new StringToCesonValueMapImpl();
-		return stringToCesonValueMap;
+	public Map.Entry<String, CValue> createStringToCValueMap() {
+		StringToCValueMapImpl stringToCValueMap = new StringToCValueMapImpl();
+		return stringToCValueMap;
 	}
 
 	/**

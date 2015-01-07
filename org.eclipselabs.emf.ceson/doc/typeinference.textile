@@ -1,0 +1,31 @@
+h1. Type inference algorithm
+
+The major contribution of Ceson and that makes it _concise_ is the type inference capability. Type inference is an algorithm that, diven a Ceson definition, will infere the most precise possible type according to the following lattice
+
+!TypeLattice.PNG! 
+
+* _Any_ is the less precise type and represents the absence of knowledge about a type
+* _All_ is a fictive type used to represent an impossible types (for instance trying to reconcile a int feature and a string feature will result in a _All_ typed feature which is invalid and cannot be used to produce any valid Ecore model).
+* _Int_, _String_, ..., _Object<KnownEClass>_, are definite types
+* _Array[Type]_ is a definite type if _Type_ is a definite type
+
+The lattice also define an order relation on types which is not necessary a subtype relationship in the sense that _T1 < _T2_ doesn't necessarily implies values of _T1_ can be set to a feature of type _T2_. The relationship denotes the level of knowledge that can be determined on types. 
+
+Finally, we define a merge operator over the lattice : _t1 /\ t2_ is a type that follows these rules :
+* _/\_ is commutative 
+*_t /\ t = t_
+* _t1 /\ t2 = All_ if both _t1_ and _t2_ are definite and different
+* _Any /\ t = t_ 
+* _All /\ t = All_ 
+* _Array[t1] /\ t = All_ if _t_ isn't an array type
+* _Array[t1] /\ Array[t2] = Array[t1/\t2]_ (given that _Array[All]_ is equivalent to _All_)
+* _Object{C1} /\ Object{Undefined} = Object{C1}_ 
+* _Object{C1} /\ Object{C2} = Object{C3}_ if there is an EClass that is a super type of both _C1_ and _C2_ (_C3_ is the EClass that is the closest to both _C1_ and _C2_)
+*  _Object{C1} /\ Object{C2} = All_ if there's no common super EClass to _C1_ and _C2_
+
+Inference works with the following rules : 
+
+* initialise all values with a definite type if they are definite values (int, real, etc.)
+* for all array feature, set the type of the feature _Array[t]_ where _t_ is the result of merging the types of all elements
+* for all non definite _Object_ value, lookup an EClass by feature. If an EClass is found, set the definite type. 
+* for all non definite _Object_ value which containing _Object_ value is definite, use the feature definitions to determine the type

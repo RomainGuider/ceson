@@ -106,8 +106,8 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 				return createCBooleanValueAdapter();
 			}
 			@Override
-			public Adapter caseStringToCesonValueMap(Map.Entry<String, CValue> object) {
-				return createStringToCesonValueMapAdapter();
+			public Adapter caseStringToCValueMap(Map.Entry<String, CValue> object) {
+				return createStringToCValueMapAdapter();
 			}
 			@Override
 			public Adapter caseCSpecification(CSpecification object) {
@@ -282,7 +282,7 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>String To Ceson Value Map</em>}'.
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>String To CValue Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -291,7 +291,7 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 	 * @see java.util.Map.Entry
 	 * @generated
 	 */
-	public Adapter createStringToCesonValueMapAdapter() {
+	public Adapter createStringToCValueMapAdapter() {
 		return null;
 	}
 

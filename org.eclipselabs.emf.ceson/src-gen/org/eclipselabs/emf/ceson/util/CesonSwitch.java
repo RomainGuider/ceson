@@ -133,9 +133,9 @@ public class CesonSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CesonPackage.STRING_TO_CESON_VALUE_MAP: {
-				@SuppressWarnings("unchecked") Map.Entry<String, CValue> stringToCesonValueMap = (Map.Entry<String, CValue>)theEObject;
-				T result = caseStringToCesonValueMap(stringToCesonValueMap);
+			case CesonPackage.STRING_TO_CVALUE_MAP: {
+				@SuppressWarnings("unchecked") Map.Entry<String, CValue> stringToCValueMap = (Map.Entry<String, CValue>)theEObject;
+				T result = caseStringToCValueMap(stringToCValueMap);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -314,17 +314,17 @@ public class CesonSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>String To Ceson Value Map</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>String To CValue Map</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>String To Ceson Value Map</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>String To CValue Map</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStringToCesonValueMap(Map.Entry<String, CValue> object) {
+	public T caseStringToCValueMap(Map.Entry<String, CValue> object) {
 		return null;
 	}
 

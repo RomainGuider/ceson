@@ -50,9 +50,9 @@
     <genClasses ecoreClass="Ceson.ecore#//CBooleanValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CBooleanValue/value"/>
     </genClasses>
-    <genClasses ecoreClass="Ceson.ecore#//StringToCesonValueMap">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//StringToCesonValueMap/key"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//StringToCesonValueMap/value"/>
+    <genClasses ecoreClass="Ceson.ecore#//StringToCValueMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//StringToCValueMap/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ceson.ecore#//StringToCValueMap/value"/>
     </genClasses>
     <genClasses ecoreClass="Ceson.ecore#//CSpecification">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CSpecification/name"/>

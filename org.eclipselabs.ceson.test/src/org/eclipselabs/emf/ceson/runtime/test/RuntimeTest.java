@@ -77,9 +77,9 @@ public class RuntimeTest {
 	public void testDefinitionSingleResource() throws CesonException {
 		CesonRuntime runtime = new CesonRuntime();
 		runtime.registerEPackage(EcorePackage.eINSTANCE);
-		runtime.parseDefinition("eClass={abstract:false}");
+		runtime.define("eClass={abstract:false}");
 		// CHECKSTYLE:OFF
-		runtime.parseDefinition("package={nsURI:'testPackage', eClassifiers:[eClass]}");
+		runtime.define("package={nsURI:'testPackage', eClassifiers:[eClass]}");
 		assertTrue(runtime.parseValue("package") instanceof EPackage);
 		assertTrue(runtime.parseValue("eClass") instanceof EClass);
 		// CHECKSTYLE:ON
@@ -99,8 +99,8 @@ public class RuntimeTest {
 	public void testDefinitionMultipleResource() throws CesonException {
 		CesonRuntime runtime = new CesonRuntime(false);
 		runtime.registerEPackage(EcorePackage.eINSTANCE);
-		runtime.parseDefinition("eClass={abstract:false}");
-		runtime.parseDefinition("package={nsURI:'testPackage', eClassifiers:[eClass]}");
+		runtime.define("eClass={abstract:false}");
+		runtime.define("package={nsURI:'testPackage', eClassifiers:[eClass]}");
 		assertNotNull(((EClass)runtime.parseValue("eClass")).eResource());
 		assertNotNull(((EPackage)runtime.parseValue("package")).eResource());
 		assertTrue(((EPackage)runtime.parseValue("package")).eResource() != ((EClass)runtime
@@ -239,7 +239,7 @@ public class RuntimeTest {
 	@Test(expected = CesonException.class)
 	public void testBadDefinition() throws CesonException {
 		CesonRuntime runtime = new CesonRuntime();
-		runtime.parseDefinition("eClass1={abstract:false,name:");
+		runtime.define("eClass1={abstract:false,name:");
 	}
 
 	/**

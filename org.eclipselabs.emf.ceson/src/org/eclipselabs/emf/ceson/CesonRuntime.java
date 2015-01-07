@@ -181,7 +181,7 @@ public class CesonRuntime {
 	 * @throws CesonException
 	 *             if a parsing or generation problem occurs.
 	 */
-	public Object parseDefinition(String definition) throws CesonException {
+	public Object define(String definition) throws CesonException {
 		CesonParser parser = createParser(definition);
 		CesonModelBuilder modelBuilder = new CesonModelBuilder("");
 		parser.addParseListener(modelBuilder);
@@ -263,5 +263,13 @@ public class CesonRuntime {
 	 */
 	public void clearDefinitions() {
 		this.definitions.clear();
+	}
+	/**
+	 * Returns the definition for the specified variable's name.
+	 * @param varName the variable which definition is seeked.
+	 * @return the value of the definition.
+	 */
+	Object getDefinition(String varName) { 
+		return this.definitions.get(varName);
 	}
 }

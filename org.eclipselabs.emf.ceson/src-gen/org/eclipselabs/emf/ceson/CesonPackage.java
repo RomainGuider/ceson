@@ -527,14 +527,14 @@ public interface CesonPackage extends EPackage {
 	int CBOOLEAN_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl <em>String To Ceson Value Map</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.StringToCValueMapImpl <em>String To CValue Map</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl
-	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getStringToCesonValueMap()
+	 * @see org.eclipselabs.emf.ceson.impl.StringToCValueMapImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getStringToCValueMap()
 	 * @generated
 	 */
-	int STRING_TO_CESON_VALUE_MAP = 10;
+	int STRING_TO_CVALUE_MAP = 10;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -543,7 +543,7 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_CESON_VALUE_MAP__KEY = 0;
+	int STRING_TO_CVALUE_MAP__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -552,25 +552,25 @@ public interface CesonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_CESON_VALUE_MAP__VALUE = 1;
+	int STRING_TO_CVALUE_MAP__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To Ceson Value Map</em>' class.
+	 * The number of structural features of the '<em>String To CValue Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_CESON_VALUE_MAP_FEATURE_COUNT = 2;
+	int STRING_TO_CVALUE_MAP_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>String To Ceson Value Map</em>' class.
+	 * The number of operations of the '<em>String To CValue Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_CESON_VALUE_MAP_OPERATION_COUNT = 0;
+	int STRING_TO_CVALUE_MAP_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CSpecificationImpl <em>CSpecification</em>}' class.
@@ -982,16 +982,16 @@ public interface CesonPackage extends EPackage {
 	EAttribute getCBooleanValue_Value();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Ceson Value Map</em>}'.
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To CValue Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>String To Ceson Value Map</em>'.
+	 * @return the meta object for class '<em>String To CValue Map</em>'.
 	 * @see java.util.Map.Entry
 	 * @model keyDataType="org.eclipse.emf.ecore.EString"
 	 *        valueType="org.eclipselabs.emf.ceson.CValue" valueContainment="true"
 	 * @generated
 	 */
-	EClass getStringToCesonValueMap();
+	EClass getStringToCValueMap();
 
 	/**
 	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
@@ -999,10 +999,10 @@ public interface CesonPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getStringToCesonValueMap()
+	 * @see #getStringToCValueMap()
 	 * @generated
 	 */
-	EAttribute getStringToCesonValueMap_Key();
+	EAttribute getStringToCValueMap_Key();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link java.util.Map.Entry <em>Value</em>}'.
@@ -1010,10 +1010,10 @@ public interface CesonPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Value</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getStringToCesonValueMap()
+	 * @see #getStringToCValueMap()
 	 * @generated
 	 */
-	EReference getStringToCesonValueMap_Value();
+	EReference getStringToCValueMap_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CSpecification <em>CSpecification</em>}'.
@@ -1349,14 +1349,14 @@ public interface CesonPackage extends EPackage {
 		EAttribute CBOOLEAN_VALUE__VALUE = eINSTANCE.getCBooleanValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl <em>String To Ceson Value Map</em>}' class.
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.StringToCValueMapImpl <em>String To CValue Map</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.emf.ceson.impl.StringToCesonValueMapImpl
-		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getStringToCesonValueMap()
+		 * @see org.eclipselabs.emf.ceson.impl.StringToCValueMapImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getStringToCValueMap()
 		 * @generated
 		 */
-		EClass STRING_TO_CESON_VALUE_MAP = eINSTANCE.getStringToCesonValueMap();
+		EClass STRING_TO_CVALUE_MAP = eINSTANCE.getStringToCValueMap();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -1364,7 +1364,7 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRING_TO_CESON_VALUE_MAP__KEY = eINSTANCE.getStringToCesonValueMap_Key();
+		EAttribute STRING_TO_CVALUE_MAP__KEY = eINSTANCE.getStringToCValueMap_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -1372,7 +1372,7 @@ public interface CesonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRING_TO_CESON_VALUE_MAP__VALUE = eINSTANCE.getStringToCesonValueMap_Value();
+		EReference STRING_TO_CVALUE_MAP__VALUE = eINSTANCE.getStringToCValueMap_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CSpecificationImpl <em>CSpecification</em>}' class.

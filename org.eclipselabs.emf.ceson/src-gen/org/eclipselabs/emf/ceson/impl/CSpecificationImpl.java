@@ -108,7 +108,7 @@ public class CSpecificationImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EMap<String, CValue> getDefinitions() {
 		if (definitions == null) {
-			definitions = new EcoreEMap<String,CValue>(CesonPackage.Literals.STRING_TO_CESON_VALUE_MAP, StringToCesonValueMapImpl.class, this, CesonPackage.CSPECIFICATION__DEFINITIONS);
+			definitions = new EcoreEMap<String,CValue>(CesonPackage.Literals.STRING_TO_CVALUE_MAP, StringToCValueMapImpl.class, this, CesonPackage.CSPECIFICATION__DEFINITIONS);
 		}
 		return definitions;
 	}
