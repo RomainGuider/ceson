@@ -13,6 +13,7 @@ package org.eclipselabs.emf.ceson;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.logging.Logger;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.BufferedTokenStream;
@@ -53,6 +54,8 @@ public class CesonRuntime {
 	 * whether a single resource is used for generated object or not.
 	 */
 	private boolean singleResource;
+
+	private Logger logger = Logger.getAnonymousLogger();
 
 	/**
 	 * Create a new {@link CesonRuntime} instance.
@@ -198,6 +201,7 @@ public class CesonRuntime {
 		Object cResult = generator.doSwitch((EObject) modelBuilder
 				.getSpecification().getDefinitions().get(varName));
 		definitions.put(varName, cResult);
+		logger.info("defined " + varName + " to " + cResult);
 		return cResult;
 	}
 
@@ -244,6 +248,7 @@ public class CesonRuntime {
 			throw new IllegalArgumentException(
 					"The variable name and the value must be non null.");
 		}
+		logger.info("defined " + varName + " to " + value);
 		return this.definitions.put(varName, value);
 	}
 
@@ -264,12 +269,15 @@ public class CesonRuntime {
 	public void clearDefinitions() {
 		this.definitions.clear();
 	}
+
 	/**
 	 * Returns the definition for the specified variable's name.
-	 * @param varName the variable which definition is seeked.
+	 * 
+	 * @param varName
+	 *            the variable which definition is seeked.
 	 * @return the value of the definition.
 	 */
-	Object getDefinition(String varName) { 
+	Object getDefinition(String varName) {
 		return this.definitions.get(varName);
 	}
 }
