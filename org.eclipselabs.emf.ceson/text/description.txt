@@ -64,3 +64,4 @@ Package ceson <http://org.eclipse.emf.ceson/1.0>
     Literal JOBJECT = 4
     Literal COBJECT = 5
     Literal CARRAY = 6
+    Literal ALL = 7

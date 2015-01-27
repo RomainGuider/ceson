@@ -86,7 +86,15 @@ public enum CType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CARRAY(6, "CARRAY", "CARRAY");
+	CARRAY(6, "CARRAY", "CARRAY"), /**
+	 * The '<em><b>ALL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ALL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ALL(7, "ALL", "ALL");
 
 	/**
 	 * The '<em><b>ANY</b></em>' literal value.
@@ -194,6 +202,21 @@ public enum CType implements Enumerator {
 	public static final int CARRAY_VALUE = 6;
 
 	/**
+	 * The '<em><b>ALL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ALL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ALL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ALL_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>CType</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,6 +231,7 @@ public enum CType implements Enumerator {
 			JOBJECT,
 			COBJECT,
 			CARRAY,
+			ALL,
 		};
 
 	/**
@@ -265,6 +289,7 @@ public enum CType implements Enumerator {
 			case JOBJECT_VALUE: return JOBJECT;
 			case COBJECT_VALUE: return COBJECT;
 			case CARRAY_VALUE: return CARRAY;
+			case ALL_VALUE: return ALL;
 		}
 		return null;
 	}

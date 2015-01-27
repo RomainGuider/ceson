@@ -28,7 +28,7 @@ value : ID 			    #Ref
 
 array : '[' (value (','value)*)? ']'
 	  ;
-object : className? '{' featureList '}'
+object : className '{' featureList '}'
        ;
 
 featureList : (feature (','feature)*)? 

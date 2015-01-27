@@ -16,6 +16,7 @@
     <eLiterals name="JOBJECT" value="4" literal="JOBJECT"/>
     <eLiterals name="COBJECT" value="5" literal="COBJECT"/>
     <eLiterals name="CARRAY" value="6" literal="CARRAY"/>
+    <eLiterals name="ALL" value="7" literal="ALL"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CValue" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CType"

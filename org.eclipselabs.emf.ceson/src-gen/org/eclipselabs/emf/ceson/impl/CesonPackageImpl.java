@@ -713,6 +713,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		addEEnumLiteral(cTypeEEnum, CType.JOBJECT);
 		addEEnumLiteral(cTypeEEnum, CType.COBJECT);
 		addEEnumLiteral(cTypeEEnum, CType.CARRAY);
+		addEEnumLiteral(cTypeEEnum, CType.ALL);
 
 		// Create resource
 		createResource(eNS_URI);

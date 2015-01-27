@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipselabs.emf.ceson.parser.CesonLexer;
 import org.eclipselabs.emf.ceson.parser.CesonParser;
 
@@ -54,24 +55,10 @@ public class CesonRuntime {
 	 * whether a single resource is used for generated object or not.
 	 */
 	private boolean singleResource;
-
-	private Logger logger = Logger.getAnonymousLogger();
-
 	/**
-	 * Create a new {@link CesonRuntime} instance.
-	 * 
-	 * @param rs
-	 *            the resource set to use.
-	 * @param singleResource
-	 *            whether a singel resource is used.
+	 * The logger ued to report information, warning and problems.
 	 */
-	public CesonRuntime(ResourceSet rs, boolean singleResource) {
-		this.resourceSet = rs;
-		this.singleResource = singleResource;
-		this.resourceSet.getResourceFactoryRegistry()
-				.getExtensionToFactoryMap()
-				.put(WILDCARD, new XMIResourceFactoryImpl());
-	}
+	private Logger logger = Logger.getAnonymousLogger();
 
 	/**
 	 * Creates a new {@link CesonRuntime} instance.
@@ -124,7 +111,7 @@ public class CesonRuntime {
 	}
 
 	/**
-	 * get or create the specified resource.
+	 * get or create a {@link Resource} with the specified name.
 	 * 
 	 * @param name
 	 *            the name of the resource
@@ -132,16 +119,21 @@ public class CesonRuntime {
 	 */
 	private Resource getResource(String name) {
 		String resourceName = name;
+		Resource result;
 		if (name == null || name.length() == 0) {
 			resourceName = "resource";
 		}
 		if (singleResource && resourceSet.getResources().size() > 0) {
-			return resourceSet.getResources().get(0);
+			result = resourceSet.getResources().get(0);
 		} else {
-			return resourceSet.createResource(URI.createURI("http://ceson//"
+			result = resourceSet.createResource(URI.createURI("http://ceson//"
 					+ resourceName));
 		}
-
+		if (!(result instanceof XMIResourceImpl)) {
+			throw new IllegalStateException(
+					"The Resource factory has been reconfigured externally. Can't process request.");
+		}
+		return result;
 	}
 
 	/**

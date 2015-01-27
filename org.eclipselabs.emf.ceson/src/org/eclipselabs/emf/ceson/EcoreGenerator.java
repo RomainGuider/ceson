@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +27,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipselabs.emf.ceson.impl.StringToCValueMapImpl;
 import org.eclipselabs.emf.ceson.util.CesonSwitch;
 
 /**
@@ -48,7 +48,14 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	 * the resource where to store created objects.
 	 */
 	private Resource resource;
+	/**
+	 * The logger used to report information, warning and problems.
+	 */
 	private Logger logger;
+	/**
+	 * Map from variable names to {@link EObject}.
+	 */
+	private Map<String, EObject> eObjects;
 
 	/**
 	 * CReates a new {@link EcoreGenerator} instance.
@@ -59,6 +66,8 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	 *            the resource to use
 	 * @param definitions
 	 *            the existing definitions.
+	 * @param logger
+	 *            the logger used to report problems and information
 	 */
 	public EcoreGenerator(SortedMap<String, EPackage> ePackages,
 			Resource resource, Map<String, Object> definitions, Logger logger) {
@@ -68,6 +77,17 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		this.logger = logger;
 	}
 
+	/**
+	 * Create a new {@link EcoreGenerationException} instance given a set of
+	 * packages and resources.
+	 * 
+	 * @param ePackages
+	 *            the {@link EPackage} instances to create {@link EObject} from.
+	 * @param resource
+	 *            the resource to set {@link EObject} in.
+	 * @param definitions
+	 *            set of value definition to be used in generation
+	 */
 	public EcoreGenerator(SortedMap<String, EPackage> ePackages,
 			Resource resource, Map<String, Object> definitions) {
 		this(ePackages, resource, definitions, Logger.getAnonymousLogger());
@@ -104,9 +124,9 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 
 	@Override
 	public Object caseCEnumValue(CEnumValue object) {
+		String packageName = object.getPackageName();
 		for (EPackage ePackage : ePackages.values()) {
-			String packageName = object.getPackageName();
-			if (packageName != null && !packageName.equals(packageName)) {
+			if (packageName != null && !packageName.equals(ePackage.getName())) {
 				continue;
 			}
 			for (EClassifier eClassifier : ePackage.getEClassifiers()) {
@@ -126,10 +146,6 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 
 	@Override
 	public Object caseCReference(CReference object) {
-		if (!definitions.containsKey(object.getVarName())) {
-			logger.log(Level.SEVERE, "Couldn't find a definition for variable "
-					+ object.getVarName());
-		}
 		return definitions.get(object.getVarName());
 	}
 
@@ -197,38 +213,35 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	}
 
 	/**
-	 * Lookup a class that matches a set of featuers.
+	 * Create an {@link EObject} instance given a {@link CObjectValue} instance.
 	 * 
-	 * @param features
-	 *            the features used to lookup the class.
-	 * @return the found {@link EClass} or <code>null</code>
+	 * @param object
+	 *            the {@link CObjectValue} instance to create an EOBject from.
+	 * @return the seeked {@link EObject}.
 	 */
-	private EClass eClassLookupByFeatures(Map<String, Object> features) {
-		// iterate on ePackages and on classifiers and returns the first
-		// matching, non abstract, EClass
-		for (EPackage ePackage : ePackages.values()) {
-			for (EClassifier eClassifier : ePackage.getEClassifiers()) {
-				if (eClassifier instanceof EClass
-						&& !((EClass) eClassifier).isAbstract()
-						&& !((EClass) eClassifier).isInterface()) {
-					boolean matches = true;
-					for (String featureName : features.keySet()) {
-						EStructuralFeature eFeature = ((EClass) eClassifier)
-								.getEStructuralFeature(featureName);
-						if (eFeature == null
-								|| !featureMatches(eFeature,
-										features.get(featureName))) {
-							matches = false;
-							break;
-						}
-					}
-					if (matches) {
-						return (EClass) eClassifier;
-					}
-				}
-			}
+	private EObject createEObject(CObjectValue object) {
+		EClass eClass = eClassLookupByName(object.getClassName());
+		if (eClass == null) {
+			throw new EcoreGenerationException("Couldn't find class "
+					+ object.getClassName());
 		}
-		return null;
+		return EcoreUtil.create(eClass);
+	}
+
+	/**
+	 * Create an EObject or get it if it is already assigned to a variable.
+	 * 
+	 * @param object
+	 *            the {@link CObjectValue} instance to create an EOBject from.
+	 * @return the seeked {@link EObject}.
+	 */
+	private EObject createOrGetEObject(CObjectValue object) {
+		EObject container = object.eContainer();
+		if (container instanceof StringToCValueMapImpl) {
+			return eObjects.get(((StringToCValueMapImpl) container).getKey());
+		} else {
+			return createEObject(object);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -238,32 +251,29 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		for (CFeature feature : object.getFeatures()) {
 			features.put(feature.getName(), doSwitch(feature.getValue()));
 		}
-		EClass eClass = null;
-		if (object.getClassName() != null
-				&& object.getClassName().length() != 0) {
-			eClass = eClassLookupByName(object.getClassName());
-			if (eClass == null) {
-				logger.severe("Couldn't find class " + object.getClassName());
-			}
-		} else {
-			eClass = eClassLookupByFeatures(features);
-		}
+		EClass eClass = eClassLookupByName(object.getClassName());
 		if (eClass == null) {
+			throw new EcoreGenerationException("Couldn't find class "
+					+ object.getClassName());
+		}
+		EObject result = createOrGetEObject(object);
+		if (result == null) {
 			return null;
 		} else {
-			EObject result = EcoreUtil.create(eClass);
 			resource.getContents().add(result);
 			for (String featureName : features.keySet()) {
 				EStructuralFeature feature = eClass
 						.getEStructuralFeature(featureName);
 				if (feature == null) {
-					logger.log(Level.SEVERE, "couldn't find a feature named "
-							+ featureName + " in EClass " + eClass.getName());
-				}
-				if (feature.isMany()) {
-					setFeature(feature, result, features.get(featureName));
+					throw new EcoreGenerationException(
+							"couldn't find a feature named " + featureName
+									+ " in EClass " + eClass.getName());
 				} else {
-					result.eSet(feature, features.get(featureName));
+					if (feature.isMany()) {
+						setFeature(feature, result, features.get(featureName));
+					} else {
+						result.eSet(feature, features.get(featureName));
+					}
 				}
 			}
 			return result;
@@ -296,7 +306,13 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	@Override
 	public Object caseCSpecification(CSpecification object) {
 		for (String var : object.getDefinitions().keySet()) {
-			logger.info("Defining variable " + var);
+			// logger.info("Defining variable " + var);
+			CValue value = object.getDefinitions().get(var);
+			if (value instanceof CObjectValue) {
+				eObjects.put(var, createEObject((CObjectValue) value));
+			}
+		}
+		for (String var : object.getDefinitions().keySet()) {
 			definitions.put(var, doSwitch(object.getDefinitions().get(var)));
 		}
 		return null;

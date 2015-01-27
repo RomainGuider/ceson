@@ -16,6 +16,7 @@
       <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/JOBJECT"/>
       <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/COBJECT"/>
       <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/CARRAY"/>
+      <genEnumLiterals ecoreEnumLiteral="Ceson.ecore#//CType/ALL"/>
     </genEnums>
     <genClasses image="false" ecoreClass="Ceson.ecore#//CFeature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CFeature/name"/>

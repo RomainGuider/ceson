@@ -12,6 +12,7 @@ package org.eclipselabs.emf.ceson.parser.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 //CHECKSTYLE:OFF
 import java.math.BigDecimal;
@@ -45,6 +46,7 @@ import org.eclipselabs.emf.ceson.CRealValue;
 import org.eclipselabs.emf.ceson.CReference;
 import org.eclipselabs.emf.ceson.CSpecification;
 import org.eclipselabs.emf.ceson.CStringValue;
+import org.eclipselabs.emf.ceson.CType;
 import org.eclipselabs.emf.ceson.CesonBuilder;
 import org.eclipselabs.emf.ceson.CesonPackage;
 import org.eclipselabs.emf.ceson.EcoreGenerator;
@@ -181,7 +183,7 @@ public class EcoreGeneratorTest {
 		pack.getEClassifiers().add(eenum);
 		ePackages.put(PACKAGE_NAME, pack);
 		Object result = generator.doSwitch(value);
-		assertEquals(CesonPackage.Literals.CTYPE.getEEnumLiteral(ENUM_LITERAL_NAME), result);
+		assertEquals(CType.INT, result);
 	}
 
 	/**
@@ -297,6 +299,49 @@ public class EcoreGeneratorTest {
 	public void objectTest3() {
 		CesonBuilder builder = new CesonBuilder();
 		CObjectValue obj = builder.objectValue("CReference", Collections.EMPTY_LIST);
+		EcoreGenerator gen = new EcoreGenerator(ePackages, resource, Collections.EMPTY_MAP);
+		EObject result = (EObject)gen.doSwitch(obj);
+		assertEquals(CesonPackage.Literals.CREFERENCE, result.eClass());
+	}
+
+	/**
+	 * Tests that an unknown EClass results in a null object.
+	 */
+	@Test
+	public void unknownEnum() {
+		CesonBuilder builder = new CesonBuilder();
+		// CHECKSTYLE:OFF
+		CObjectValue obj = builder.objectValue("UNKNOWN", Collections.EMPTY_LIST);
+		// CHECKSTYLE:ON
+		EcoreGenerator gen = new EcoreGenerator(ePackages, resource, Collections.EMPTY_MAP);
+		EObject result = (EObject)gen.doSwitch(obj);
+		assertNull(result);
+	}
+
+	/**
+	 * Tests that an unknown EClass results in a null object.
+	 */
+	@Test
+	public void unknownEClass() {
+		CesonBuilder builder = new CesonBuilder();
+		// CHECKSTYLE:OFF
+		CObjectValue obj = builder.objectValue("UNKNOWN", Collections.EMPTY_LIST);
+		// CHECKSTYLE:ON
+		EcoreGenerator gen = new EcoreGenerator(ePackages, resource, Collections.EMPTY_MAP);
+		EObject result = (EObject)gen.doSwitch(obj);
+		assertNull(result);
+	}
+
+	/**
+	 * Tests that an object specification without feature specification but a class name results in the right
+	 * class Name.
+	 */
+	@Test
+	public void unknownFeatureTest() {
+		CesonBuilder builder = new CesonBuilder();
+		List<CFeature> features = new ArrayList<CFeature>();
+		features.add(builder.feature("UNKNOWN", builder.stringValue(VAR_NAME)));
+		CObjectValue obj = builder.objectValue("ceson.CReference", features);
 		EcoreGenerator gen = new EcoreGenerator(ePackages, resource, Collections.EMPTY_MAP);
 		EObject result = (EObject)gen.doSwitch(obj);
 		assertEquals(CesonPackage.Literals.CREFERENCE, result.eClass());
