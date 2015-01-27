@@ -21,6 +21,7 @@ value : ID 			    #Ref
 	  | Float		    #RealLiteral
 	  | String			#StringLiteral
 	  | Boolean			#BooleanLiteral
+	  | Date			#DateLiteral
       | enumName 		#EnumLiteral
 	  | object 	   		#ObjectLiteral
 	  | array			#ArrayLiteral
@@ -30,10 +31,8 @@ array : '[' (value (','value)*)? ']'
 	  ;
 object : className '{' featureList '}'
        ;
-
 featureList : (feature (','feature)*)? 
 ;
-
 enumName : (ID '.')? ID '.' ID 
 	;
 className : (ID '.')? ID 
@@ -41,7 +40,6 @@ className : (ID '.')? ID
 feature : ID ':' value #Containment
 		|  ID '>' value #Reference 
 		;
-
 Boolean: 'true' | 'false';
 
 ID : [a-zA-Z][_\-a-zA-Z0-9]+ ;
@@ -59,6 +57,7 @@ Int
     DIGIT+
 ;
 
+Date : DIGIT DIGIT DIGIT DIGIT '-' DIGIT DIGIT '-'DIGIT DIGIT;
 
 Float : DIGIT+'.'DIGIT+;
 

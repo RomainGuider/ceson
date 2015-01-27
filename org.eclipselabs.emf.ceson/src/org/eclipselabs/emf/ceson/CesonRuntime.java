@@ -191,8 +191,7 @@ public class CesonRuntime {
 				definitions);
 		String varName = (String) modelBuilder.getResult();
 		Object cResult = generator.doSwitch((EObject) modelBuilder
-				.getSpecification().getDefinitions().get(varName));
-		definitions.put(varName, cResult);
+				.getSpecification());
 		logger.info("defined " + varName + " to " + cResult);
 		return cResult;
 	}

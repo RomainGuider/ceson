@@ -52,10 +52,6 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	 * The logger used to report information, warning and problems.
 	 */
 	private Logger logger;
-	/**
-	 * Map from variable names to {@link EObject}.
-	 */
-	private Map<String, EObject> eObjects;
 
 	/**
 	 * CReates a new {@link EcoreGenerator} instance.
@@ -225,7 +221,9 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 			throw new EcoreGenerationException("Couldn't find class "
 					+ object.getClassName());
 		}
-		return EcoreUtil.create(eClass);
+		EObject result = EcoreUtil.create(eClass);
+		resource.getContents().add(result);
+		return result;
 	}
 
 	/**
@@ -238,7 +236,8 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	private EObject createOrGetEObject(CObjectValue object) {
 		EObject container = object.eContainer();
 		if (container instanceof StringToCValueMapImpl) {
-			return eObjects.get(((StringToCValueMapImpl) container).getKey());
+			return (EObject) definitions
+					.get(((StringToCValueMapImpl) container).getKey());
 		} else {
 			return createEObject(object);
 		}
@@ -260,7 +259,6 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 		if (result == null) {
 			return null;
 		} else {
-			resource.getContents().add(result);
 			for (String featureName : features.keySet()) {
 				EStructuralFeature feature = eClass
 						.getEStructuralFeature(featureName);
@@ -291,13 +289,12 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	 * @param value
 	 *            the value to set.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void setFeature(EStructuralFeature feature, EObject target,
 			Object value) {
-		List<Object> list = (List<Object>) target.eGet(feature);
+		List list = (List<?>) target.eGet(feature);
 		if (value instanceof Collection) {
-			for (Object obj : (Collection) value) {
-				list.add(obj);
-			}
+			list.addAll((Collection) value);
 		} else {
 			list.add(value);
 		}
@@ -309,7 +306,7 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 			// logger.info("Defining variable " + var);
 			CValue value = object.getDefinitions().get(var);
 			if (value instanceof CObjectValue) {
-				eObjects.put(var, createEObject((CObjectValue) value));
+				definitions.put(var, createEObject((CObjectValue) value));
 			}
 		}
 		for (String var : object.getDefinitions().keySet()) {

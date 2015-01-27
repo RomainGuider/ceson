@@ -1,0 +1,38 @@
+simpsons = family.Family{
+	members : [homer,marge,bart,lisa,magie]
+};
+
+homer = family.Father{
+	firstname:'homer',
+	lastname: 'simpson',
+	children: [bart,lisa,magie],
+	wife : marge
+};
+
+marge = family.Mother{
+	firstname:'marge',
+	lastname: 'simpson',
+	children: [bart,lisa,magie],
+	husband : homer
+};
+
+bart = family.Child{
+	firstname:'bart',
+	lastname: 'simpson',
+	father: homer,
+	mother: marge
+};
+
+lisa = family.Child{
+	firstname:'lisa',
+	lastname: 'simpson',
+	father: homer,
+	mother: marge
+};
+
+magie = family.Child{
+	firstname:'magie',
+	lastname: 'simpson',
+	father: homer,
+	mother: marge
+}
