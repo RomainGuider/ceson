@@ -291,7 +291,7 @@ public class CesonParserTest {
 	 */
 	@Test
 	public void testNoClassSimpleObjectValue() {
-		Object result = parseValue("{ feature1:'a string', feature2:10}");
+		Object result = parseValue("package.AClass{ feature1:'a string', feature2:10}");
 		assertTrue(result instanceof CObjectValue);
 		CObjectValue object = (CObjectValue)result;
 		assertEquals(2, object.getFeatures().size());
@@ -309,9 +309,9 @@ public class CesonParserTest {
 	 */
 	@Test
 	public void testObjectAndArrayInObject() {
-		CObjectValue expectedObject = (CObjectValue)parseValue("{ feature1:'a string', feature2:10}");
+		CObjectValue expectedObject = (CObjectValue)parseValue(" package.AClass {feature1:'a string', feature2:10}");
 		CArrayValue expectedArray = (CArrayValue)parseValue("[1,2,3]");
-		Object result = parseValue("{feature1:'a string',feature2:{feature1:'a string', feature2:10},feature3:[1,2,3]}");
+		Object result = parseValue("package.AClass{feature1:'a string',feature2:package.AClass{feature1:'a string', feature2:10},feature3:[1,2,3]}");
 		assertTrue(result instanceof CObjectValue);
 		CObjectValue object = (CObjectValue)result;
 		assertEquals(3, object.getFeatures().size());
@@ -359,10 +359,10 @@ public class CesonParserTest {
 	 */
 	@Test
 	public void testSpecification() {
-		CSpecification specification = parseDefinition("var = 10;obj={f1>var,f2:'string'}");
+		CSpecification specification = parseDefinition("var = 10;obj=package.AClass{f1>var,f2:'string'}");
 		assertTrue(EcoreUtil.equals(new CesonBuilder().intValue(10), specification.getDefinitions().get(
 				VAR_NAME)));
-		assertTrue(EcoreUtil.equals((EObject)parseValue("{f1>var,f2:'string'}"), specification
+		assertTrue(EcoreUtil.equals((EObject)parseValue("package.AClass{f1>var,f2:'string'}"), specification
 				.getDefinitions().get("obj")));
 	}
 
