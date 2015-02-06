@@ -130,6 +130,15 @@ public interface CesonFactory extends EFactory {
 	CReference createCReference();
 
 	/**
+	 * Returns a new object of class '<em>CDate Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>CDate Value</em>'.
+	 * @generated
+	 */
+	CDateValue createCDateValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

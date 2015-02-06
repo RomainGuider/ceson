@@ -2,24 +2,25 @@
  */
 package org.eclipselabs.emf.ceson;
 
+import java.util.Date;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Int Value</b></em>'.
+ * A representation of the model object '<em><b>CDate Value</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.emf.ceson.CIntValue#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.emf.ceson.CDateValue#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.emf.ceson.CesonPackage#getCIntValue()
+ * @see org.eclipselabs.emf.ceson.CesonPackage#getCDateValue()
  * @model
  * @generated
  */
-public interface CIntValue extends CValue {
+public interface CDateValue extends CValue {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -29,21 +30,21 @@ public interface CIntValue extends CValue {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(int)
-	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCIntValue_Value()
+	 * @see #setValue(Date)
+	 * @see org.eclipselabs.emf.ceson.CesonPackage#getCDateValue_Value()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getValue();
+	Date getValue();
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CIntValue#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.emf.ceson.CDateValue#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(int value);
+	void setValue(Date value);
 
-} // CesonIntValue
+} // CDateValue

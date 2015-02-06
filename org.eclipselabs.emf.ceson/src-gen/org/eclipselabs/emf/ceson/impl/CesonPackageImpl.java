@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipselabs.emf.ceson.CAnyValue;
 import org.eclipselabs.emf.ceson.CArrayValue;
 import org.eclipselabs.emf.ceson.CBooleanValue;
+import org.eclipselabs.emf.ceson.CDateValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CJavaObjectValue;
@@ -132,6 +133,13 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * @generated
 	 */
 	private EClass cReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cDateValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -530,6 +538,24 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCDateValue() {
+		return cDateValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCDateValue_Value() {
+		return (EAttribute)cDateValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCType() {
 		return cTypeEEnum;
 	}
@@ -611,6 +637,9 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		cReferenceEClass = createEClass(CREFERENCE);
 		createEAttribute(cReferenceEClass, CREFERENCE__VAR_NAME);
 
+		cDateValueEClass = createEClass(CDATE_VALUE);
+		createEAttribute(cDateValueEClass, CDATE_VALUE__VALUE);
+
 		// Create enums
 		cTypeEEnum = createEEnum(CTYPE);
 	}
@@ -653,6 +682,7 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 		cBooleanValueEClass.getESuperTypes().add(this.getCValue());
 		cEnumValueEClass.getESuperTypes().add(this.getCValue());
 		cReferenceEClass.getESuperTypes().add(this.getCValue());
+		cDateValueEClass.getESuperTypes().add(this.getCValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(cFeatureEClass, CFeature.class, "CFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -703,6 +733,9 @@ public class CesonPackageImpl extends EPackageImpl implements CesonPackage {
 
 		initEClass(cReferenceEClass, CReference.class, "CReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCReference_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, CReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cDateValueEClass, CDateValue.class, "CDateValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCDateValue_Value(), ecorePackage.getEDate(), "value", null, 1, 1, CDateValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(cTypeEEnum, CType.class, "CType");

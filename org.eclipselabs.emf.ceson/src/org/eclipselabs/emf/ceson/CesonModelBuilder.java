@@ -12,6 +12,7 @@ package org.eclipselabs.emf.ceson;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
@@ -21,6 +22,7 @@ import org.eclipselabs.emf.ceson.parser.CesonBaseListener;
 import org.eclipselabs.emf.ceson.parser.CesonParser.ArrayContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.BooleanLiteralContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.ContainmentContext;
+import org.eclipselabs.emf.ceson.parser.CesonParser.DateLiteralContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.DefinitionContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.EnumLiteralContext;
 import org.eclipselabs.emf.ceson.parser.CesonParser.IntLiteralContext;
@@ -36,6 +38,30 @@ import org.eclipselabs.emf.ceson.parser.CesonParser.StringLiteralContext;
  * @author <a href="mailto:romain.guider@obeo.fr">Romain Guider</a>
  */
 public class CesonModelBuilder extends CesonBaseListener {
+	/**
+	 * start index of year in dates literals.
+	 */
+	public static final int YEAR_START = 0;
+	/**
+	 * end index of year in dates literals.
+	 */
+	public static final int YEAR_END = 3;
+	/**
+	 * start index of month in dates literals.
+	 */
+	public static final int MONTH_START = 5;
+	/**
+	 * end index of month in dates literals.
+	 */
+	public static final int MONTH_END = 6;
+	/**
+	 * start index of day in dates literals.
+	 */
+	public static final int DAY_START = 8;
+	/**
+	 * end index of day in dates literals.
+	 */
+	public static final int DAY_END = 9;
 
 	/**
 	 * The produced {@link CSpecification} instance.
@@ -95,6 +121,22 @@ public class CesonModelBuilder extends CesonBaseListener {
 	}
 
 	@Override
+	public void exitDateLiteral(DateLiteralContext ctx) {
+		// Dates are like yyyy-MM-dd
+		String dateStr = ctx.getText();
+		// CHECKSTYLE:OFF
+		int year = Integer
+				.parseInt(dateStr.substring(YEAR_START, YEAR_END + 1));
+		int month = Integer.parseInt(dateStr.substring(MONTH_START,
+				MONTH_END + 1));
+		int day = Integer.parseInt(dateStr.substring(DAY_START, DAY_END + 1));
+		// CHECKSTYLE:ON
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(year, month - 1, day);
+		stack.push(builder.dateValue(calendar.getTime()));
+	}
+
+	@Override
 	public void exitStringLiteral(StringLiteralContext ctx) {
 		String text = ctx.getText();
 		text = text.substring(1, text.length() - 1);
@@ -149,8 +191,6 @@ public class CesonModelBuilder extends CesonBaseListener {
 
 	@Override
 	public void exitEnumLiteral(EnumLiteralContext ctx) {
-		// TODO Auto-generated method stub
-		super.exitEnumLiteral(ctx);
 		int slot = ctx.getChild(0).getChildCount() - 1;
 		String literalName = slot >= 0 ? ctx.getChild(0).getChild(slot)
 				.getText() : null;

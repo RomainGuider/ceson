@@ -115,6 +115,8 @@ public class CesonValidator extends EObjectValidator {
 				return validateCEnumValue((CEnumValue)value, diagnostics, context);
 			case CesonPackage.CREFERENCE:
 				return validateCReference((CReference)value, diagnostics, context);
+			case CesonPackage.CDATE_VALUE:
+				return validateCDateValue((CDateValue)value, diagnostics, context);
 			case CesonPackage.CTYPE:
 				return validateCType((CType)value, diagnostics, context);
 			default:
@@ -284,6 +286,15 @@ public class CesonValidator extends EObjectValidator {
 	 */
 	public boolean validateCReference(CReference cReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(cReference, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCDateValue(CDateValue cDateValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(cDateValue, diagnostics, context);
 	}
 
 	/**

@@ -17,6 +17,8 @@ import static org.junit.Assert.assertTrue;
 
 //CHECKSTYLE:OFF
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 
 //CHECKSTYLE:ON
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.emf.ceson.CArrayValue;
 import org.eclipselabs.emf.ceson.CBooleanValue;
+import org.eclipselabs.emf.ceson.CDateValue;
 import org.eclipselabs.emf.ceson.CEnumValue;
 import org.eclipselabs.emf.ceson.CFeature;
 import org.eclipselabs.emf.ceson.CIntValue;
@@ -149,6 +152,34 @@ public class CesonParserTest {
 		Object result = parseValue("true");
 		assertTrue(result instanceof CBooleanValue);
 		assertTrue(((CBooleanValue)result).isValue());
+	}
+
+	/**
+	 * Test parsing a date literals.
+	 */
+	@Test
+	public void testDateLiteralParsing() {
+		Object date1 = parseValue("2012-02-06");
+		assertTrue(date1 instanceof CDateValue);
+		Calendar calendar = Calendar.getInstance();
+		// CHECKSTYLE:OFFm
+		calendar.set(2012, 1, 6);
+		// CHECKSTYLE:ON
+		Date date = ((CDateValue)date1).getValue();
+		Date now = calendar.getTime();
+		assertEquals(now.getYear(), date.getYear());
+		assertEquals(now.getMonth(), date.getMonth());
+		assertEquals(now.getDay(), date.getDay());
+
+	}
+
+	/**
+	 * Tests parsing a date out of the calendar.
+	 */
+	@Test
+	public void testOutOfCalendarDateParsing() {
+		Object date1 = parseValue("2012-02-31");
+		assertTrue(date1 instanceof CDateValue);
 	}
 
 	/**

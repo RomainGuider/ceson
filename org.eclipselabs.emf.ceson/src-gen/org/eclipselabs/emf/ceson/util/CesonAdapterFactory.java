@@ -122,6 +122,10 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 				return createCReferenceAdapter();
 			}
 			@Override
+			public Adapter caseCDateValue(CDateValue object) {
+				return createCDateValueAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -334,6 +338,20 @@ public class CesonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.emf.ceson.CDateValue <em>CDate Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.emf.ceson.CDateValue
+	 * @generated
+	 */
+	public Adapter createCDateValueAdapter() {
 		return null;
 	}
 

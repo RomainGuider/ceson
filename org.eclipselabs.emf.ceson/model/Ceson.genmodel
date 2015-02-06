@@ -67,5 +67,8 @@
     <genClasses ecoreClass="Ceson.ecore#//CReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CReference/varName"/>
     </genClasses>
+    <genClasses ecoreClass="Ceson.ecore#//CDateValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ceson.ecore#//CDateValue/value"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

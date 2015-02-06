@@ -68,6 +68,7 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 			case CesonPackage.CSPECIFICATION: return createCSpecification();
 			case CesonPackage.CENUM_VALUE: return createCEnumValue();
 			case CesonPackage.CREFERENCE: return createCReference();
+			case CesonPackage.CDATE_VALUE: return createCDateValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -231,6 +232,16 @@ public class CesonFactoryImpl extends EFactoryImpl implements CesonFactory {
 	public CReference createCReference() {
 		CReferenceImpl cReference = new CReferenceImpl();
 		return cReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CDateValue createCDateValue() {
+		CDateValueImpl cDateValue = new CDateValueImpl();
+		return cDateValue;
 	}
 
 	/**

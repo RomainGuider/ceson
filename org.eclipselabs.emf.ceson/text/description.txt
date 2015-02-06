@@ -56,6 +56,9 @@ Package ceson <http://org.eclipse.emf.ceson/1.0>
   Class CReference -> CValue
     Attribute varName : EString
 
+  Class CDateValue -> CValue
+    Attribute value : EDate<<1..1>>
+
   Enum CType
     Literal ANY = 0
     Literal INT = 1

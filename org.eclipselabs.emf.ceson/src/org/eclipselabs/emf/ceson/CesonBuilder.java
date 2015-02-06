@@ -11,6 +11,7 @@
 package org.eclipselabs.emf.ceson;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -184,6 +185,20 @@ public class CesonBuilder {
 		CBooleanValue result = (CBooleanValue) EcoreUtil
 				.create(CesonPackage.Literals.CBOOLEAN_VALUE);
 		result.setValue(b);
+		return result;
+	}
+
+	/**
+	 * Creates a new {@link CDateValue} instance.
+	 * 
+	 * @param time
+	 *            the date value to set
+	 * @return a new {@link CDateValue} instance.
+	 */
+	public Object dateValue(Date time) {
+		CDateValue result = (CDateValue) EcoreUtil
+				.create(CesonPackage.Literals.CDATE_VALUE);
+		result.setValue(time);
 		return result;
 	}
 }

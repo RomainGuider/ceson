@@ -95,6 +95,11 @@ public class EcoreGenerator extends CesonSwitch<Object> {
 	}
 
 	@Override
+	public Object caseCDateValue(CDateValue object) {
+		return object.getValue();
+	}
+
+	@Override
 	public Object caseCStringValue(CStringValue object) {
 		return object.getValue();
 	}

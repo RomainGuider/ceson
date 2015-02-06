@@ -729,6 +729,52 @@ public interface CesonPackage extends EPackage {
 	int CREFERENCE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.impl.CDateValueImpl <em>CDate Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.emf.ceson.impl.CDateValueImpl
+	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCDateValue()
+	 * @generated
+	 */
+	int CDATE_VALUE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDATE_VALUE__TYPE = CVALUE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDATE_VALUE__VALUE = CVALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>CDate Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDATE_VALUE_FEATURE_COUNT = CVALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>CDate Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDATE_VALUE_OPERATION_COUNT = CVALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipselabs.emf.ceson.CType <em>CType</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,7 +782,7 @@ public interface CesonPackage extends EPackage {
 	 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCType()
 	 * @generated
 	 */
-	int CTYPE = 14;
+	int CTYPE = 15;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CFeature <em>CFeature</em>}'.
@@ -1112,6 +1158,27 @@ public interface CesonPackage extends EPackage {
 	EAttribute getCReference_VarName();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.emf.ceson.CDateValue <em>CDate Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>CDate Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CDateValue
+	 * @generated
+	 */
+	EClass getCDateValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.emf.ceson.CDateValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipselabs.emf.ceson.CDateValue#getValue()
+	 * @see #getCDateValue()
+	 * @generated
+	 */
+	EAttribute getCDateValue_Value();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipselabs.emf.ceson.CType <em>CType</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1451,6 +1518,24 @@ public interface CesonPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CREFERENCE__VAR_NAME = eINSTANCE.getCReference_VarName();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.impl.CDateValueImpl <em>CDate Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.emf.ceson.impl.CDateValueImpl
+		 * @see org.eclipselabs.emf.ceson.impl.CesonPackageImpl#getCDateValue()
+		 * @generated
+		 */
+		EClass CDATE_VALUE = eINSTANCE.getCDateValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CDATE_VALUE__VALUE = eINSTANCE.getCDateValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.emf.ceson.CType <em>CType</em>}' enum.
