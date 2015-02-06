@@ -9,7 +9,6 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipselabs.emf.ceson,
  org.eclipselabs.emf.ceson.impl,
- org.eclipselabs.emf.ceson.inference,
  org.eclipselabs.emf.ceson.parser,
  org.eclipselabs.emf.ceson.util,
  org.eclipselabs.emf.ceson.validation
