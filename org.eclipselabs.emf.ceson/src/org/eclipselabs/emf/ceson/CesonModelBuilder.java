@@ -139,7 +139,11 @@ public class CesonModelBuilder extends CesonBaseListener {
 	@Override
 	public void exitStringLiteral(StringLiteralContext ctx) {
 		String text = ctx.getText();
+		// remove starting and ending quotes
 		text = text.substring(1, text.length() - 1);
+		// remove '\' in escaped sequences
+		text = text.replace("\\'", "'");
+		text = text.replace("\\\\", "\\");
 		stack.push(builder.stringValue(text));
 	}
 

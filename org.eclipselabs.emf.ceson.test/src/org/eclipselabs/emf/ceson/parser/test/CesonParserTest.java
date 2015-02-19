@@ -66,6 +66,16 @@ public class CesonParserTest {
 	public static final String STRING_VALUE = "a string";
 
 	/**
+	 * Value used for string literals with a quote in it.
+	 */
+	public static final String QUOTED_STRING_VALUE = "a 'string";
+
+	/**
+	 * Value used for string literals with a quote in it.
+	 */
+	public static final String BACKSLASHED_STRING_VALUE = "a \\string";
+
+	/**
 	 * Name used for feature parsing.
 	 */
 	public static final String FEATURE_NAME1 = "feature1";
@@ -211,6 +221,28 @@ public class CesonParserTest {
 		Object result = parseValue("'a string'");
 		assertTrue(result instanceof CStringValue);
 		assertEquals(STRING_VALUE, ((CStringValue)result).getValue());
+	}
+
+	/**
+	 * Tests escaping the quote in string literals.
+	 */
+	@Test
+	public void quoteInStringLiteralTest() {
+		Object result = parseValue("'a \\'string'");
+		System.out.println("'a \\'string'");
+		assertTrue(result instanceof CStringValue);
+		assertEquals(QUOTED_STRING_VALUE, ((CStringValue)result).getValue());
+	}
+
+	/**
+	 * Tests escaping the quote in string literals.
+	 */
+	@Test
+	public void backSlashInStringLiteralTest() {
+		Object result = parseValue("'a \\\\string'");
+		System.out.println("'a \\\\string'");
+		assertTrue(result instanceof CStringValue);
+		assertEquals(BACKSLASHED_STRING_VALUE, ((CStringValue)result).getValue());
 	}
 
 	/**

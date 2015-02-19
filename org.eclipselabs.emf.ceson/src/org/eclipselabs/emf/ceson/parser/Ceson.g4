@@ -56,12 +56,10 @@ Int
 :
     DIGIT+
 ;
-
 Date : DIGIT DIGIT DIGIT DIGIT '-' DIGIT DIGIT '-'DIGIT DIGIT;
 
 Float : DIGIT+'.'DIGIT+;
 
-String
-:
-    '\'' .*? '\''
-;
+String: '\'' (ESC|~[\\\'])* '\'';
+
+fragment ESC : '\\\'' | '\\\\' ;
