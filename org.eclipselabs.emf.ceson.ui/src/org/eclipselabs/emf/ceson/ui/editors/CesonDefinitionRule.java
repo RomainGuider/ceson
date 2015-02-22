@@ -18,12 +18,7 @@ public class CesonDefinitionRule extends AbstractMatcherRule {
 			while (c != ICharacterScanner.EOF && c != ';') {
 				c = state.readChar();
 			}
-			if (c == ICharacterScanner.EOF) {
-				state.rewind();
-				return Token.UNDEFINED;
-			} else {
-				return getSuccessToken();
-			}
+			return getSuccessToken();
 		} else {
 			return Token.UNDEFINED;
 		}

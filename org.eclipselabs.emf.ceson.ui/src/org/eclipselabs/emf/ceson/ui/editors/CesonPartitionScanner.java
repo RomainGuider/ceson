@@ -10,6 +10,10 @@ public class CesonPartitionScanner extends RuleBasedPartitionScanner {
 	public final static String CESON_COMMENT = "__ceson_comment";
 	public final static String CESON_DEFINITION = "__ceson_definition";
 
+	public static final String[] LEGAL_CONTENT_TYPES = { CESON_COMMENT,
+			CESON_DEFINITION };
+	public static final int NUMBER_OF_RULES = 2;
+
 	public CesonPartitionScanner() {
 
 		IToken cesonComment = new Token(CESON_COMMENT);

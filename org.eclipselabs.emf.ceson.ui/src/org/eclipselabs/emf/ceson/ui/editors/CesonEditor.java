@@ -1,8 +1,11 @@
 package org.eclipselabs.emf.ceson.ui.editors;
 
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.text.source.DefaultCharacterPairMatcher;
 import org.eclipse.ui.editors.text.TextEditor;
+import org.eclipse.ui.texteditor.ChainedPreferenceStore;
 import org.eclipse.ui.texteditor.SourceViewerDecorationSupport;
+import org.eclipselabs.emf.ceson.ui.Activator;
 
 public class CesonEditor extends TextEditor {
 	/**
@@ -10,9 +13,18 @@ public class CesonEditor extends TextEditor {
 	 */
 	public static final String CESON_EDITOR_ID = "org.eclipselabs.emf.ceson.ui.editors.CesonEditor";
 	/**
+	 * Preference key for matching brackets.
+	 */
+	private static final String MATCHING_BRACKETS = "matchingBrackets";
+
+	/**
+	 * Preference key for matching brackets color.
+	 */
+	private static final String MATCHING_BRACKETS_COLOR = "matchingBracketsColor";
+	/**
 	 * Pairs of block start and end characters.
 	 */
-	private static final char[] CESON_BLOCKS = { '[', ']', '{', ']' };
+	private static final char[] CESON_BLOCKS = { '[', ']', '{', '}' };
 	/**
 	 * Object that manages colors.
 	 */
@@ -44,9 +56,20 @@ public class CesonEditor extends TextEditor {
 	@Override
 	protected void configureSourceViewerDecorationSupport(
 			SourceViewerDecorationSupport support) {
+		super.configureSourceViewerDecorationSupport(support);
 		/*
 		 * Set the block matcher
 		 */
 		support.setCharacterPairMatcher(blockMatcher);
+		support.setMatchingCharacterPainterPreferenceKeys(MATCHING_BRACKETS,
+				MATCHING_BRACKETS_COLOR);
+		IPreferenceStore pref = Activator.getDefault().getPreferenceStore();
+		getPreferenceStore().setDefault(MATCHING_BRACKETS, true);
+		getPreferenceStore().setDefault(MATCHING_BRACKETS_COLOR, "128,128,128");
+		IPreferenceStore[] stores = { getPreferenceStore(), pref, };
+		setPreferenceStore(new ChainedPreferenceStore(stores));
+		support.install(getPreferenceStore());
+		super.configureSourceViewerDecorationSupport(support);
+
 	}
 }

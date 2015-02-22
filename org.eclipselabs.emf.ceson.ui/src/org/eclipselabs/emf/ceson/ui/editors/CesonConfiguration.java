@@ -13,9 +13,9 @@ import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.source.ISourceViewer;
-import org.eclipse.jface.text.source.SourceViewerConfiguration;
+import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
 
-public class CesonConfiguration extends SourceViewerConfiguration {
+public class CesonConfiguration extends TextSourceViewerConfiguration {
 	private CesonDoubleClickStrategy doubleClickStrategy;
 	private ColorManager colorManager;
 
@@ -23,6 +23,7 @@ public class CesonConfiguration extends SourceViewerConfiguration {
 	private final Token classNameToken;
 	private final Token fieldNameToken;
 	private final Token commentToken;
+	private final Token variableToken;
 	private final Token defaultToken;
 
 	public CesonConfiguration(ColorManager colorManager) {
@@ -35,6 +36,8 @@ public class CesonConfiguration extends SourceViewerConfiguration {
 				colorManager.getColor(ICesonColorConstants.FIELD_NAME)));
 		commentToken = new Token(new TextAttribute(
 				colorManager.getColor(ICesonColorConstants.COMMENT)));
+		variableToken = new Token(new TextAttribute(
+				colorManager.getColor(ICesonColorConstants.VARIABLE)));
 		defaultToken = new Token(new TextAttribute(
 				colorManager.getColor(ICesonColorConstants.DEFAULT)));
 	}
@@ -54,7 +57,7 @@ public class CesonConfiguration extends SourceViewerConfiguration {
 
 	protected ITokenScanner getScanner() {
 		RuleBasedScanner scanner = new RuleBasedScanner();
-		IRule[] rules = new IRule[5];
+		IRule[] rules = new IRule[6];
 		// Add rule for double quotes
 		rules[0] = new SingleLineRule("'", "'", stringToken, '\\');
 		// Add generic whitespace rule.
@@ -62,6 +65,7 @@ public class CesonConfiguration extends SourceViewerConfiguration {
 		rules[2] = new SingleLineRule("//", "\n", commentToken);
 		rules[3] = new ClassNameRule(classNameToken);
 		rules[4] = new FieldNameRule(fieldNameToken);
+		rules[5] = new VariableRule(variableToken);
 		scanner.setRules(rules);
 		scanner.setDefaultReturnToken(defaultToken);
 		return scanner;
@@ -73,14 +77,12 @@ public class CesonConfiguration extends SourceViewerConfiguration {
 		PresentationReconciler reconciler = new PresentationReconciler();
 
 		DefaultDamagerRepairer dr = new DefaultDamagerRepairer(getScanner());
-		reconciler.setDamager(dr, IDocument.DEFAULT_CONTENT_TYPE);
-		reconciler.setRepairer(dr, IDocument.DEFAULT_CONTENT_TYPE);
+		reconciler.setDamager(dr, CesonPartitionScanner.CESON_DEFINITION);
+		reconciler.setRepairer(dr, CesonPartitionScanner.CESON_DEFINITION);
 
-		NonRuleBasedDamagerRepairer ndr = new NonRuleBasedDamagerRepairer(
-				new TextAttribute(
-						colorManager.getColor(ICesonColorConstants.COMMENT)));
-		reconciler.setDamager(ndr, CesonPartitionScanner.CESON_COMMENT);
-		reconciler.setRepairer(ndr, CesonPartitionScanner.CESON_COMMENT);
+		dr = new DefaultDamagerRepairer(getScanner());
+		reconciler.setDamager(dr, CesonPartitionScanner.CESON_COMMENT);
+		reconciler.setRepairer(dr, CesonPartitionScanner.CESON_COMMENT);
 
 		return reconciler;
 	}
