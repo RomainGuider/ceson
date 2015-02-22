@@ -5,6 +5,8 @@ import org.eclipse.jface.text.ITextDoubleClickStrategy;
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.presentation.IPresentationReconciler;
 import org.eclipse.jface.text.presentation.PresentationReconciler;
+import org.eclipse.jface.text.reconciler.IReconciler;
+import org.eclipse.jface.text.reconciler.MonoReconciler;
 import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.ITokenScanner;
@@ -25,9 +27,11 @@ public class CesonConfiguration extends TextSourceViewerConfiguration {
 	private final Token commentToken;
 	private final Token variableToken;
 	private final Token defaultToken;
+	private final CesonEditor editor;
 
-	public CesonConfiguration(ColorManager colorManager) {
+	public CesonConfiguration(CesonEditor editor, ColorManager colorManager) {
 		this.colorManager = colorManager;
+		this.editor = editor;
 		stringToken = new Token(new TextAttribute(
 				colorManager.getColor(ICesonColorConstants.STRING)));
 		classNameToken = new Token(new TextAttribute(
@@ -87,4 +91,18 @@ public class CesonConfiguration extends TextSourceViewerConfiguration {
 		return reconciler;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.jface.text.source.SourceViewerConfiguration#getReconciler(org.eclipse.jface.text.source.ISourceViewer)
+	 */
+	@Override
+	public IReconciler getReconciler(ISourceViewer sourceViewer) {
+		if (editor != null) {
+			return new MonoReconciler(new CesonReconcilingStrategy(editor),
+					false);
+		} else {
+			return super.getReconciler(sourceViewer);
+		}
+	}
 }
