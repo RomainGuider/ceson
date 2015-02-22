@@ -1,0 +1,13 @@
+/*
+ * Heading comments holding a lot of valuable information.
+ * 
+ */
+value1 = 1; //value 1 is for mixing sl comment and values
+/*
+ * value2 holds the second value of the file.
+ */
+value2 = 
+somepackage.SomeClass{
+	somefield:'',
+	someotherfield:'another'//ending field
+}

@@ -10,56 +10,140 @@
  * Author :
  *     <a href="mailto:romain.guider@obeo.fr">Romain Guider</a>
  *******************************************************************************/
-grammar Ceson;
+ grammar Ceson;
 
-model : definition(';' definition)*
-	  ;
-definition : ID '=' value 
-		   ;
-value : ID 			    #Ref
-	  | Int			    #IntLiteral
-	  | Float		    #RealLiteral
-	  | String			#StringLiteral
-	  | Boolean			#BooleanLiteral
-	  | Date			#DateLiteral
-      | enumName 		#EnumLiteral
-	  | object 	   		#ObjectLiteral
-	  | array			#ArrayLiteral
-	  ;
+ model
+ :
+ 	definition
+ 	(
+ 		';' definition
+ 	)*
+ ;
 
-array : '[' (value (','value)*)? ']'
-	  ;
-object : className '{' featureList '}'
-       ;
-featureList : (feature (','feature)*)? 
-;
-enumName : (ID '.')? ID '.' ID 
-	;
-className : (ID '.')? ID 
-			  ;
-feature : ID ':' value #Containment
-		|  ID '>' value #Reference 
-		;
-Boolean: 'true' | 'false';
+ definition
+ :
+ 	ID '=' value
+ ;
 
-ID : [a-zA-Z][_\-a-zA-Z0-9]+ ;
+ value
+ :
+ 	ID # Ref
+ 	| Int # IntLiteral
+ 	| Float # RealLiteral
+ 	| String # StringLiteral
+ 	| Boolean # BooleanLiteral
+ 	| Date # DateLiteral
+ 	| enumName # EnumLiteral
+ 	| object # ObjectLiteral
+ 	| array # ArrayLiteral
+ ;
 
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+ array
+ :
+ 	'['
+ 	(
+ 		value
+ 		(
+ 			',' value
+ 		)*
+ 	)? ']'
+ ;
 
-fragment
-DIGIT
-:
-    [0-9]
-;
+ object
+ :
+ 	className '{' featureList '}'
+ ;
 
-Int
-:
-    DIGIT+
-;
-Date : DIGIT DIGIT DIGIT DIGIT '-' DIGIT DIGIT '-'DIGIT DIGIT;
+ featureList
+ :
+ 	(
+ 		feature
+ 		(
+ 			',' feature
+ 		)*
+ 	)?
+ ;
 
-Float : DIGIT+'.'DIGIT+;
+ enumName
+ :
+ 	(
+ 		ID '.'
+ 	)? ID '.' ID
+ ;
 
-String: '\'' (ESC|~[\\\'])* '\'';
+ className
+ :
+ 	(
+ 		ID '.'
+ 	)? ID
+ ;
 
-fragment ESC : '\\\'' | '\\\\' ;
+ feature
+ :
+ 	ID ':' value # Containment
+ 	| ID '>' value # Reference
+ ;
+
+ Boolean
+ :
+ 	'true'
+ 	| 'false'
+ ;
+
+ WS
+ :
+ 	[ \t\r\n]+ -> skip
+ ; // skip spaces, tabs, newlines
+
+ SL_COMMENT
+ :
+ 	'//' .*? '\n' -> skip
+ ;
+
+ ML_COMMENT
+ :
+ 	'/*' .*? '*/' -> skip
+ ;
+
+ ID
+ :
+ 	[a-zA-Z] [_\-a-zA-Z0-9]+
+ ;
+
+ fragment
+ DIGIT
+ :
+ 	[0-9]
+ ;
+
+ Int
+ :
+ 	DIGIT+
+ ;
+
+ Date
+ :
+ 	DIGIT DIGIT DIGIT DIGIT '-' DIGIT DIGIT '-' DIGIT DIGIT
+ ;
+
+ Float
+ :
+ 	DIGIT+ '.' DIGIT+
+ ;
+
+ String
+ :
+ 	'\''
+ 	(
+ 		ESC
+ 		| ~[\\\']
+ 	)* '\''
+ ;
+
+ fragment
+ ESC
+ :
+ 	'\\\''
+ 	| '\\\\'
+ ;
+

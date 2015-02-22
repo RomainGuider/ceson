@@ -16,6 +16,9 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 //CHECKSTYLE:OFF
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,6 +40,7 @@ import org.eclipselabs.emf.ceson.CRealValue;
 import org.eclipselabs.emf.ceson.CReference;
 import org.eclipselabs.emf.ceson.CSpecification;
 import org.eclipselabs.emf.ceson.CStringValue;
+import org.eclipselabs.emf.ceson.CValue;
 import org.eclipselabs.emf.ceson.CesonBuilder;
 import org.eclipselabs.emf.ceson.CesonModelBuilder;
 import org.eclipselabs.emf.ceson.CesonPackage;
@@ -84,6 +88,28 @@ public class CesonParserTest {
 	 * Name used for feature parsing.
 	 */
 	public static final String FEATURE_NAME2 = "feature2";
+
+	/**
+	 * Reads a specification from a input path and returns the content file as string.
+	 * 
+	 * @param file
+	 *            The file relative path.
+	 * @return the content file as string.
+	 * @throws IOException
+	 *             Shouldn't happen.
+	 */
+	private String readString(File file) throws IOException {
+		FileInputStream iStream = new FileInputStream(file);
+		StringBuilder builder = new StringBuilder();
+		int available = iStream.available();
+		while (available > 0) {
+			byte[] buffer = new byte[available];
+			iStream.read(buffer);
+			builder.append(new String(buffer));
+			available = iStream.available();
+		}
+		return builder.toString();
+	}
 
 	/**
 	 * Create a parser given an input string.
@@ -436,4 +462,41 @@ public class CesonParserTest {
 	public void testEmptyModelBuilderAccess() {
 		assertNull(new CesonModelBuilder("test").getResult());
 	}
+
+	/**
+	 * Tests a file with single line comment in it.
+	 * 
+	 * @throws Exception
+	 *             when an IO problem occurs.
+	 */
+	@Test
+	public void slCommentTest() throws Exception {
+		String content = readString(new File("testfiles/sl_comment.ceson"));
+		CSpecification spec = parseDefinition(content);
+		CValue value = spec.getDefinitions().get("value1");
+		assertTrue(value instanceof CIntValue);
+		assertEquals(1, ((CIntValue)value).getValue());
+		value = spec.getDefinitions().get("value2");
+		assertTrue(value instanceof CObjectValue);
+		assertEquals("somepackage.SomeClass", ((CObjectValue)value).getClassName());
+	}
+
+	/**
+	 * Tests a file with single line comment in it.
+	 * 
+	 * @throws Exception
+	 *             when an IO problem occurs.
+	 */
+	@Test
+	public void mlCommentTest() throws Exception {
+		String content = readString(new File("testfiles/ml_comment.ceson"));
+		CSpecification spec = parseDefinition(content);
+		CValue value = spec.getDefinitions().get("value1");
+		assertTrue(value instanceof CIntValue);
+		assertEquals(1, ((CIntValue)value).getValue());
+		value = spec.getDefinitions().get("value2");
+		assertTrue(value instanceof CObjectValue);
+		assertEquals("somepackage.SomeClass", ((CObjectValue)value).getClassName());
+	}
+
 }
