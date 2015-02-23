@@ -10,6 +10,7 @@ import org.eclipse.jface.text.reconciler.MonoReconciler;
 import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.ITokenScanner;
+import org.eclipse.jface.text.rules.MultiLineRule;
 import org.eclipse.jface.text.rules.RuleBasedScanner;
 import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
@@ -70,6 +71,7 @@ public class CesonConfiguration extends TextSourceViewerConfiguration {
 		rules[3] = new ClassNameRule(classNameToken);
 		rules[4] = new FieldNameRule(fieldNameToken);
 		rules[5] = new VariableRule(variableToken);
+		rules[6] = new MultiLineRule("/*", "*/", commentToken);
 		scanner.setRules(rules);
 		scanner.setDefaultReturnToken(defaultToken);
 		return scanner;
