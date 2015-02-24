@@ -62,7 +62,7 @@ public class CesonConfiguration extends TextSourceViewerConfiguration {
 
 	protected ITokenScanner getScanner() {
 		RuleBasedScanner scanner = new RuleBasedScanner();
-		IRule[] rules = new IRule[6];
+		IRule[] rules = new IRule[7];
 		// Add rule for double quotes
 		rules[0] = new SingleLineRule("'", "'", stringToken, '\\');
 		// Add generic whitespace rule.
@@ -75,7 +75,6 @@ public class CesonConfiguration extends TextSourceViewerConfiguration {
 		scanner.setRules(rules);
 		scanner.setDefaultReturnToken(defaultToken);
 		return scanner;
-
 	}
 
 	public IPresentationReconciler getPresentationReconciler(
