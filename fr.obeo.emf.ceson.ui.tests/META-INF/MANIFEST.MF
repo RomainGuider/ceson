@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: fr.obeo.emf.ceson.ui.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipselabs.emf.ceson.ui.tests.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ fr.obeo.emf.ceson.ui;bundle-version="1.0.0",
+ org.eclipse.jface.text;bundle-version="3.9.1",
+ org.junit;bundle-version="4.11.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
