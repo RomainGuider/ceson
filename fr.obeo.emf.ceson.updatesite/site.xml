@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipselabs.emf.ceson.feature_1.0.0.qualifier.jar" id="org.eclipselabs.emf.ceson.feature" version="1.0.0.qualifier">
+   <feature url="features/fr.obeo.emf.ceson.feature_1.0.0.qualifier.jar" id="fr.obeo.emf.ceson.feature" version="1.0.0.qualifier">
       <category name="Ceson"/>
    </feature>
    <category-def name="Ceson" label="Ceson Feature"/>

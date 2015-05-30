@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- -->
+<!--
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.obeo.emf.ceson</groupId>
-	<artifactId>fr.obeo.emf.ceson.aggregator</artifactId>
+	<artifactId>fr.obeo.emf.ceson</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>Ceson Language Aggregator</name>
-	<description>Ceson language's build aggrator</description>
 	<parent>
 		<groupId>fr.obeo.emf.ceson</groupId>
 		<artifactId>fr.obeo.emf.ceson.releng.parent</artifactId>
 		<relativePath>../fr.obeo.emf.ceson.releng.parent</relativePath>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<modules>
-		<!-- Validateur -->
-		<module>../fr.obeo.emf.ceson</module>
-		<module>../fr.obeo.emf.ceson.test</module>
-		<module>../fr.obeo.emf.ceson.ui</module>
-		<module>../fr.obeo.emf.ceson.ui.test</module>
-		<module>../fr.obeo.emf.ceson.feature</module>
-		<module>../fr.obeo.emf.ceson.updatesite</module>
-	</modules>
+	<packaging>eclipse-plugin</packaging>
 </project>
