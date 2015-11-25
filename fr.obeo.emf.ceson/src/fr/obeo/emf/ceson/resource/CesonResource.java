@@ -67,7 +67,7 @@ public class CesonResource extends ResourceImpl {
 	CesonRuntime runtime = (CesonRuntime)rs.getLoadOptions().get(RUNTIME_KEY);
 	String cesonDescription = readString(inputStream);
 	try {
-		runtime.parseSpecification(cesonDescription, this);
+		runtime.parseSpecification(cesonDescription);
 	} catch (CesonException e) {
 		throw new IOException(e);
 	}
